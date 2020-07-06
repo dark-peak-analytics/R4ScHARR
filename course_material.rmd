@@ -4,7 +4,10 @@ author:    |
   | Robert Smith & Paul Schneider 
 date: "`r format(Sys.time(), '%d. %B %Y')`"
 output:
-  html_document: 
+  html_document:
+    toc: true
+    toc_float:
+      toc_collapsed: false
     code_folding: show
     # code_folding: hide
   word_document: default
@@ -650,6 +653,10 @@ We hope to see you again on further courses with us at ScHARR. However, alternat
 ### Swirl
 
 As well as these core texts we also recommend learning R with [swirl](https://swirlstats.com/). Swirl has a range of short courses (approx 30mins) which are undertaken within R. You can download swirl by typing **install.packages("swirl")** into R. Once installed load swirl from the library with **library(swirl)** and then follow instructions within R.
+
+### Data Science for Public Health Economic Evaluation. 
+
+We are in the process of writing a book on data science for public health economic evaluation. It is available online for free here: **[r4phe](https://bookdown.org/rasmith3/r4phe/)**. Once finishes it will cover all the material in this course, then continue on through intermediate material, visualisations, simulations, user interfaces and collaboration. It is designed to aid the training of the next PhD cohort of Public Health Economics & Decision Science at the University of Sheffield.
 
 \newpage
 
