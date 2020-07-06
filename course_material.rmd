@@ -5,23 +5,30 @@ author:    |
 date: "`r format(Sys.time(), '%d. %B %Y')`"
 output:
   html_document: 
-    # code_folding: show
-    code_folding: hide
+    code_folding: show
+    # code_folding: hide
   word_document: default
   pdf_document: default
 editor_options: 
   chunk_output_type: console
 ---
 
+
+
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+
+```{r cars1, eval = F}
+  summary(cars)
+```
 <details>
   <summary>Toggle answer</summary>
-  ```{r cars}
+```{r cars2, echo=FALSE}
   summary(cars)
-  ```
+```
 </details>
 
 
