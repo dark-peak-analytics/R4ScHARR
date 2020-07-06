@@ -36,11 +36,8 @@ car_Data <- mtcars
 
 ### Downloading files from the internet
 
-# load the readr package, if this is not installed then install it.
-#install.packages("readr")
-library(readr)
 #use the function read_csv
-car_Data <- read_csv("https://raw.githubusercontent.com/RobertASmith/Intro_to_R/master/car_Data.csv", header = TRUE)
+car_Data <- read.csv("https://raw.githubusercontent.com/RobertASmith/Intro_to_R/master/car_Data", header = TRUE)
 
 #====================#
 # Summarising Data ----
