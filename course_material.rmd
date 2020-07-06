@@ -417,7 +417,7 @@ It is possible to import files in the following formats:
 
 If we want more control over the way that R imports the data we can also use the necessary commands in R directly. Some important examples of this are given in the next subsections.
 
-In addition, packages can be installed to import data in almost any format. Packages are collections of R functions and code in an organised framework. The directory where packages are stored on your computer is called the library. For example the readr package which allows for easier reading of data can be installed from the internet using the code *install.packages("readr")*, then loaded into R using *library(readr)*.
+In addition, packages can be installed to import data in almost any format. Packages are collections of R functions and code in an organised framework. The directory where packages are stored on your computer is called the library. 
 
 ### CSV (Comma-seperated values)
 A common format of data that you will likely import is comma-seperated values (CSV) data. CSV Data is seperated by commas in rows. For example:
@@ -453,11 +453,9 @@ Sometimes it is more practical to download files directly from the internet. The
 
 
 ```{r,echo=TRUE,eval=FALSE}
-# load the readr package, if this is not installed then install it.
-#install.packages("readr")
-library(readr)
+
 #use the function read_csv
-car_Data <- read_csv("https://raw.githubusercontent.com/RobertASmith/Intro_to_R/master/car_Data.csv", header = TRUE)
+car_Data <- read.csv("https://raw.githubusercontent.com/RobertASmith/Intro_to_R/master/car_Data", header = TRUE)
 ```
 
 Downloading files directly to R within the same script as the analysis can be useful since it reduces the risk of you accidently changing the file. Just be careful that the data will always be available.
