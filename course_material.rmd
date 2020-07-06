@@ -612,14 +612,26 @@ It is tempting to skip straight to step three at times (and we would be lying if
 
 # Further learning
 
-We hope to see you again on further courses with us at ScHARR. However, alternative resources are available:
+We hope to see you again on further courses with us at ScHARR. However, alternative resources are available. If you aim to become an expert R user and have a considerable amount of time to learn (for example if you are a PhD student), then we would recommmend the following pathway:
 
-* **[R for Data Science](https://r4ds.had.co.nz/)** is a good place to recap the materials taught in this course. The hard copy of Hadley Wickham and Garrett Grolemund's book of the same name (and content) is available on **[amazon](https://r4ds.had.co.nz/)**
+### Introductory Material
 
-* An R user guide is available on the CRAN R-Project website **[here](https://cran.r-project.org/doc/manuals/r-release/R-intro.html)**, although the author finds this less easy to follow than Hadley Wickham's book described above.
+**[R for Data Science](https://r4ds.had.co.nz/)** is a good place to recap the materials taught in this course. The hard copy of Hadley Wickham and Garrett Grolemund's book of the same name (and content) is available on **[amazon](https://r4ds.had.co.nz/)**. A thorough understanding of the content in this book combined with a working knowledge of basic statistics will be enough to undertake independent research on simple topics in most health related fields. 
 
-Also, you can learn R in R with [swirl](https://swirlstats.com/). Swirl has a range of short courses (approx 30mins) which are undertaken in R. You can download swirl by typing **install.packages("swirl")** into R. Once installed loading swirl from the library with **library(swirl)** and then following instructions within R.
+### Intermediate Material
 
+**[Efficient R Programming](https://csgillespie.github.io/efficientR/)** by Colin Gillespie & Robin Lovelace goes into more detail on optimal workflow, good coding practices, parallelisation and collaboration. Understanding this material is important for running simulations, collaborating with other researchers on projects and working with large datasets. 
+
+### Creating packages
+
+**[R Packages](http://r-pkgs.had.co.nz/)** is a more advanced book, giving an overview of the skills required to build R packages from scratch. This is important in order to move from being a researcher who stands on the shoulders of others, to a researcher on whose shoulders others stand (moving from being a user of packages to a producer of packages).
+
+### Advanced R
+**[Advanced R](http://adv-r.had.co.nz/)** describes how R really works. It may be useful for those working on particularly computationally burdensome problems or who are interested in the computing behind R. For most researchers in health this is WAY beyond the level of understanding necessary for the day-job.  
+
+### Swirl
+
+As well as these core texts we also recommend learning R with [swirl](https://swirlstats.com/). Swirl has a range of short courses (approx 30mins) which are undertaken within R. You can download swirl by typing **install.packages("swirl")** into R. Once installed load swirl from the library with **library(swirl)** and then follow instructions within R.
 
 \newpage
 
