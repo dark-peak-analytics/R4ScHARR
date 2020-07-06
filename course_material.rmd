@@ -4,7 +4,9 @@ author:    |
   | Robert Smith & Paul Schneider 
 date: "`r format(Sys.time(), '%d. %B %Y')`"
 output:
-  html_document: default
+  html_document: 
+    # code_folding: show
+    code_folding: hide
   word_document: default
   pdf_document: default
 editor_options: 
