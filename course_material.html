@@ -769,7 +769,7 @@ paste(&quot;RRRRR&quot;)  # this line of code pastes RRRRR.
 </tbody>
 </table>
 <p>If we want more control over the way that R imports the data we can also use the necessary commands in R directly. Some important examples of this are given in the next subsections.</p>
-<p>In addition, packages can be installed to import data in almost any format. Packages are collections of R functions and code in an organised framework. The directory where packages are stored on your computer is called the library. For example the readr package which allows for easier reading of data can be installed from the internet using the code <em>install.packages(“readr”)</em>, then loaded into R using <em>library(readr)</em>.</p>
+<p>In addition, packages can be installed to import data in almost any format. Packages are collections of R functions and code in an organised framework. The directory where packages are stored on your computer is called the library.</p>
 <div id="csv-comma-seperated-values" class="section level3">
 <h3>CSV (Comma-seperated values)</h3>
 <p>A common format of data that you will likely import is comma-seperated values (CSV) data. CSV Data is seperated by commas in rows. For example:</p>
@@ -813,11 +813,8 @@ car_Data &lt;- mtcars</code></pre>
 <div id="downloading-files-from-the-internet" class="section level3">
 <h3>Downloading files from the internet</h3>
 <p>Sometimes it is more practical to download files directly from the internet. There are lots of different packages out there to do this. The one I use was developed by Hadley Wickham, called readr. Below we are going to download some data from the course github page. Github is a hosting service for source code (in this case R code), it allows users to store code, data and other files. This aids version control, collaboration, replication and consistency of material over time,</p>
-<pre class="r"><code># load the readr package, if this is not installed then install it.
-#install.packages(&quot;readr&quot;)
-library(readr)
-#use the function read_csv
-car_Data &lt;- read_csv(&quot;https://raw.githubusercontent.com/RobertASmith/Intro_to_R/master/car_Data.csv&quot;, header = TRUE)</code></pre>
+<pre class="r"><code>#use the function read_csv
+car_Data &lt;- read.csv(&quot;https://raw.githubusercontent.com/RobertASmith/Intro_to_R/master/car_Data&quot;, header = TRUE)</code></pre>
 <p>Downloading files directly to R within the same script as the analysis can be useful since it reduces the risk of you accidently changing the file. Just be careful that the data will always be available.</p>
 </div>
 </div>
