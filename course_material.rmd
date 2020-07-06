@@ -17,6 +17,15 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+<details>
+  <summary>Toggle answer</summary>
+  ```{r cars}
+  summary(cars)
+  ```
+</details>
+
+
+
 \newpage 
 
 \tableofcontents
