@@ -28,11 +28,6 @@ This half day short course is designed to provide the participant with a basic s
 
 The course makes use of the authors' experiences of working with R for data-science and statistical analysis. However there are many other resources available, and we would particularly recommend the freely available content at *[R for Data Science](https://r4ds.had.co.nz/)* as a good place to recap the materials taught in this course. The hard copy of Hadley Wickham and Garrett Grolemund's book of the same name (and content) is available at *[Amazon.com](https://r4ds.had.co.nz/)*. Alternatively, a user guide is available on the CRAN R-Project website [here](https://cran.r-project.org/doc/manuals/r-release/R-intro.html), although the author finds this less easy to follow than Hadley Wickham's book described above. Further details of where to go to answer more specific questions are provided throughout the course.
 
-# Course prerequisites
-
-It is assumed that all participants on the course have their own laptop, and have installed R and RStudio. It is also assumed that participants have a high-school level understanding of statistics and mathematics (e.g. mean, median, minimum, maximum). We do not go into any detail on statistical methods, focusing exclusively on programming in R. 
-
-
 # Who are we:
 
 Rob & Paul work at the intersection between public health, economics and data-science. They are both based at the School of Health and Related Research at the University of Sheffield.
@@ -43,20 +38,17 @@ Rob & Paul work at the intersection between public health, economics and data-sc
 
 \newpage
 
-# Install and navigate R Studio.
+# Course prerequisites
+
+It is assumed that all participants on the course have their own laptop and have a high-school (GCSE) level understanding of statistics and mathematics (e.g. mean, median, minimum, maximum). We do not go into any detail on statistical methods, focusing exclusively on programming in R. It is essential that participants have installed R and RStudio prior to the course.  
+
+## Installing R and R Studio.
 
 R is a free software environment for statistical analysis and data science. It is a collaborative effort started by Robert Gentleman and Ross Ihaka in New Zealand, but now made up of hundreds of people. R is made freely available by the Comprehensive R archive Network (CRAN), in the UK it can be downloaded through the University of Bristol *[here](https://www.stats.bris.ac.uk/R/)*.There are options of downloading R for Linux, Max and Windows. 
 
 Downloading R gives you the basic software environment, but an incredibly popular add-on called 'RStudio' is required to follow this course. You should download the free 'RStudio Desktop Open Source Licence' version for the laptop you will be attending the course with from *[RStudio.com](https://www.rstudio.com/products/rstudio/#Desktop)*. If you have time before the course, it would be hugely beneficial to get familiar with RStudio.
 
 Click on the link *<here>* for a step by step guide on installing R and RStudio.
-
-**Objectives:**
-
-> Download R from <https://www.stats.bris.ac.uk/R/>.  
-> Download RStudio from <https://www.rstudio.com/products/rstudio/#Desktop>.
-
-If you found this guide useless. please follow this alternative guide *[here](https://www.dummies.com/education/math/statistics/download-r-rstudio/)* and let me know in the session that my guide sucks.
 
 \newpage
 
@@ -144,8 +136,32 @@ rm(x,y)
 rm(list=ls())
 ```
 
+## Evaluations
 
-**Exercises**  
+We can perform evaluations, which provide a true or false answer. For example the input 4>2 returns "FALSE". 
+
+It can be very useful in cases where an outcome is binary (e.g. an individual dies or remains alive). Or where we want to change a continous variable to a binary.
+
+```{r,echo=TRUE}
+# simple evaluations
+# 4 is greater than 2
+4 > 2
+# 4 is greater than 5
+4 > 5
+# 4 is equal to 3, note double == for an evaluation
+4 == 3
+# 4 is not equal to 3, note != is not equal to.
+4 != 3
+# the character x is equal to the character x.
+"dog" == "dog"
+"dog" == "cat"
+# the output from an evaluation can be stored as an object, x. This object can be subject to operations & manipulations.
+b <- 4<2
+b
+```
+
+**Exercises**
+
 1a)Create an object d equal to 10.
 
 b) Divide d by 5. 
@@ -174,33 +190,6 @@ d <- 10 ; d <- d/5 ; d <- d*8 ; d <- d+8 ; d
 m <- 7 ; m <- m*10 ; p <- 2 ; p <- p*12 ; w <- m/p
 ```
 
-
-## Evaluations
-
-We can perform evaluations, which provide a true or false answer. For example the input 4>2 returns "FALSE". 
-
-It can be very useful in cases where an outcome is binary (e.g. an individual dies or remains alive). Or where we want to change a continous variable to a binary.
-
-```{r,echo=TRUE}
-# simple evaluations
-# 4 is greater than 2
-4 > 2
-# 4 is greater than 5
-4 > 5
-# 4 is equal to 3, note double == for an evaluation
-4 == 3
-# 4 is not equal to 3, note != is not equal to.
-4 != 3
-# the character x is equal to the character x.
-"dog" == "dog"
-"dog" == "cat"
-# the output from an evaluation can be stored as an object, x. This object can be subject to operations & manipulations.
-b <- 4<2
-b
-```
-
-**Exercises**  
-
 Use R to answer the following questions for you:  
 1) Is 4 greater than 2?  
 2) Is 5 less than 3?  
@@ -212,7 +201,8 @@ Use R to answer the following questions for you:
 
 \newpage
 
-# Object classes and types
+# Session 2: Object Classes and Types
+
 So far we have mostly been working with objects of a single numeric value. However, objects don't have to take a single value, for example an object could be a vector of the heights of each child in a group of children.
 
 We have mostly been working with numeric values (vectors of one). As we have already seen, objects don't have to be numeric. To illustrate the different classes we are going to create some vectors of different classes which we will then join together later to make a dataframe.
@@ -375,9 +365,9 @@ h) Create another variable called lyr (life years remaining) which is the number
 
 \newpage
 
-## Working with Data in R
+# Session 3: Working with Data in R
 
-### Keeping Track of progress in R
+## Keeping Track of progress in R
 So far we have been working exclusively in the R console. This is useful for trialing code and doing quick intial analyses, however, the code we have typed is not saved for when we might look back at it in the future. If we want to keep a permanent record of our code, we can do this using a r-script. An r-script is basically a text-file containing lines of r-code. Usually we create them from scratch within R, though they can be created by importing a text file from text editor. 
 
 The easiest way to create an r-file is by clicking the button in the top left corner of RStudio that looks like a piece of paper with a green plus over it. The use of # for commenting is common. For example below
@@ -394,7 +384,7 @@ paste("RRRRR")  # this line of code pastes RRRRR.
 #====
 ```
 
-#### Setting Working Directory
+### Setting Working Directory
 When we use R, it is always associated with a specific directory within our computer. The place that R is associated with is known as the working directory. The working directory is the default place where R will look when we try to import (export) objects into R as well as the place that files are saved to. We can find out which directory R is pointed at by using the getwd() function:  
 
 ```{r,echo=TRUE}
@@ -411,7 +401,7 @@ A new working directory can be set by clicking on the tab (Session) then (Set_Wo
  getwd()
 ```
 
-### Importing Data
+## Importing Data
 
 In almost every project, you will want to import some data to analyse. This data will come in a variety of formats. R studio has a nice feature in Environment>Import_Dataset which enables you to select the file you wish to download (similar to STATA) from your computer. The data is then imported into R and the code that R has used is displayed in the console.
 
@@ -429,7 +419,7 @@ If we want more control over the way that R imports the data we can also use the
 
 In addition, packages can be installed to import data in almost any format. Packages are collections of R functions and code in an organised framework. The directory where packages are stored on your computer is called the library. For example the readr package which allows for easier reading of data can be installed from the internet using the code *install.packages("readr")*, then loaded into R using *library(readr)*.
 
-#### CSV (Comma-seperated values)
+### CSV (Comma-seperated values)
 A common format of data that you will likely import is comma-seperated values (CSV) data. CSV Data is seperated by commas in rows. For example:
 
 Age,Name,Sex,  
@@ -457,7 +447,7 @@ It will then convert the first row to be the header of the data. There are numer
 # if you couldn't get that to work don't worry, this is an example dataset from base R.
 car_Data <- mtcars
 ```
-#### Downloading files from the internet
+### Downloading files from the internet
 
 Sometimes it is more practical to download files directly from the internet. There are lots of different packages out there to do this. The one I use was developed by Hadley Wickham, called readr. Below we are going to download some data from the course github page. Github is a hosting service for source code (in this case R code), it allows users to store code, data and other files. This aids version control, collaboration, replication and consistency of material over time, 
 
@@ -472,7 +462,7 @@ car_Data <- read_csv("https://raw.githubusercontent.com/RobertASmith/Intro_to_R/
 
 Downloading files directly to R within the same script as the analysis can be useful since it reduces the risk of you accidently changing the file. Just be careful that the data will always be available.
 
-### Summarising Data
+## Summarising Data
 Once we have our data read into R, we want to ensure that the data is as we would expect, in the correct format etc.
 
 We can use the function *head* to look at the first 6 number of lines of the data. We can specify a different number of lines by changing the function input.
@@ -505,7 +495,7 @@ Median  <- temp['Median']
 Range   <- temp['Max.'] - temp['Min.']
 ```
 
-### Plotting Data
+## Plotting Data
 
 *Line Plot*
 
@@ -592,9 +582,9 @@ histVirg<- hist(flowerData[flowerData$Species == "virginica",]$Sepal.Length,
 #Choosing higher numbers can make things too confusing!
 ```
 
-### Troubleshooting in R
+## Troubleshooting in R
 
-#### Errors
+### Errors
 When doing any sort of programming work, things often don't perfectly on the first try. Unfortunately, making mistakes and learning from them is an important part of becomming a better programmer. The process of troubleshooting generally follows 4 main steps:
 
 1. Read the error message. Sometimes it will be obvious what the error is from the message itself allowing you to quickly go back to your code and correct it.
@@ -612,7 +602,7 @@ hist(car_Data$Mpg)
 hist(as.factor(car_Data$cyl))
 ```
 
-#### Advice for R skill building
+### Advice for R skill building
 Naturally at some point you will be faced with the challenge of doing something in R that you have have not done before, and so is outside your current skill level. The process for learning this new capability is very similar to that of trouble shooting:
 
 1. First, ask can you use the functions and packages that you have already in your R reportoire to solve the issue? Trying to solve your issue this way first will deepen your understanding the capabilites of R and each package and function within it. This step will likely involve lost of reading of R documentation, so don't be tempted to skip this step!
@@ -623,7 +613,7 @@ Naturally at some point you will be faced with the challenge of doing something 
 
 It is tempting to skip straight to step three at times (and we would be lying if we said we didn't sometimes do it ourselves) but it's better to resist. Doing steps 1 and 2 will allow you to work out which of the solutions available online is best for you, and the greater understanding you develop by taking this longer route will make you a better programmer in the long run, as you are more likely to understand the solutions given to you online. Overall this will open up the pathway to speedier problem solving in your code. Copying coded solutions off the internet to put in your work without understanding the limitations of your attempts or the how the solutions work may produce immediate results but at the sacrifice of your development as a programmer.
 
-## Further learning
+# Further learning
 
 We hope to see you again on further courses with us at ScHARR. However, alternative resources are available:
 
