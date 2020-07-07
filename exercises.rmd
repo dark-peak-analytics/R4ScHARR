@@ -94,7 +94,7 @@ fluidRow(
 
 ## How to install R{#link1}
 
-There are two pieces of softeware you should install to work with R: first, base R itself, and then R Studio, which is is an almost universally used user interface - a so called integrated development environment (IDE) - that makes working with R much easier. 
+There are two pieces of software you should install to work with R: first, base R itself, and then R Studio, which is is an almost universally used user interface - a so called integrated development environment (IDE) - that makes working with R much easier. 
 
 Follow the instructions in the videos below to install R and R Studio on your computer - both are available for Windows, Mac OS, and Linux.
 
@@ -114,22 +114,18 @@ Follow the instructions in the videos below to install R and R Studio on your co
 
 ## Instructions
 
-When learning a (first?) programming language, it is important to *use it* and get a feel for how things work. In a in-person meeting, we would have multiple practical exercises, that involve typing-in code and solving some problems with R/R Studio. We would walk around the room and answer any questions, in case you have technical problems, encounter cryptic error messages, or get stuck otherwise - this is part of the normal process of learning R and the initial confusion will soon dissolve.
+When learning a programming language, it is important to *use it* and get a feel for how things work. In a in-person meeting, we would have multiple practical exercises that involve typing-in code and solving some problems with R/R Studio. We would walk around the room and answer any questions, in case you have technical problems, encounter cryptic error messages, or get stuck otherwise - this is part of the normal process of learning R and the initial confusion will soon dissolve.
 
-However, in a virtual meeting, practical exercises are a bit of a challenge: it is more difficult to provide 1:1 support and following the course and using R at the same time might not be possible, if both application windows have to share the same screen.
+However, in a virtual meeting, practical exercises are a bit of a challenge: it is more difficult to provide 1:1 support and following the course and using R at the same time might not be possible, if both application windows have to share the same screen. Therefore, practical examples are not conducted in R itself, but on the next pages of this website. You will there find code blocks, that allow you to enter and run your own R code.
 
-
-
-Therefore, practical examples are not conducted in R itself, but on the next pages of this website. You will there find code blocks, that allow you to enter and run your own R code
-
-It allows you to write R code in more save environment, and it provides automatic feedback and support. 
+This allows you to write R code in a safe environment, with automatic feedback and support. However, we are still available to answer any questions you may have as you move through the material.
 
 <br><br>
 
 #### First taste
 
 Now, give it a try, if you want: replace `"YOUR_NAME"` in the code block below with your own name (e.g. type `id = "Alice"`) and then click the <span style="display: inline;">
-  <a class="btn btn-success btn-xs btn-tutorial-run" type="button" title="" data-icon="fa-play"><i class="fa fa-play"></i> Run Code</a> </span> button on the right. The code is evaluated and shows you the resulting output below - this is exactly the same as you would get from running the code within R.
+  <a class="btn btn-success btn-xs btn-tutorial-run" type="button" title="" data-icon="fa-play"><i class="fa fa-play"></i> Run Code</a> </span> button on the right. The code is evaluated (run) and shows you the resulting output below - this is exactly the same as you would get from running the code within R.
 
 If you get an error message, you accidentally delete something, or something else goes wrong, you can always click on <span style="display: inline;">
   <a class="btn btn-light btn-xs btn-tutorial-solution" role="button" title="Start Over"><i class="fa fa-refresh"></i> Start Over</a> to revert and restore the original code.
@@ -175,7 +171,7 @@ grade_result(
 
 <br><br>
 
-#### Exervise 1.2 - Now, it's your turn!
+#### Exercise 1.2 - Now, it's your turn!
 
 > What is 3 times 17 ?
 
@@ -205,7 +201,7 @@ grade_result(
 ```
 
 
-#### Exervise 1.3
+#### Exercise 1.3
 
 > Create an object `d` equal to 10.
 
@@ -363,9 +359,9 @@ Use R to answer the following questions for you:
   
   1) Select the 3rd row from the data frame
   
-  2) Select the weight variable from the data frame using your prefered method.  
+  2) Select the weight variable from the data frame using your preferred method.  
   
-  3) Select alice's data from the data frame.   
+  3) Select Alice's data from the data frame.   
   
   4) Subset the data frame to show just the data for the females
   
