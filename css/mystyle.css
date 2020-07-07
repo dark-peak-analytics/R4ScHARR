@@ -1,0 +1,11 @@
+.btn-primary{
+  /*
+  This removes the 'Next Topic' from the tutorial
+  
+  width:0;
+  display:none;*/
+}
+.topicActions{
+  width:0;
+  display:none;
+}

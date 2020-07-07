@@ -1,1 +1,380 @@
+---
+title: "R4ScHARR"
+author: "Robert Smith & Paul Schneider"
+tutorial:
+  id: "R4ScHARR.day.1"
+  version: 0.1.1
+output: 
+  learnr::tutorial:
+    progressive: true
+    allow_skip: true
+    theme: cosmo
+    css: "css/mystyle.css"
+runtime: shiny_prerendered
+---
+
+<!--ex-setup-r.Rmd-->
+
+```{r setup, include=FALSE}
+
+# devtools::install_github("rstudio/learnr") # use dev. version?
+library(learnr)
+# devtools::install_github("rstudio-education/gradethis")
+library(gradethis)
+
+tutorial_options(exercise.timelimit = 5, exercise.checker = gradethis::grade_learnr)
+knitr::opts_chunk$set(echo = FALSE)
+
+```
+
+<br><br>
+
+
+## Welcome
+
+
+Hello hello hello.
+
+<br>
+
+### Outline
+
+This web page contains some of the exercises we will go through during the course.  
+
+All the examples, R code, and other course material can be found on the <a href="https://github.com/ScHARR-PHEDS/R4ScHARR" target="_blank">ScHARR Github Repository</a>.
+
+
+Even though it is not a prerequisite to have R running on your computer, you will definitely benefit the most from the course if you install R and R Studio *before* it starts.
+
+<br>
+
+> If you don't have **R** and **R Studio**, the tutorial on the next page shows you how to install the software on your computer - go to [How to install R](#link1)
+
+
+
+<br>
+
+
+
+#### Who are we:
+
+<br>
+
+```{r echo=FALSE}
+# Rob profile
+fluidRow(
+         div(style="display: inline-block;vertical-align:top;",img(src="https://www.sheffield.ac.uk/sites/default/files/styles/profile_square_lg_1x/public/2020-06/Robert%20Smith.JPG?h=bb084731&itok=7Cc-IjxA)",width="200px", align="left")),
+         div(style="display: inline-block;vertical-align:top; width: 45%;",HTML('<a href="https://www.linkedin.com/in/robert-smith-53b28438/" target="_blank">Robert Smith</a> joined ScHARR in 2016. His research focuses on the methods used to estimate the costs and benefits of public health interventions, with a specific interest in microsimulation modelling (done in R). He has become increasingly intersted in the use of R-Markdown and R-Shiny to make research more transparent and to aid decision makers. While doing his PhD, Robert has been involved in projects with the WHO and Parkrun.')),
+         
+         # space
+         br(),br(),br(),
+          
+         
+# Paul profile
+         div(style="display: inline-block;vertical-align:top; width: 45%;",HTML('<a href="https://www.linkedin.com/in/robert-smith-53b28438/" target="_blank">Robert Smith</a> joined ScHARR in 2016. His research focuses on the methods used to estimate the costs and benefits of public health interventions, with a specific interest in microsimulation modelling (done in R). He has become increasingly intersted in the use of R-Markdown and R-Shiny to make research more transparent and to aid decision makers. While doing his PhD, Robert has been involved in projects with the WHO and Parkrun.')),
+         div(style="display: inline-block;vertical-align:top;",img(src="https://pheds-dtc.ac.uk/wp-content/uploads/2019/10/paul-schneider.jpg", align="right",width="200px"))
+       )
+
+
+
+
+```
+
+
+<br><br>
+
+
+```{r shiny_link_install, echo=FALSE}
+ shiny::actionButton(inputId='link_install', label="How to install R & R Studio", 
+                          icon = icon("question-circle"), 
+                          onclick ="location.href='#section-link1';")
+  
+```
+
+
+## How to install R{#link1}
+
+There are two pieces of softeware you should install to work with R: first, base R itself, and then R Studio, which is is an almost universally used user interface - a so called integrated development environment (IDE) - that makes working with R much easier. 
+
+Follow the instructions in the videos below to install R and R Studio on your computer - both are available for Windows, Mac OS, and Linux.
+
+<br><br>
+
+### How to install base R
+
+![](https://vimeo.com/203516510)
+
+<br><br>
+
+#### Install RStudio
+
+![](https://vimeo.com/203516968)
+
+
+
+## Instructions
+
+When learning a (first?) programming language, it is important to *use it* and get a feel for how things work. In a in-person meeting, we would have multiple practical exercises, that involve typing-in code and solving some problems with R/R Studio. We would walk around the room and answer any questions, in case you have technical problems, encounter cryptic error messages, or get stuck otherwise - this is part of the normal process of learning R and the initial confusion will soon dissolve.
+
+However, in a virtual meeting, practical exercises are a bit of a challenge: it is more difficult to provide 1:1 support and following the course and using R at the same time might not be possible, if both application windows have to share the same screen.
+
+
+
+Therefore, practical examples are not conducted in R itself, but on the next pages of this website. You will there find code blocks, that allow you to enter and run your own R code
+
+It allows you to write R code in more save environment, and it provides automatic feedback and support. 
+
+<br><br>
+
+#### First taste
+
+Now, give it a try, if you want: replace `"YOUR_NAME"` in the code block below with your own name (e.g. type `id = "Alice"`) and then click the <span style="display: inline;">
+  <a class="btn btn-success btn-xs btn-tutorial-run" type="button" title="" data-icon="fa-play"><i class="fa fa-play"></i> Run Code</a> </span> button on the right. The code is evaluated and shows you the resulting output below - this is exactly the same as you would get from running the code within R.
+
+If you get an error message, you accidentally delete something, or something else goes wrong, you can always click on <span style="display: inline;">
+  <a class="btn btn-light btn-xs btn-tutorial-solution" role="button" title="Start Over"><i class="fa fa-refresh"></i> Start Over</a> to revert and restore the original code.
+</span> 
+
+
+
+
+<br>
+
+```{r my_first_lines_of_R, exercise=TRUE,exercise.cap="My first R code"}
+id = "YOUR_NAME"
+cat("Hello",id,"- welcome to R4ScHARR!")
+```
+
+## Session 1 exercises
+
+Intro text
+
+To get started, let's use R to solve some simple computations. We give you the code for the first exercise, and you have to find the solution for the others.
+
+
+<br><br>
+
+#### Exercise 1.1 
+
+
+> What is 1 plus 1?
+
+
+Just click on the <span style="display: inline;"> <a class="btn btn-success btn-xs btn-tutorial-run" type="button" title="" data-icon="fa-play"><i class="fa fa-play"></i> Run Code</a> </span> button on the right to get the result.
+
+```{r code1_1, exercise=TRUE, exercise.eval=FALSE,exercise.cap="Exercise 1.1"}
+1+1
+```
+
+```{r code1_1-check}
+grade_result(
+  pass_if(~ identical(.result, 2), "That's correct!")
+)
+```
+
+
+<br><br>
+
+#### Exervise 1.2 - Now, it's your turn!
+
+> What is 3 times 17 ?
+
+  1. Type in the code to compute the results below
+  2. Click <span style="display: inline;"> <a class="btn btn-success btn-xs btn-tutorial-run" type="button" title="" data-icon="fa-play"><i class="fa fa-play"></i> Run Code</a> </span>
+  3. If you are unsure, click on <a class="btn btn-light btn-xs btn-tutorial-solution" role="button" title="Hint"><i class="fa fa-lightbulb-o"></i> Hint</a>
+  4. To check if your answer is correct, click on <a class="btn btn-primary btn-xs btn-tutorial-run" type="button" title="Submit Answer" data-check="1" data-icon="fa-check-square-o"><i class="fa fa-check-square-o"></i> Submit Answer</a>
+
+<br>
+
+```{r code1_2, exercise=TRUE, exercise.eval=FALSE,exercise.cap="Exercise 1.2"}
+
+```
+
+```{r code1_2-hint,exercise.cap="Type in"}
+# Just type in:
+  3 * 17
+```
+
+```{r code1_2-check}
+grade_result(
+  pass_if(~ identical(.result, 51), "Good job!"),
+  incorrect = "That's not quite right. Try again or click on 'Hint'.",
+  glue_incorrect = "That's not quite right. Try again or click on 'Hint'.",
+  glue_correct = "Good job!"
+)
+```
+
+
+#### Exervise 1.3
+
+> Create an object `d` equal to 10.
+
+(Note: this does not give you any output)
+
+```{r code1_3a, exercise=TRUE, exercise.eval=FALSE,exercise.cap="Exercise 1.3a"}
+
+```
+
+```{r code1_3a-solution}
+d = 10
+```
+
+```{r code1_3a-check}
+
+grade_code( 
+  glue_incorrect = "That's not quite right. Try again or click on 'Solution'."
+  )
+
+
+#   grade_result(
+#   pass_if(~ identical(.result, 51), "Good job!"),
+#   incorrect = "That's not quite right. Try again or click on 'Hint'.",
+#   glue_incorrect = "That's not quite right. Try again or click on 'Hint'.",
+#   glue_correct = "Good job!"
+# )
+```
+
+
+> Divide `d` by 5. 
+
+```{r code1_3b-setup}
+d = 10
+```
+
+```{r code1_3b, exercise=TRUE, exercise.eval=FALSE,exercise.cap="Exercise 1.3b",exercise.setup = "code1_3b-setup" }
+
+```
+
+```{r code1_3b-solution}
+d/5
+```
+
+```{r code1_3b-check}
+grade_result(
+  pass_if(~ identical(.result, 2), "Well done!")
+)
+```
+
+> Overwrite `d`, let it now be equal to 20, and 'print' `d`, to see the results
+
+
+```{r code1_3c, exercise=TRUE, exercise.eval=FALSE,exercise.cap="Exercise 1.3c",exercise.setup = "code1_3b-setup" }
+
+```
+
+```{r code1_3c-solution}
+d = 20
+d
+```
+
+```{r code1_3c-check}
+grade_result( 
+  pass_if(~ identical(.result, 20), "Great!"),
+  glue_incorrect = "That's not quite right. Try again or click on 'Solution'."
+  )
+```
+
+> Overwrite `d` (which is now 20) with 4 times `d`, and print `d` top see the result
+
+```{r code1_3d-setup}
+d = 20
+```
+
+```{r code1_3d, exercise=TRUE, exercise.eval=FALSE,exercise.cap="Exercise 1.3d",exercise.setup = "code1_3d-setup"}
+
+```
+
+```{r code1_3d-solution}
+d = d * 4
+d
+```
+
+```{r code1_3d-check}
+grade_result( 
+  pass_if(~ identical(.result, 80), "Brilliant!"),
+  glue_incorrect = "That's not quite right. Try again or click on 'Solution'."
+  )
+```
+
+> Finally, overwrite `d` (which is now 80), with `d` times `d`, and print the result
+
+```{r code1_3e-setup}
+d = 80
+```
+
+```{r code1_3e, exercise=TRUE, exercise.eval=FALSE,exercise.cap="Exercise 1.3d",exercise.setup = "code1_3e-setup" }
+
+```
+
+```{r code1_3e-solution}
+d = d * d
+d
+```
+
+```{r code1_3e-check}
+grade_result( 
+  pass_if(~ identical(.result, 6400), "Superb!"),
+  glue_incorrect = "That's not quite right. Try again or click on 'Solution'."
+  )
+```
+
+
+****
+
+
+2a) Create an object m equal to 7. 
+
+b) Overwrite m with m = m times 10. 
+
+c) Create an object p equal to 2. 
+
+d)Overwrite p with p = p times 12. 
+
+e) Create an object w equal to m divided by p. 
+
+f) What values do m, p and w take? 
+
+```{r,echo=FALSE, eval=FALSE}
+# create an object d which is 10.
+d <- 10 ; d <- d/5 ; d <- d*8 ; d <- d+8 ; d
+m <- 7 ; m <- m*10 ; p <- 2 ; p <- p*12 ; w <- m/p
+```
+
+
+
+****
+
+Use R to answer the following questions for you:  
+1) Is 4 greater than 2?  
+2) Is 5 less than 3?  
+3) Is 6.2 equal to 12.4/2?   
+4) Is 5 equal to or greater than 4? (hint:  use >=)  
+5) Is 5 equal to or less than 5? (hint:  use <=)  
+2) Is 7.5 equal to 137.25/18?    
+3) m = 84 / 106, q = 156/3, is m/q greater than, less than or equal to 0.0152?  
+
+****
+
+
+
+## Session 2 exercises
+
+
+  
+  1) Select the 3rd row from the data frame
+  
+  2) Select the weight variable from the data frame using your prefered method.  
+  
+  3) Select alice's data from the data frame.   
+  
+  4) Subset the data frame to show just the data for the females
+  
+  5) type df[,-1], what does this give you?
+
+
+
+## Session 3 exercises
+
  
+
+## Resources
