@@ -33,13 +33,22 @@ knitr::opts_chunk$set(echo = FALSE)
 ## Welcome
 
 
-Hello hello hello.
+Welcome to the R-4-ScHARR introductory R course site. We hope that you find the course content useful. 
 
 <br>
 
 ### Outline
 
-This web page contains some of the exercises we will go through during the course.  
+This web page contains:
+
+1) [Instructions on how to install R and R Studio](#link1)
+
+2) The course exercises (see Navigation Bar to the left)
+
+3) [Links to additional resources]{#link_Resources}
+
+
+some of the exercises we will go through during the course.  
 
 All the examples, R code, and other course material can be found on the <a href="https://github.com/ScHARR-PHEDS/R4ScHARR" target="_blank">ScHARR Github Repository</a>.
 
@@ -64,14 +73,14 @@ Even though it is not a prerequisite to have R running on your computer, you wil
 # Rob profile
 fluidRow(
          div(style="display: inline-block;vertical-align:top;",img(src="https://www.sheffield.ac.uk/sites/default/files/styles/profile_square_lg_1x/public/2020-06/Robert%20Smith.JPG?h=bb084731&itok=7Cc-IjxA)",width="200px", align="left")),
-         div(style="display: inline-block;vertical-align:top; width: 45%;",HTML('<a href="https://www.linkedin.com/in/robert-smith-53b28438/" target="_blank">Robert Smith</a> joined ScHARR in 2016. His research focuses on the methods used to estimate the costs and benefits of public health interventions, with a specific interest in microsimulation modelling (done in R). He has become increasingly intersted in the use of R-Markdown and R-Shiny to make research more transparent and to aid decision makers. While doing his PhD, Robert has been involved in projects with the WHO and Parkrun.')),
+         div(style="display: inline-block;vertical-align:top; width: 45%;",HTML('<a href="https://www.linkedin.com/in/robert-smith-53b28438/" target="_blank">Robert Smith</a> joined ScHARR in 2016. His research focuses on the methods used to estimate the costs and benefits of public health interventions, with a specific interest in microsimulation modelling in R. He has become increasingly interested in the use of web based user interfaces (in R-Shiny) to make research more transparent and to aid decision makers. While doing his PhD, Robert has been involved in multiple projects with the World Health Organization and parkrunUK.')),
          
          # space
          br(),br(),br(),
           
          
 # Paul profile
-         div(style="display: inline-block;vertical-align:top; width: 45%;",HTML('<a href="https://www.linkedin.com/in/robert-smith-53b28438/" target="_blank">Robert Smith</a> joined ScHARR in 2016. His research focuses on the methods used to estimate the costs and benefits of public health interventions, with a specific interest in microsimulation modelling (done in R). He has become increasingly intersted in the use of R-Markdown and R-Shiny to make research more transparent and to aid decision makers. While doing his PhD, Robert has been involved in projects with the WHO and Parkrun.')),
+         div(style="display: inline-block;vertical-align:top; width: 45%;",HTML('<a href="https://www.sheffield.ac.uk/scharr/staff-pgrs/studentprofiles/paulschneider" target="_blank">Paul Schneider</a> joined ScHARR in 2018. He is working on conceptual and methodological problems in valuing health outcomes in economic evaluations. A medical doctor and epidemiologist by training, he has used R in various research projects, ranging from the modeling costs of breast cancer, and value of information analyses, to the monitoring of influenza in real-time using online data. He is a keen advocate of open science practices.')),
          div(style="display: inline-block;vertical-align:top;",img(src="https://pheds-dtc.ac.uk/wp-content/uploads/2019/10/paul-schneider.jpg", align="right",width="200px"))
        )
 
@@ -94,9 +103,15 @@ fluidRow(
 
 ## How to install R{#link1}
 
-There are two pieces of software you should install to work with R: first, base R itself, and then R Studio, which is is an almost universally used user interface - a so called integrated development environment (IDE) - that makes working with R much easier. 
+R is a free software environment for statistical analysis and data science. 
 
-Follow the instructions in the videos below to install R and R Studio on your computer - both are available for Windows, Mac OS, and Linux.
+There are two pieces of software you should install to work with R: first, base R itself, and then R Studio, which is is an almost universally used user interface - a so called integrated development environment (IDE) - that makes working with R much easier.
+
+R is made freely available by the Comprehensive R archive Network (CRAN), in the UK it can be downloaded through the University of Bristol *[here](https://www.stats.bris.ac.uk/R/)*. There are options of downloading R for Linux, Mac and Windows.
+
+You should download the free 'RStudio Desktop Open Source Licence' version for the laptop you will be attending the course with from *[RStudio.com](https://www.rstudio.com/products/rstudio/#Desktop)*. If you have time before the course, it would be hugely beneficial to get familiar with RStudio.
+
+The videos below provide a step by step guide to install R and R Studio on your computer.
 
 <br><br>
 
@@ -373,4 +388,4 @@ Use R to answer the following questions for you:
 
  
 
-## Resources
+## Resources{#link_Resources}

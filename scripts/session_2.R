@@ -14,7 +14,7 @@ rm(list = ls())
 height <- c(1.38,1.45,1.21,1.56)
 height
 # numeric
-weight <- c(31,35,28,40)
+weight <- c(45,42,43,50)
 weight
 class(weight)
 # character
