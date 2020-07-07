@@ -33,7 +33,12 @@ knitr::opts_chunk$set(echo = FALSE)
 ## Welcome
 
 
-Welcome to the R-4-ScHARR introductory R course site. We hope that you find the course content useful. 
+Welcome to the R-4-ScHARR introductory R course site. We hope that you find the course content useful.
+
+<br>
+
+> Before the start of the course, please make sure that you have **R** and **R Studio** on your computer. The tutorial on the next page shows you how to install the software, if you haven't done this already. Go to: [How to install R](#link1)
+
 
 <br>
 
@@ -53,12 +58,12 @@ some of the exercises we will go through during the course.
 All the examples, R code, and other course material can be found on the <a href="https://github.com/ScHARR-PHEDS/R4ScHARR" target="_blank">ScHARR Github Repository</a>.
 
 
-Even though it is not a prerequisite to have R running on your computer, you will definitely benefit the most from the course if you install R and R Studio *before* it starts.
-
 <br>
 
-> If you don't have **R** and **R Studio**, the tutorial on the next page shows you how to install the software on your computer - go to [How to install R](#link1)
 
+### Course schedule
+
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTa0OgQxADt6OKoO2svUcoCt062PlxKy_zW7gvYQ9IXr9M1ogf--4E21sXO5fctI7w9jkuuQyqDaWGJ/embed?start=false&loop=false&delayms=60000&rm=minimal" frameborder="1"  allowfullscreen="false" mozallowfullscreen="false" webkitallowfullscreen="false" height="480" width="628" id="iframe1"></iframe>
 
 
 <br>
@@ -72,7 +77,10 @@ Even though it is not a prerequisite to have R running on your computer, you wil
 ```{r echo=FALSE}
 # Rob profile
 fluidRow(
-         div(style="display: inline-block;vertical-align:top;",img(src="https://www.sheffield.ac.uk/sites/default/files/styles/profile_square_lg_1x/public/2020-06/Robert%20Smith.JPG?h=bb084731&itok=7Cc-IjxA)",width="200px", align="left")),
+         div(style="display: inline-block;vertical-align:top;",
+             img(src="www/rob.png",width="200px", align="left")
+             # HTML('<img src="www/rob.png" width=200px />')
+             ),
          div(style="display: inline-block;vertical-align:top; width: 45%;",HTML('<a href="https://www.linkedin.com/in/robert-smith-53b28438/" target="_blank">Robert Smith</a> joined ScHARR in 2016. His research focuses on the methods used to estimate the costs and benefits of public health interventions, with a specific interest in microsimulation modelling in R. He has become increasingly interested in the use of web based user interfaces (in R-Shiny) to make research more transparent and to aid decision makers. While doing his PhD, Robert has been involved in multiple projects with the World Health Organization and parkrunUK.')),
          
          # space
@@ -80,9 +88,13 @@ fluidRow(
           
          
 # Paul profile
-         div(style="display: inline-block;vertical-align:top; width: 45%;",HTML('<a href="https://www.sheffield.ac.uk/scharr/staff-pgrs/studentprofiles/paulschneider" target="_blank">Paul Schneider</a> joined ScHARR in 2018. He is working on conceptual and methodological problems in valuing health outcomes in economic evaluations. A medical doctor and epidemiologist by training, he has used R in various research projects, ranging from the modeling costs of breast cancer, and value of information analyses, to the monitoring of influenza in real-time using online data. He is a keen advocate of open science practices.')),
-         div(style="display: inline-block;vertical-align:top;",img(src="https://pheds-dtc.ac.uk/wp-content/uploads/2019/10/paul-schneider.jpg", align="right",width="200px"))
-       )
+         div(style="display: inline-block;vertical-align:top; width: 45%; padding-left:20px;",HTML('<a href="https://www.sheffield.ac.uk/scharr/staff-pgrs/studentprofiles/paulschneider" target="_blank">Paul Schneider</a> joined ScHARR in 2018. He is working on conceptual and methodological problems in valuing health outcomes in economic evaluations. A medical doctor and epidemiologist by training, he has used R in various research projects, ranging from the modeling costs of breast cancer, and value of information analyses, to the monitoring of influenza in real-time using online data. He is a keen advocate of open science practices.')),
+         div(style="display: inline-block;vertical-align:top;",
+             img(src="www/paul.jpg",width="200px", align="right")
+             )
+)
+             
+             
 
 
 
@@ -93,12 +105,7 @@ fluidRow(
 <br><br>
 
 
-```{r shiny_link_install, echo=FALSE}
- shiny::actionButton(inputId='link_install', label="How to install R & R Studio", 
-                          icon = icon("question-circle"), 
-                          onclick ="location.href='#section-link1';")
-  
-```
+
 
 
 ## How to install R{#link1}
