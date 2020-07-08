@@ -1,6 +1,5 @@
 ---
 title: "R4ScHARR"
-author: "Robert Smith & Paul Schneider"
 tutorial:
   id: "R4ScHARR.day.1"
   version: 0.1.3
@@ -11,7 +10,6 @@ output:
     theme: default
     css: "css/mystyle.css"
 runtime: shiny_prerendered
-DisplayMode: Showcase
 
 ---
 
@@ -26,7 +24,7 @@ library(gradethis)
 
 tutorial_options(exercise.timelimit = 5, exercise.checker = gradethis::grade_learnr)
 knitr::opts_chunk$set(echo = FALSE)
-# source("./learnr_bugfix.R")
+source("./learnr_bugfix.R")
 ```
 
 <!-- 
@@ -38,41 +36,44 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Welcome
 
-<br>
-
-<font size="+1"> **Welcome to the R-4-ScHARR introductory R course site** </font>
-
-This site hosts instructions on installing R and R Studio as well as exercises for the course. 
-The course content can be accessed [here](https://scharr-pheds.github.io/R4ScHARR/). The slides for the course can be found here: <link to slides>
-We hope that you find the course content useful.
-
-<br>
-All examples and the R code used during the course can be found on the <a href="https://github.com/ScHARR-PHEDS/R4ScHARR" target="_blank">ScHARR Github Repository</a>.
-<br>
-
-
-> Before the start of the course, please make sure that you have **R** and **R Studio** on your computer. The tutorial on the next page shows you how to install the software, if you haven't done this already. <br>
-Go to: [How to install R](#link1)
-
+<font size="+1"> **Welcome to the R-4-ScHARR introductory R course site**</font>
 
 <br>
 
+**This site hosts:**
 
+  * Course schedule
+  * Instructions on installing R and R Studio 
+  * Exercises for sessions 1-3
+  
+  <br>
+  
+**Links to other course material:**
 
-#### Course schedule
+* <a href="https://scharr-pheds.github.io/R4ScHARR/" target="_blank">Course book and code examples</a>
+* <a href="" target="_blank">ScHARR Presentation slides</a>
+* <a href="https://github.com/ScHARR-PHEDS/R4ScHARR" target="_blank">ScHARR Github Repository</a>
 
-<br>
+We hope that you find the content useful.
 
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTa0OgQxADt6OKoO2svUcoCt062PlxKy_zW7gvYQ9IXr9M1ogf--4E21sXO5fctI7w9jkuuQyqDaWGJ/embed?start=false&loop=false&delayms=60000&rm=minimal" frameborder="1"  allowfullscreen="false" mozallowfullscreen="false" webkitallowfullscreen="false" height="480" width="628" id="iframe1"></iframe>
-
+*Rob & Paul*
 
 <br>
 
 
 
-### Who are we:
+****
+
+## About
 
 <br>
+
+This course is an intro... bla bla
+
+
+<br><br>
+
+### Who we are
 
 ```{r echo=FALSE}
 # Rob profile
@@ -102,11 +103,24 @@ fluidRow(
 ```
 
 
-<br><br>
+## Course schedule
 
-<!-- create button to link to next page -->
-<a href="exercises.Rmd#section-link1" class="btn btn-default skip">Continue</a>
 
+> Before the start of the course, please make sure that you have **R** and **R Studio** on your computer. The tutorial on the next page shows you how to install the software, if you haven't done this already. <br>
+Go to: [How to install R](#link1)
+
+
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTa0OgQxADt6OKoO2svUcoCt062PlxKy_zW7gvYQ9IXr9M1ogf--4E21sXO5fctI7w9jkuuQyqDaWGJ/embed?start=false&loop=false&delayms=60000&rm=minimal" frameborder="1"  allowfullscreen="false" mozallowfullscreen="false" webkitallowfullscreen="false" height="480" width="628" id="iframe1"></iframe>
+
+
+<br>
+
+****
+
+
+<!-- create button to link to next page 
+<a href="exercises.Rmd#section-link1" class="btn btn-default skip">Go to install R guide</a>
+-->
 
 <!---------- How to install R ------------->
 
@@ -137,8 +151,9 @@ The videos below provide a step by step guide to install R and R Studio on your 
 
 <br>
 
-<!-- create button to link to next page -->
+<!-- create button to link to next page 
 <a href="exercises.Rmd#section-instructions" class="btn btn-default skip">Continue</a>
+-->
 
 
 
@@ -196,7 +211,7 @@ cat("Hello",id,"- welcome to R4ScHARR!")
 <br>
 
 <!-- create button to link to next page -->
-<a href="exercises.Rmd#section-session1" class="btn btn-default skip">Continue</a>
+<a href="exercises.Rmd#section-session1" class="btn btn-default skip">Start Session 1 Exercise</a>
 
 
 
@@ -205,7 +220,7 @@ cat("Hello",id,"- welcome to R4ScHARR!")
 
 <!---------- SESSION 1 ------------->
 
-## Session 1 exercises{#session1}
+## **Session 1 exercises**{#session1}
 
 <br>
 
@@ -654,8 +669,8 @@ grade_result(
 
 ****
 
-> I   Create an object `foo <- 8`
-> II  Create another object `bar <- 7`
+> I   Create an object `foo` and set it to be 8 <br>
+> II  Create another object `bar`, and srt it to be 7 <br>
 > III Is `foo` divided by `bar`  greater than 1.14 ?
 
 <div class="alert alert-info">
@@ -663,7 +678,7 @@ grade_result(
   <a class="btn btn-success btn-xs btn-tutorial-run" type="button" title="" data-icon="fa-play"><i class="fa fa-play"></i> Run Code</a> </span>.
 </div>
 
-```{r code1_15-setup, exercise=TRUE, exercise.eval=FALSE}
+```{r code1_15-setup}
 foo<-8
 bar<-7
 ```
@@ -682,6 +697,9 @@ grade_result(
   pass_if(~ identical(.result, F), "")
 )
 ```
+
+
+****
 
 </div>
 <br>
@@ -708,27 +726,88 @@ m <- 7 ; m <- m*10 ; p <- 2 ; p <- p*12 ; w <- m/p
 -->
 
 
+
+<!-- create button to link to next page -->
+<a href="exercises.Rmd#section-session2" class="btn btn-default skip">Start Session 2 Exercise</a>
+
+
+
+## Session 2 exercises{#session2}
+
+<br>
+
+
+```{r include=FALSE}
+df = read.table(text=
+"height weight first_name sex      bmi
+1   1.38     31      Alice   F 16.27809
+2   1.45     35        Bob   M 16.64685
+3   1.21     28      Harry   M 19.12438
+4   1.56     40       Jane   F 16.43655")
+primes <- c(2,3,5,7,11) 
+```
+
+
+### Subsetting
+
+Suppose we want to subset this data frame, called `df`:
+
+```
+> df
+ height weight first_name sex      bmi
+1   1.38     31      Alice   F 16.27809
+2   1.45     35        Bob   M 16.64685
+3   1.21     28      Harry   M 19.12438
+4   1.56     40       Jane   F 16.43655
+```
+
+
+
+<div class="box">
+#### Exercise 2.1
+    
 ****
+    
+> Select the **3rd row** from the data frame `df`
+    
 
+    
+```{r code2_1-setup}
+df <- df
+```
+  
+```{r code2_1, exercise=TRUE, exercise.eval=FALSE,exercise.setup = "code2_1-setup" }
+  
+```
+  
+```{r code2_1-solution}
+  df[3,]
+```
+  
+```{r code2_1-check}
+grade_result(
+  pass_if(~ identical(.result, df[3,]), "")
+  )
+```
 
-
-****
-
-
-
-## Session 2 exercises
+</div>
+<br>
 
 <div class="box">
 #### Exercise 2.2
     
 ****
     
->
-    
+> Select the `weight` variable from the data frame using your preferred method.  
+
+<div class="alert alert-info">
+**Info**: Remember, there are multiple ways to do this: you can use the `$` to index the right column, or use the `[ , ]`  with a number or a  "variable_name".
+</div>
+<br>    
 
     
 ```{r code2_2-setup}
-
+df <- df
 ```
   
 ```{r code2_2, exercise=TRUE, exercise.eval=FALSE,exercise.setup = "code2_2-setup" }
@@ -736,37 +815,276 @@ m <- 7 ; m <- m*10 ; p <- 2 ; p <- p*12 ; w <- m/p
 ```
   
 ```{r code2_2-solution}
-  
+  df$weight 
+# or df[,2] 
+# or df[,"weight"]
 ```
   
 ```{r code2_2-check}
 grade_result(
-  pass_if(~ identical(.result, 2), "")
+  pass_if(~ identical(.result, df$weight ), "")
   )
 ```
   
 </div>
 <br>
   
-  1) Select the 3rd row from the data frame
   
-  2) Select the weight variable from the data frame using your preferred method.  
   
-  3) Select Alice's data from the data frame.   
+<div class="box">
+#### Exercise 2.3
+    
+****
+    
+> Select `Alice`'s data from the data frame.   
+
+    
+<div class="alert alert-info">
+**Info**: It might be helpful to type in `df` and press <span style="display: inline;">
+  <a class="btn btn-success btn-xs btn-tutorial-run" type="button" title="" data-icon="fa-play"><i class="fa fa-play"></i> Run Code</a> </span>. to check which row Alice's data is in.
+</div>
+<br>
+    
+```{r code2_3-setup}
+
+```
   
-  4) Subset the data frame to show just the data for the females
+```{r code2_3, exercise=TRUE, exercise.eval=FALSE,exercise.setup = "code2_3-setup" }
   
-  5) type df[,-1], what does this give you?
+```
+  
+```{r code2_3-solution}
+df[df$first_name == "Alice",]
+# or simply:
+# df[1,]
+```
+  
+```{r code2_3-check}
+grade_result(
+  pass_if(~ identical(.result, df[1,]), "")
+  )
+```
+  
+</div>
+<br>
+  
+
+
+<div class="box">
+#### Exercise 2.4
+    
+****
+    
+> Print `df` without it's first row
+    
+<div class="alert alert-info">
+**Info**: You can select rows 2,3, and 4, but you can also show everything except row 1 - try the latter approach.
+</div>
+<br>
+    
+```{r code2_4-setup}
+df <- df
+```
+  
+```{r code2_4, exercise=TRUE, exercise.eval=FALSE,exercise.setup = "code2_4-setup" }
+  
+```
+  
+```{r code2_4-solution}
+df[,-1]
+# but you could also use:
+# df[2:4,]
+# or
+# df[ c(F, T, T, T), ]
+```
+  
+```{r code2_4-check}
+grade_result(
+  pass_if(~ identical(.result, df[,-1]), "")
+  )
+```
+  
+</div>
+<br>
 
 
 
-## Session 3 exercises
+<div class="box">
+#### Exercise 2.5
+    
+****
+    
+> Subset the data frame to show just the data for the females
+    
+<div class="alert alert-info">
+**Info**: Remember, `F` (=FALSE) and `"F"` (= F as a character) have different meanings in R.
+</div>
+<br>
+    
+```{r code2_5-setup}
+
+```
+  
+```{r code2_5, exercise=TRUE, exercise.eval=FALSE,exercise.setup = "code2_5-setup" }
+  
+```
+  
+```{r code2_5-solution}
+  df[df$sex == "F",]
+```
+  
+```{r code2_5-check}
+grade_result(
+  pass_if(~ identical(.result, df[df$sex == "F",]), "")
+  )
+```
+  
+</div>
+<br>  
+
+
+
+<div class="box">
+#### Exercise 2.6
+    
+****
+    
+> Create a vector `primes` with elements `2`,`3`,`5`,`7`, and `11`.
+    
+<div class="alert alert-info">
+**Info**: You can `c`ombine elements into a vector with the `c(element_1, element_2,...)` command.
+</div>
+<br>
+    
+```{r code2_6-setup}
+
+```
+  
+```{r code2_6, exercise=TRUE, exercise.eval=FALSE,exercise.setup = "code2_6-setup" }
+  
+```
+  
+```{r code2_6-solution}
+primes <- c(2,3,5,7,11)  
+```
+  
+```{r code2_6-check}
+grade_code()
+```
+  
+</div>
+<br>
+
+
+
+<div class="box">
+#### Exercise 2.7
+    
+****
+    
+> Print all `primes` that are larger than or equal to `5` using subsetting.
+    
+    
+```{r code2_7-setup}
+primes <- c(2,3,5,7,11)  
+```
+  
+```{r code2_7, exercise=TRUE, exercise.eval=FALSE,exercise.setup = "code2_7-setup" }
+  
+```
+  
+```{r code2_7-solution}
+primes[primes <= 5]
+```
+  
+```{r code2_7-check}
+grade_result(
+  pass_if(~ identical(.result, primes[primes <= 5]), "")
+  )
+```
+  
+</div>
+<br>
+
+
+
+<div class="box">
+#### Exercise 2.8* - last one for this session
+    
+****
+    
+> Create an 'animal top speed data frame': `speed_df`. It should have three columns, named `animal`, `speed`, `flying`, and should contain the following information:
+<br> <br> The `"lion"` can run `80`km/h, it's not flying. <br> 
+The `"marlin"` can swim `129`km/h, it's also not flying. <br>
+Finally, the `"eagle"` can do `240`km/h, and of course it's flying.
+
+<div class="alert alert-info">
+**Info 1**: The vector `flying` should be set to `TRUE` or `FALSE`. 
+</div>
+<br>
+    
+<div class="alert alert-info">
+**Info 2**: Use `data.frame(vector_1, vector_2,...)` to combine multiple vectors into a data frame.
+</div>
+
+    
+```{r code2_8-setup}
+
+```
+  
+```{r code2_8, exercise=TRUE, exercise.eval=FALSE,exercise.setup = "code2_8-setup" }
+  
+```
+  
+```{r code2_8-solution}
+animal <- c("lion", "marlin", "eagle")  
+speed <- c(80, 129, 240)
+flying <- c(F, F, T)
+speed_df <- data.frame(animal, speed, flying)
+speed_df
+```
+  
+```
+This task is a bit to complicated to have it checked automatically - please compare your result with the solution.
+```
+  
+</div>
+<br>
+
+
+****
+
+
+<!-- create button to link to next page -->
+<a href="exercises.Rmd#section-session3" class="btn btn-default skip">Start Session 3 Exercise</a>
+
+
+
+
+
+
+
+
+
+<!------------     SESSION 3 --------------------->
+
+
+
+
+
+
+
+
+
+
+## Session 3 exercises{#session3}
 
  
 
-## Resources{#link_Resources}
+<!-- create button to link to next page -->
+<a href="exercises.Rmd#section-link_Resources" class="btn btn-default skip">Continue to further learning</a>
 
-# Further learning
+## Further learning{#link_Resources}
 
 We hope to see you again on further courses with us at ScHARR. However, alternative resources are available. If you aim to become an expert R user and have a considerable amount of time to learn (for example if you are a PhD student), then we would recommend the following pathway:
 
@@ -792,4 +1110,3 @@ As well as these core texts we also recommend learning R with [swirl](https://sw
 ### Data Science for Public Health Economic Evaluation. 
 
 We are in the process of writing a book on data science for public health economic evaluation. It is available online for free here: **[r4phe](https://bookdown.org/rasmith3/r4phe/)**. Once finishes it will cover all the material in this course, then continue on through intermediate material, visualizations, simulations, user interfaces and collaboration. It is designed to aid the training of the next PhD cohort of Public Health Economics & Decision Science at the University of Sheffield.
-

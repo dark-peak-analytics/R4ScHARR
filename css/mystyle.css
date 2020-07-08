@@ -44,6 +44,89 @@ h2{
   padding: 10px;
   margin-bottom: 10px;
 }
+
+
+
+
+.topicsContainer{
+ min-width: 200px; 
+ width: 10px; 
+}
+
+.topicsList .topic.current {
+    background-color: orange;
+    color: #ffffff;
+    border: 1px;
+}
+.author{
+  color: darkgray;
+  font-size:10px;
+  padding-left: 15px;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  border-bottom: groove 0.5px;
+  border-color: darkgray;
+}
+
+.topicsList {
+  position: fixed;
+  margin-top: 90px;
+  border: 1px solid;
+  border-color: gray;
+  border-radius:15px;
+  width:100px; 
+  min-width:200px; 
+}
+
+.topicsHeader{
+  padding-left: 15px;
+  border-bottom: groove 0.5px;
+  border-color: darkgray;
+}
+
+.topicsFooter{
+  border-top: groove 0.5px;
+  border-color: darkgray;
+}
+
+.tutorialTitle{
+  margin-top: 5px;
+  padding-bottom: 0px;
+}
+
+.topics{
+  width: auto;
+  display: inline;
+  overflow: hidden;
+  max-width: 700px;
+  margin-right:auto;
+  margin-left: 5%;
+}
+
+.band{
+  padding-left: 10%;
+}
+
+
+.popover{
+  max-width: 90%;
+}
+
+/*
+body > div.pageContent.band > div > div.topicsContainer > div > div > div > div > div:nth-child(8){
+  border-top: solid 1px;
+}
+body > div.pageContent.band > div > div.topicsContainer > div > div > div > div > div:nth-child(10){
+  border-bottom: solid 1px;
+}
+*/
+
+body > div.pageContent.band > div > div.topicsContainer > div > div > div > div > div:nth-child(7),
+body > div.pageContent.band > div > div.topicsContainer > div > div > div > div > div:nth-child(8),
+body > div.pageContent.band > div > div.topicsContainer > div > div > div > div > div:nth-child(9),
+body > div.pageContent.band > div > div.topicsContainer > div > div > div > div > div:nth-child(10){
+   font-weight: bold;
+}
 /*
 .alert {
   padding: 10px;
