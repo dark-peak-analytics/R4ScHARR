@@ -43,7 +43,7 @@ knitr::opts_chunk$set(echo = FALSE)
 <font size="+1"> **Welcome to the R-4-ScHARR introductory R course site** </font>
 
 This site hosts instructions on installing R and R Studio as well as exercises for the course. 
-The course content can be accessed [here](https://scharr-pheds.github.io/R4ScHARR/). 
+The course content can be accessed [here](https://scharr-pheds.github.io/R4ScHARR/). The slides for the course can be found here: <link to slides>
 We hope that you find the course content useful.
 
 <br>
