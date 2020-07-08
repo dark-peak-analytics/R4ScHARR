@@ -7,16 +7,16 @@
 #=================================================================#
 # Ignore this section
 # pre-loaded the gapminder package from the library & wrote to github
-#install.packages("gapminder")
-#library(gapminder)
-#write.csv(x = df_gapminder,file = "data/df_gapminder.csv",row.names = F)
+# install.packages("gapminder")
+# library(gapminder)
+# write.csv(x = df_gapminder,file = "data/df_gapminder.csv",row.names = F)
 #=================================================================#
 
 # clear environment
 rm(list = ls())
 
 # read in the data from github
-df_gapminder <- read.csv("https://raw.githubusercontent.com/ScHARR-PHEDS/R4ScHARR/master/data/df_gapminder.csv")
+df_gapminder <- read.csv(file = "https://raw.githubusercontent.com/ScHARR-PHEDS/R4ScHARR/master/data/df_gapminder.csv")
 
 # lets look at the start of the data-set
 head(df_gapminder)
@@ -74,7 +74,6 @@ plot(x = df_plot$gdpPercap,
      ylab = "Life Expectancy",
      main = "Life Expectancy and GDP per capita in 1952"
 )
-
 
 #### these plots are very basic ... enter ggplot2
 
@@ -140,6 +139,20 @@ ggplot(data = df_gapminder[df_gapminder$year %in% c(1952,2007),],
        y = "Life Expectancy")+
   theme_classic() + 
   facet_grid(~year) 
+
+# we can store ggplot plots as objects
+plot1 <- ggplot(data = df_gapminder[df_gapminder$year %in% c(1952,2007),],
+                aes(x = gdpPercap, y = lifeExp, col = continent,size = pop))+
+  geom_point()+
+  scale_x_log10()+
+  labs(title = "Life Expectancy and GDP per capita in 1952",
+       x = "GDP per Capita ($)",
+       y = "Life Expectancy")+
+  theme_classic() + 
+  facet_grid(~year) 
+
+ggsave(plot = plot1,
+       filename = "outputs/gapminderplot.png")
 
 
 #========================================================#
