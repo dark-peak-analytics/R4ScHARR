@@ -15,8 +15,11 @@
 # clear environment
 rm(list = ls())
 
-# read in the data from github
+# read in the data from GitHub
 df_gapminder <- read.csv(file = "https://raw.githubusercontent.com/ScHARR-PHEDS/R4ScHARR/master/data/df_gapminder.csv")
+
+# if this file was on my computer I would need to specify the file relative to the working directory I am in:
+# df_gapminder <- read.csv(file = "data/df_gapminder.csv")
 
 # lets look at the start of the data-set
 head(df_gapminder)
@@ -26,16 +29,17 @@ str(df_gapminder)
 summary(df_gapminder)
 
 # lets see just data from 2007
-df_2007 <- df_gapminder[df_gapminder$year == 2007,]
+df_2007 <- df_gapminder[df_gapminder$year == 2007]
 head(df_2007)
 
 # lets see just data from 1800
 df_1952 <- df_gapminder[df_gapminder$year == 1952,]
 head(df_1952)
 
-
 # which country had the highest GDPpc in 2007?
-df_2007[which.max(df_2007$gdpPercap),]
+# THIS WILL THROW AN ERROR - WE CAN GOOGLE UP THE ERROR MESSAGE.
+df_2007[which.max(df_2007$gdpPercap)]
+# https://stackoverflow.com/questions/19205806/undefined-columns-selected-when-subsetting-data-frame
 
 #============== QUESTION =======
 # which country had the highest GDPpc in 1952?
@@ -55,7 +59,7 @@ plot(x = df_2007$gdpPercap,
       )
 
 #============== QUESTION =======
-# Can we recreate the plot for 1800?
+# Can we recreate the plot for 1952?
 plot(x = df_1952$gdpPercap,
      y = df_1952$lifeExp,
      type = "p",
@@ -75,11 +79,15 @@ plot(x = df_plot$gdpPercap,
      main = "Life Expectancy and GDP per capita in 1952"
 )
 
-#### these plots are very basic ... enter ggplot2
+#### these plots are very basic ... is there a more fancy plot than base R plot.
 
 #install.packages(ggplot2)
 library(ggplot2)
 head(df_gapminder)
+
+# a help file exists within the ggplot package.
+# help(ggplot2)
+
 
 # we can use ggplot as above.
 ggplot(data = df_gapminder[df_gapminder$year %in% 1952,],
@@ -119,6 +127,11 @@ facet_grid(~year)
 # lot of poorer countries and a few rich ones.
 hist(df_gapminder[df_gapminder$year %in% c(2007),"gdpPercap"])
 
+# how can we change the scale of the x axis?
+# LOOK THIS UP - DON'T KNOW IT OFF TOP OF HEAD.
+# cheatsheet: https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf
+# stack overflow: https://stackoverflow.com/questions/47890742/logarithmic-scale-plot-in-r
+
 # can therefore change the x axis to be on a log scale
 ggplot(data = df_gapminder[df_gapminder$year %in% c(1952,2007),],
        aes(x = gdpPercap, y = lifeExp, col = continent,size = pop))+
@@ -156,7 +169,7 @@ ggsave(plot = plot1,
 
 
 #========================================================#
-# create an animation
+# create an animation - this is cool, but no need to repeat.
 
 rm(list = ls())
 # install.packages("gganimate")
