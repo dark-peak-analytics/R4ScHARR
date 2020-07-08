@@ -4,15 +4,19 @@
 # Session 4 Script
 #=============
 
+#=================================================================#
+# Ignore this section
+# pre-loaded the gapminder package from the library & wrote to github
+#install.packages("gapminder")
+#library(gapminder)
+#write.csv(x = df_gapminder,file = "data/df_gapminder.csv",row.names = F)
+#=================================================================#
+
+# clear environment
 rm(list = ls())
 
-#install.packages("gapminder")
-
-# load the gapminder package from the library
-library(gapminder)
-
-# convert the data (which is in a 'tibble') to a data-frame
-df_gapminder <- as.data.frame(gapminder)
+# read in the data from github
+df_gapminder <- read.csv("https://raw.githubusercontent.com/ScHARR-PHEDS/R4ScHARR/master/data/df_gapminder.csv")
 
 # lets look at the start of the data-set
 head(df_gapminder)
@@ -141,18 +145,21 @@ ggplot(data = df_gapminder[df_gapminder$year %in% c(1952,2007),],
 #========================================================#
 # create an animation
 
+rm(list = ls())
 # install.packages("gganimate")
 # this is a development version of gganimate (currently in production)
 # devtools::install_github('thomasp85/gganimate')
 
 library(gganimate)
-library(gapminder)
+#library(gapminder)
+
+df_gapminder <- read.csv("https://raw.githubusercontent.com/ScHARR-PHEDS/R4ScHARR/master/data/df_gapminder.csv")
+
 theme_set(theme_bw())
 
 # a single animation plot
-ggplot(
-  gapminder, 
-  aes(x = gdpPercap, y=lifeExp, size = pop, colour = country)) +
+ggplot(data = df_gapminder,
+       aes(x = gdpPercap, y=lifeExp, size = pop, colour = country)) +
   geom_point(show.legend = FALSE, alpha = 0.7) +
   scale_color_viridis_d() +
   scale_size(range = c(2, 12)) +
@@ -163,7 +170,8 @@ ggplot(
   labs(title = 'Year: {frame_time}',x = 'GDP per capita', y = 'life expectancy')
 
 # with a facet
-  ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop, colour = country)) +
+  ggplot(df_gapminder, 
+         aes(gdpPercap, lifeExp, size = pop, colour = country)) +
     geom_point(alpha = 0.7, show.legend = FALSE) +
     scale_colour_manual(values = country_colors) +
     scale_size(range = c(2, 12)) +
