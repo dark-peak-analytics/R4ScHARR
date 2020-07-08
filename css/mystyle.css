@@ -1,3 +1,7 @@
+
+
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
+
 .btn-primary {
   /*
   This removes the 'Next Topic' from the tutorial
@@ -14,3 +18,43 @@
     margin-right: auto;
     margin-left: auto;
 }
+
+h3{
+  
+}
+
+h2{
+  padding-top: 20px;
+  margin-top: 75px;
+}
+.box{
+  width:90%;
+  display:inline-block;
+  padding-top: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  border-color: gray;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 15px;
+  
+}
+.alert {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+/*
+.alert {
+  padding: 10px;
+  background-color: lightgray; 
+  color: black;
+  margin-bottom: 15px;
+}
+box{
+  width: 100%;
+  border: 15px solid green;
+  padding: 50px;
+  margin: 20px;
+}
+*/

@@ -3,14 +3,16 @@ title: "R4ScHARR"
 author: "Robert Smith & Paul Schneider"
 tutorial:
   id: "R4ScHARR.day.1"
-  version: 0.1.1
+  version: 0.1.3
 output: 
   learnr::tutorial:
-    progressive: true
+    progressive: false
     allow_skip: true
-    theme: cosmo
+    theme: default
     css: "css/mystyle.css"
 runtime: shiny_prerendered
+DisplayMode: Showcase
+
 ---
 
 <!--ex-setup-r.Rmd-->
@@ -24,44 +26,49 @@ library(gradethis)
 
 tutorial_options(exercise.timelimit = 5, exercise.checker = gradethis::grade_learnr)
 knitr::opts_chunk$set(echo = FALSE)
-
+# source("./learnr_bugfix.R")
 ```
+
+<!-- 
+<img src="www/banner.png" width="100%"  align="left"> 
+-->
+<img src="www/banner_small.png" width="100%"  align="left"> 
 
 <br><br>
 
-
 ## Welcome
 
+<br>
 
-Welcome to the R-4-ScHARR introductory R course site. We hope that you find the course content useful.
+<font size="+1"> **Welcome to the R-4-ScHARR introductory R course site. We hope that you find the course content useful.** </font>
 
 <br>
 
-> Before the start of the course, please make sure that you have **R** and **R Studio** on your computer. The tutorial on the next page shows you how to install the software, if you haven't done this already. Go to: [How to install R](#link1)
+This web page contains (see navigation bar):
 
+  *  Instructions on how to install R and R Studio
 
-<br>
+  * Practical exercises for Session 1-3
 
-### Outline
-
-This web page contains:
-
-1) [Instructions on how to install R and R Studio](#link1)
-
-2) The course exercises (see Navigation Bar to the left)
-
-3) [Links to additional resources]{#link_Resources}
-
-
-some of the exercises we will go through during the course.  
-
-All the examples, R code, and other course material can be found on the <a href="https://github.com/ScHARR-PHEDS/R4ScHARR" target="_blank">ScHARR Github Repository</a>.
+  * [Links to additional resources](#link_Resources)
+  
+  * All examples and the R code used during the course can be found on the <a href="https://github.com/ScHARR-PHEDS/R4ScHARR" target="_blank">ScHARR Github Repository</a>.
 
 
 <br>
 
 
-### Course schedule
+> Before the start of the course, please make sure that you have **R** and **R Studio** on your computer. The tutorial on the next page shows you how to install the software, if you haven't done this already. <br>
+Go to: [How to install R](#link1)
+
+
+<br>
+
+
+
+#### Course schedule
+
+<br>
 
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTa0OgQxADt6OKoO2svUcoCt062PlxKy_zW7gvYQ9IXr9M1ogf--4E21sXO5fctI7w9jkuuQyqDaWGJ/embed?start=false&loop=false&delayms=60000&rm=minimal" frameborder="1"  allowfullscreen="false" mozallowfullscreen="false" webkitallowfullscreen="false" height="480" width="628" id="iframe1"></iframe>
 
@@ -70,7 +77,7 @@ All the examples, R code, and other course material can be found on the <a href=
 
 
 
-#### Who are we:
+### Who are we:
 
 <br>
 
@@ -104,8 +111,11 @@ fluidRow(
 
 <br><br>
 
+<!-- create button to link to next page -->
+<a href="exercises.Rmd#section-link1" class="btn btn-default skip">Continue</a>
 
 
+<!---------- How to install R ------------->
 
 
 ## How to install R{#link1}
@@ -132,9 +142,20 @@ The videos below provide a step by step guide to install R and R Studio on your 
 
 ![](https://vimeo.com/203516968)
 
+<br>
+
+<!-- create button to link to next page -->
+<a href="exercises.Rmd#section-instructions" class="btn btn-default skip">Continue</a>
 
 
-## Instructions
+
+
+<!---------- INSTRUCTIONS ------------->
+
+
+
+
+## Instructions{#instructions}
 
 When learning a programming language, it is important to *use it* and get a feel for how things work. In a in-person meeting, we would have multiple practical exercises that involve typing-in code and solving some problems with R/R Studio. We would walk around the room and answer any questions, in case you have technical problems, encounter cryptic error messages, or get stuck otherwise - this is part of the normal process of learning R and the initial confusion will soon dissolve.
 
@@ -144,13 +165,20 @@ This allows you to write R code in a safe environment, with automatic feedback a
 
 <br><br>
 
+<div class="box">
+
 #### First taste
 
-Now, give it a try, if you want: replace `"YOUR_NAME"` in the code block below with your own name (e.g. type `id = "Alice"`) and then click the <span style="display: inline;">
-  <a class="btn btn-success btn-xs btn-tutorial-run" type="button" title="" data-icon="fa-play"><i class="fa fa-play"></i> Run Code</a> </span> button on the right. The code is evaluated (run) and shows you the resulting output below - this is exactly the same as you would get from running the code within R.
+****
 
-If you get an error message, you accidentally delete something, or something else goes wrong, you can always click on <span style="display: inline;">
+> Now, give it a try: replace `"YOUR_NAME"` in the code block below with your own name and then click <span style="display: inline;">
+  <a class="btn btn-success btn-xs btn-tutorial-run" type="button" title="" data-icon="fa-play"><i class="fa fa-play"></i> Run Code</a> </span>.
+
+
+<div class="alert alert-info">
+**Info**:  The code is evaluated (run) and then prints the resulting output as it would if you ran this code within R. If you get stuck, click <a class="btn btn-light btn-xs btn-tutorial-solution" role="button" title="Hint"><i class="fa fa-lightbulb-o"></i> Hint</a> to get a hint, or <span style="display: inline;">
   <a class="btn btn-light btn-xs btn-tutorial-solution" role="button" title="Start Over"><i class="fa fa-refresh"></i> Start Over</a> to revert and restore the original code.
+</div>
 </span> 
 
 
@@ -163,24 +191,52 @@ id = "YOUR_NAME"
 cat("Hello",id,"- welcome to R4ScHARR!")
 ```
 
-## Session 1 exercises
 
-Intro text
+```{r my_first_lines_of_R-hint}
+# try:
+id = "Alice"
+cat("Hello",id,"- welcome to R4ScHARR!")
+```
+
+</div>
+
+<br>
+
+<!-- create button to link to next page -->
+<a href="exercises.Rmd#section-session1" class="btn btn-default skip">Continue</a>
+
+
+
+
+
+
+<!---------- SESSION 1 ------------->
+
+## Session 1 exercises{#session1}
+
+<br>
+
+### R as a fancy calculator
 
 To get started, let's use R to solve some simple computations. We give you the code for the first exercise, and you have to find the solution for the others.
 
 
 <br><br>
 
+<div class="box">
+
 #### Exercise 1.1 
 
+****
 
 > What is 1 plus 1?
 
 
-Just click on the <span style="display: inline;"> <a class="btn btn-success btn-xs btn-tutorial-run" type="button" title="" data-icon="fa-play"><i class="fa fa-play"></i> Run Code</a> </span> button on the right to get the result.
+<div class="alert alert-info">
+**Info**: Just click on the <span style="display: inline;"> <a class="btn btn-success btn-xs btn-tutorial-run" type="button" title="" data-icon="fa-play"><i class="fa fa-play"></i> Run Code</a> </span> button on the right to get the result.
+</div>
 
-```{r code1_1, exercise=TRUE, exercise.eval=FALSE,exercise.cap="Exercise 1.1"}
+```{r code1_1, exercise=TRUE, exercise.eval=FALSE}
 1+1
 ```
 
@@ -190,26 +246,34 @@ grade_result(
 )
 ```
 
+</div>
 
 <br><br>
 
+
+<div class="box">
 #### Exercise 1.2 - Now, it's your turn!
 
+****
+
 > What is 3 times 17 ?
+
+<div class="alert alert-info">
+**Info**:
 
   1. Type in the code to compute the results below
   2. Click <span style="display: inline;"> <a class="btn btn-success btn-xs btn-tutorial-run" type="button" title="" data-icon="fa-play"><i class="fa fa-play"></i> Run Code</a> </span>
   3. If you are unsure, click on <a class="btn btn-light btn-xs btn-tutorial-solution" role="button" title="Hint"><i class="fa fa-lightbulb-o"></i> Hint</a>
   4. To check if your answer is correct, click on <a class="btn btn-primary btn-xs btn-tutorial-run" type="button" title="Submit Answer" data-check="1" data-icon="fa-check-square-o"><i class="fa fa-check-square-o"></i> Submit Answer</a>
-
+</div>
 <br>
 
-```{r code1_2, exercise=TRUE, exercise.eval=FALSE,exercise.cap="Exercise 1.2"}
+```{r code1_2, exercise=TRUE, exercise.eval=FALSE}
 
 ```
 
-```{r code1_2-hint,exercise.cap="Type in"}
-# Just type in:
+```{r code1_2-hint}
+# Try:
   3 * 17
 ```
 
@@ -222,14 +286,22 @@ grade_result(
 )
 ```
 
+</div>
 
+<br>
+
+<div class="box">
 #### Exercise 1.3
+
+****
 
 > Create an object `d` equal to 10.
 
-(Note: this does not give you any output)
+<div class="alert alert-info">
+**Info**: this does not give you any output.
+</div>
 
-```{r code1_3a, exercise=TRUE, exercise.eval=FALSE,exercise.cap="Exercise 1.3a"}
+```{r code1_3a, exercise=TRUE, exercise.eval=FALSE}
 
 ```
 
@@ -251,125 +323,401 @@ grade_code(
 #   glue_correct = "Good job!"
 # )
 ```
+</div>
+<br>
 
+<div class="box">
+#### Exercise 1.4
+
+****
 
 > Divide `d` by 5. 
 
-```{r code1_3b-setup}
+```{r code1_4-setup}
 d = 10
 ```
 
-```{r code1_3b, exercise=TRUE, exercise.eval=FALSE,exercise.cap="Exercise 1.3b",exercise.setup = "code1_3b-setup" }
+```{r code1_4, exercise=TRUE, exercise.eval=FALSE,exercise.setup = "code1_4-setup" }
 
 ```
 
-```{r code1_3b-solution}
+```{r code1_4-solution}
 d/5
 ```
 
-```{r code1_3b-check}
+```{r code1_4-check}
 grade_result(
   pass_if(~ identical(.result, 2), "Well done!")
 )
 ```
 
+</div>
+<br>
+
+<div class="box">
+#### Exercise 1.5
+
+****
+
 > Overwrite `d`, let it now be equal to 20, and 'print' `d`, to see the results
 
 
-```{r code1_3c, exercise=TRUE, exercise.eval=FALSE,exercise.cap="Exercise 1.3c",exercise.setup = "code1_3b-setup" }
+```{r code1_5, exercise=TRUE, exercise.eval=FALSE,exercise.setup = "code1_4-setup" }
 
 ```
 
-```{r code1_3c-solution}
+```{r code1_5-solution}
 d = 20
 d
 ```
 
-```{r code1_3c-check}
+```{r code1_5-check}
 grade_result( 
   pass_if(~ identical(.result, 20), "Great!"),
   glue_incorrect = "That's not quite right. Try again or click on 'Solution'."
   )
 ```
 
+</div>
+<br>
+
+<div class="box">
+#### Exercise 1.6
+
+****
+
 > Overwrite `d` (which is now 20) with 4 times `d`, and print `d` top see the result
 
-```{r code1_3d-setup}
+```{r code1_6-setup}
 d = 20
 ```
 
-```{r code1_3d, exercise=TRUE, exercise.eval=FALSE,exercise.cap="Exercise 1.3d",exercise.setup = "code1_3d-setup"}
+```{r code1_6, exercise=TRUE, exercise.eval=FALSE,exercise.setup = "code1_6-setup"}
 
 ```
 
-```{r code1_3d-solution}
+```{r code1_6-solution}
 d = d * 4
 d
 ```
 
-```{r code1_3d-check}
+```{r code1_6-check}
 grade_result( 
-  pass_if(~ identical(.result, 80), "Brilliant!"),
+  pass_if(~ identical(.result, 80), ""),
   glue_incorrect = "That's not quite right. Try again or click on 'Solution'."
   )
 ```
 
-> Finally, overwrite `d` (which is now 80), with `d` times `d`, and print the result
 
-```{r code1_3e-setup}
+</div>
+<br>
+
+<div class="box">
+#### Exercise 1.7
+
+****
+
+> Overwrite `d` (which is now 80), with `d` times `d`, and print the result
+
+```{r code1_7-setup}
 d = 80
 ```
 
-```{r code1_3e, exercise=TRUE, exercise.eval=FALSE,exercise.cap="Exercise 1.3d",exercise.setup = "code1_3e-setup" }
+```{r code1_7, exercise=TRUE, exercise.eval=FALSE,exercise.setup = "code1_7-setup" }
 
 ```
 
-```{r code1_3e-solution}
+```{r code1_7-solution}
 d = d * d
 d
 ```
 
-```{r code1_3e-check}
+```{r code1_7-check}
 grade_result( 
-  pass_if(~ identical(.result, 6400), "Superb!"),
+  pass_if(~ identical(.result, 6400), ""),
+  glue_incorrect = "That's not quite right. Try again or click on 'Solution'."
+  )
+```
+
+</div>
+<br>
+
+<div class="box">
+#### Exercise 1.8
+
+****
+
+> Create a new object `A` and set it equal to 3
+
+```{r code1_8-setup}
+d = 6400
+```
+
+```{r code1_8, exercise=TRUE, exercise.eval=FALSE,exercise.setup = "code1_8-setup" }
+
+```
+
+```{r code1_8-solution}
+A = 3
+```
+
+```{r code1_8-check}
+grade_result( 
+  pass_if(~ identical(.result, 3), ""),
   glue_incorrect = "That's not quite right. Try again or click on 'Solution'."
   )
 ```
 
 
+</div>
+<br>
+
+<div class="box">
+#### Exercise 1.9
+
+****
+
+> Create another new object `res`, let it be the product of `d` and `A`, and output the result
+
+```{r code1_9-setup}
+d = 6400
+A = 3
+```
+
+```{r code1_9, exercise=TRUE, exercise.eval=FALSE,exercise.setup = "code1_9-setup" }
+
+```
+
+```{r code1_9-solution}
+res = d*A
+```
+
+```{r code1_9-check}
+grade_result( 
+  pass_if(~ identical(.result, 19200), ""),
+  glue_incorrect = "That's not quite right. Try again or click on 'Solution'."
+  )
+```
+
+</div>
+<br>
+
+<div class="box">
+#### Exercise 1.10
+
+****
+
+> Finally, take the average of `d`, `A` and `res`
+
+```{r code1_10-setup}
+d = 6400
+A = 3
+res = d * A
+```
+
+```{r code1_10, exercise=TRUE, exercise.eval=FALSE,exercise.setup = "code1_10-setup" }
+
+```
+
+```{r code1_10-solution}
+(d + A + res) / 3
+# you could also use
+mean(c(d, A, res))
+```
+
+```{r code1_10-check}
+grade_result(
+  pass_if(~ identical(.result, (6400 + 3 + 6400*3) / 3), "")
+)
+```
+
+</div>
+
+<br>
+
 ****
 
 
-2a) Create an object m equal to 7. 
+### Evaluations
 
-b) Overwrite m with m = m times 10. 
+Now, use R to evaluate the following equations for you:
 
-c) Create an object p equal to 2. 
+<br>
 
-d)Overwrite p with p = p times 12. 
+<div class="box">
+#### Exercise 1.11
 
-e) Create an object w equal to m divided by p. 
+****
 
-f) What values do m, p and w take? 
+> Is 4 greater than 2?  
 
-```{r,echo=FALSE, eval=FALSE}
-# create an object d which is 10.
-d <- 10 ; d <- d/5 ; d <- d*8 ; d <- d+8 ; d
-m <- 7 ; m <- m*10 ; p <- 2 ; p <- p*12 ; w <- m/p
+
+```{r code1_11, exercise=TRUE, exercise.eval=FALSE}
+
+```
+
+```{r code1_11-solution}
+4 > 2
+```
+
+```{r code1_11-check}
+grade_result(
+  pass_if(~ identical(.result, T), "")
+)
+```
+
+</div>
+<br>
+
+
+<div class="box">
+#### Exercise 1.12
+
+****
+
+> Is 5 less than 3?  
+
+
+```{r code1_12, exercise=TRUE, exercise.eval=FALSE}
+
+```
+
+```{r code1_12-solution}
+5<3
+```
+
+```{r code1_12-check}
+grade_result(
+  pass_if(~ identical(.result, F), "")
+)
+```
+
+</div>
+<br>
+
+<div class="box">
+#### Exercise 1.13
+
+****
+
+> Is 6.2 equal to 12.4/2?   
+
+
+<div class="alert alert-info">
+**Hint**: use `==` not `=`   
+</div>
+
+```{r code1_13, exercise=TRUE, exercise.eval=FALSE}
+
+```
+
+```{r code1_13-solution}
+6.2 == 12.4/2
+```
+
+```{r code1_13-check}
+grade_result(
+  pass_if(~ identical(.result, T), "")
+)
+```
+
+</div>
+<br>
+
+
+<div class="box">
+#### Exercise 1.14
+
+****
+
+>Is 5 equal to or greater than 4? 
+
+<div class="alert alert-info">
+**Hint**: use `>=`   
+</div>
+
+```{r code1_14, exercise=TRUE, exercise.eval=FALSE}
+
 ```
 
 
+```{r code1_14-solution}
+5 >= 4
+```
+
+```{r code1_14-check}
+grade_result(
+  pass_if(~ identical(.result, T), "")
+)
+```
+
+</div>
+<br>
+
+
+
+<div class="box">
+#### Exercise 1.15* - last one for this session
 
 ****
 
-Use R to answer the following questions for you:  
-1) Is 4 greater than 2?  
-2) Is 5 less than 3?  
-3) Is 6.2 equal to 12.4/2?   
-4) Is 5 equal to or greater than 4? (hint:  use >=)  
-5) Is 5 equal to or less than 5? (hint:  use <=)  
-2) Is 7.5 equal to 137.25/18?    
-3) m = 84 / 106, q = 156/3, is m/q greater than, less than or equal to 0.0152?  
+> I   Create an object `foo <- 8`
+> II  Create another object `bar <- 7`
+> III Is `foo` divided by `bar`  greater than 1.14 ?
+
+<div class="alert alert-info">
+**Info**: Put the code for subtask I in line 1, the code for subtask II in line 2,the code for subtask III in line 3, and hit <span style="display: inline;">
+  <a class="btn btn-success btn-xs btn-tutorial-run" type="button" title="" data-icon="fa-play"><i class="fa fa-play"></i> Run Code</a> </span>.
+</div>
+
+```{r code1_15-setup, exercise=TRUE, exercise.eval=FALSE}
+foo<-8
+bar<-7
+```
+
+```{r code1_15, exercise=TRUE, exercise.eval=FALSE,exercise.setup = "code1_15-setup" }
+
+```
+
+
+```{r code1_15-solution}
+8/7 > 1.14
+```
+
+```{r code1_15-check}
+grade_result(
+  pass_if(~ identical(.result, F), "")
+)
+```
+
+</div>
+<br>
+
+
+<!-- 
+
+  ADDITIONAL EXERCISES 
+  
+  2a) Create an object m equal to 7. 
+  
+  b) Overwrite m with m = m times 10. 
+  
+  c) Create an object p equal to 2. 
+  
+  d)Overwrite p with p = p times 12. 
+  
+  e) Create an object w equal to m divided by p. 
+  
+  f) What values do m, p and w take? 
+  ```{r,echo=FALSE, eval=FALSE}
+m <- 7 ; m <- m*10 ; p <- 2 ; p <- p*12 ; w <- m/p
+```
+-->
+
+
+****
+
+
 
 ****
 
@@ -377,7 +725,35 @@ Use R to answer the following questions for you:
 
 ## Session 2 exercises
 
+<div class="box">
+#### Exercise 2.2
+    
+****
+    
+>
+    
 
+    
+```{r code2_2-setup}
+
+```
+  
+```{r code2_2, exercise=TRUE, exercise.eval=FALSE,exercise.setup = "code2_2-setup" }
+  
+```
+  
+```{r code2_2-solution}
+  
+```
+  
+```{r code2_2-check}
+grade_result(
+  pass_if(~ identical(.result, 2), "")
+  )
+```
+  
+</div>
+<br>
   
   1) Select the 3rd row from the data frame
   
@@ -396,3 +772,5 @@ Use R to answer the following questions for you:
  
 
 ## Resources{#link_Resources}
+
+Text
