@@ -157,7 +157,7 @@ The videos below provide a step by step guide to install R and R Studio on your 
 
 <br><br>
 
-#### Install RStudio
+### Install RStudio
 
 ![](https://vimeo.com/203516968)
 
