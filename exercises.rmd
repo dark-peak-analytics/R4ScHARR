@@ -68,7 +68,19 @@ We hope that you find the content useful.
 
 <br>
 
-This course is an intro... bla bla
+This course is an introduction to programming in R. It is designed to provide delegates with a basic working knowledge of R. We move through the material very slowly, focusing on the 'base R' methods in the knowledge that many of the delegates will go on to learn alternative methods (e.g. pipes). If you have previous programming experience this course is likely to seem very slow. 
+
+If you have specific questions relating to the use of R for a project, Rob & Paul may be able to help with: 
+* epidemiology/medical statistics
+* micro-simulation models (Health Economics)
+* Markov models (Health Economics)
+* capacity modeling (Health Economics)
+* web-based applications (R-Shiny)
+* geo-spacial analysis
+* data scraping & APIs
+* beautiful plots
+
+
 
 
 <br><br>
@@ -95,7 +107,7 @@ fluidRow(
              )
 )
              
-             
+         
 
 
 
@@ -155,7 +167,8 @@ The videos below provide a step by step guide to install R and R Studio on your 
 <a href="exercises.Rmd#section-instructions" class="btn btn-default skip">Continue</a>
 -->
 
-
+If you are still struggling try this link:
+[Installing-R](https://rstudio-education.github.io/hopr/starting.html)
 
 
 <!---------- INSTRUCTIONS ------------->
@@ -220,7 +233,7 @@ cat("Hello",id,"- welcome to R4ScHARR!")
 
 <!---------- SESSION 1 ------------->
 
-## **Session 1 exercises**{#session1}
+## Session 1 exercises{#session1}
 
 <br>
 
