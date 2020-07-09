@@ -74,11 +74,12 @@ If you have specific questions relating to the use of R for a project, Rob & Pau
 * epidemiology/medical statistics
 * micro-simulation models (Health Economics)
 * Markov models (Health Economics)
+* Cost Effectiveness Modelling in R (Health Economics)
 * capacity modeling (Health Economics)
 * web-based applications (R-Shiny)
 * geo-spacial analysis
 * data scraping & APIs
-* beautiful plots
+* creating beautiful plots & visualizations.
 
 
 
