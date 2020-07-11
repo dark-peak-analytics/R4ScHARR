@@ -25,6 +25,13 @@ library(gradethis)
 tutorial_options(exercise.timelimit = 5, exercise.checker = gradethis::grade_learnr)
 knitr::opts_chunk$set(echo = FALSE)
 source("./learnr_bugfix.R")
+
+# create some global objects for the exercises
+.hidden_dat <- read.csv("https://raw.githubusercontent.com/ScHARR-PHEDS/R4ScHARR/master/data/df_framingham.csv")
+.hidden_cleaned_dat <- .hidden_dat[!is.na(.hidden_dat$sysBP),]  
+.hidden_dat_female <- .hidden_cleaned_dat[.hidden_cleaned_dat$sex == "female",]
+.hidden_dat_male <- .hidden_cleaned_dat[.hidden_cleaned_dat$sex == "male",]
+
 ```
 
 <!-- 
@@ -202,7 +209,9 @@ This allows you to write R code in a safe environment, with automatic feedback a
   <a class="btn btn-light btn-xs btn-tutorial-solution" role="button" title="Start Over"><i class="fa fa-refresh"></i> Start Over</a> to revert and restore the original code.
 </div>
 </span> 
-
+<div class="alert alert-warning">
+**Important!** Do not click run or submit the code if it is completely empty. This causes an error and disables the block of code.
+</div>
 
 
 
@@ -501,6 +510,12 @@ grade_result(
 
 > Create another new object `res`, let it be the product of `d` and `A`, and output the result
 
+<div class="alert alert-info">
+**Info**: R is case-sensitive. If you use `a` instead if `A`, it will give you an error message - try it for yourself."
+
+</div>
+<br>
+
 ```{r code1_9-setup}
 d = 6400
 A = 3
@@ -740,6 +755,7 @@ m <- 7 ; m <- m*10 ; p <- 2 ; p <- p*12 ; w <- m/p
 -->
 
 
+****
 
 <!-- create button to link to next page -->
 <a href="exercises.Rmd#section-session2" class="btn btn-default skip">Start Session 2 Exercise</a>
@@ -1093,17 +1109,570 @@ This task is a bit to complicated to have it checked automatically - please comp
 
 ## Session 3 exercises{#session3}
 
+<br>
+
+### Doing data analysis in R
+
+This exercise takes you through some of the main steps for analysing a data set in R.
+  
+  
+<br>
+  
+<div class="box">
+#### Exercise 3.1
+    
+****
+    
+> Use `ls()` to check your global enviroment.
+    
+<div class="alert alert-info">
+**Info**: When starting a new project, you should check your 'global environment' (= the objects existing in your R session) and make sure you don't have old, useless objects hanging around.
+</div>
+<br>
+    
+```{r code3_1-setup}
+some_old_forgotten_thing <- c("I am a useless object", "Someone has forgotten to remove me from the enviroment","Delete me!")
+```
+  
+```{r code3_1, exercise=TRUE, exercise.eval=FALSE,exercise.setup = "code3_1-setup" }
+  
+```
+  
+```{r code3_1-solution}
+ls()
+```
+  
+```{r code3_1-check}
+grade_code()
+```
+  
+</div>
+<br>
+
+
+
+  
+<div class="box">
+#### Exercise 3.2
+    
+****
+    
+> Clear the enviroment using the `rm()` function and check if it has worked.
+    
+<div class="alert alert-info">
+**Info**:You can use `rm` either with varibales' names (`c("varname_1", "varname_2",...)`), or, to remove all objects, you can use `ls()` itself as an argument for the function.
+</div>
+<br>
+    
+```{r code3_2-setup}
+some_old_forgotten_thing <- c("I am a useless object", "Someone has forgotten to remove me from the enviroment","Delete me!")
+```
+  
+```{r code3_2, exercise=TRUE, exercise.eval=FALSE,exercise.setup = "code3_2-setup" }
+  
+```
+  
+```{r code3_2-solution}
+rm(list=ls())
+# or rm("some_old_forgotten_thing")
+ls()
+```
+  
+```{r code3_2-check}
+grade_result(
+  pass_if(~ identical(.result, character()), "")
+  )
+```
+  
+</div>
+<br>
+
+
+
+  
+<div class="box">
+#### Exercise 3.3
+    
+****
+    
+> Load the raw data set into your enviroment and get an overview using the `str()` function.
+
+<div class="alert alert-info">
+**Info**: We give you the first line of code, because this is an online exercise and so we have to use a url to load the data. Usually, you would specify a local (relative) path on your computer (e.g. './data/framingham_sample.csv') or select the file manually with `file.choose()`.
+</div>
+<br>
+    
+    
+```{r code3_3-setup}
+
+
+```
+  
+```{r code3_3, exercise=TRUE, exercise.eval=FALSE,exercise.setup = "code3_3-setup" }
+dat <- read.csv("https://raw.githubusercontent.com/ScHARR-PHEDS/R4ScHARR/master/data/df_framingham.csv")
+```
+  
+```{r code3_3-solution}
+dat <- read.csv("https://raw.githubusercontent.com/ScHARR-PHEDS/R4ScHARR/master/data/df_framingham.csv")
+str(dat)
+```
+  
+```{r code3_3-check}
+dat <- .hidden_dat
+grade_result(
+  pass_if(~ identical(.result, str(dat)), "")
+  )
+```
+  
+</div>
+<br>
+
+
+
+  
+<div class="box">
+#### Exercise 3.4
+    
+****
+    
+> Inspect the first few rows of the `dat` data frame 
+    
+<div class="alert alert-info">
+**Info**:`tail(dat)` shows you the last few rows of the data frame.
+</div>
+<br>
+    
+```{r code3_4-setup}
+dat <- .hidden_dat
+```
+  
+```{r code3_4, exercise=TRUE, exercise.eval=FALSE,exercise.setup = "code3_4-setup" }
+  
+```
+  
+```{r code3_4-solution}
+head(dat)  
+```
+  
+```{r code3_4-check}
+dat <- .hidden_dat
+grade_result(
+  pass_if(~ identical(.result, head(dat)  ), "")
+  )
+```
+  
+</div>
+<br>
+
+
+  
+<div class="box">
+#### Exercise 3.5
+    
+****
+    
+> How many `NA` does `dat$sysBP` have?
+    
+<div class="alert alert-info">
+**Info**: `is.na(vector)` returns `T`/1 if vector is `NA`, and `F`/0 otherwise. 
+</div>
+<br>
+    
+```{r code3_5-setup}
+dat <- .hidden_dat
+```
+  
+```{r code3_5, exercise=TRUE, exercise.eval=FALSE,exercise.setup = "code3_5-setup" }
+  
+```
+  
+```{r code3_5-solution}
+  sum(is.na(dat$sysBP) )
+```
+  
+```{r code3_5-check}
+dat <- .hidden_dat
+grade_result(
+  pass_if(~ identical(.result, sum(is.na(dat$sysBP) )), "")
+  )
+```
+  
+</div>
+<br>
+
+
+  
+<div class="box">
+#### Exercise 3.6
+    
+****
+    
+> Remove all rows with `NA` from `dat`
+    
+    
+```{r code3_6-setup}
+dat <- .hidden_dat
+```
+  
+```{r code3_6, exercise=TRUE, exercise.eval=FALSE,exercise.setup = "code3_6-setup" }
+  
+```
+  
+```{r code3_6-solution}
+dat <- dat[!is.na(dat$sysBP),]  
+```
+  
+```{r code3_6-check}
+dat <- .hidden_dat
+dat <- dat[!is.na(dat$sysBP),]
+grade_result(pass_if(~ identical(.result, dat), ""))
+```
+  
+</div>
+<br>
+
+
+
+  
+<div class="box">
+#### Exercise 3.7
+    
+****
+    
+> Create a subset of `dat`, either containing only cases females, in that case name your new dataframe `dat_female`,  or only males, then call your new dataframe `dat_male`.
+    
+<div class="alert alert-info">
+**Info**: Only use one of the two options.
+</div>
+<br>
+    
+```{r code3_7-setup}
+dat <- .hidden_cleaned_dat
+```
+  
+```{r code3_7, exercise=TRUE, exercise.eval=FALSE,exercise.setup = "code3_7-setup" }
+
+```
+  
+```{r code3_7-solution}
+# Either
+dat_female <- dat[dat$sex == "female",]
+# or
+dat_male <- dat[dat$sex == "male",]
+```
+  
+```{r code3_7-check}
+dat <- .hidden_cleaned_dat
+dat_female <- dat[dat$sex == "female",]
+dat_male <- dat[dat$sex == "male",]
+
+grade_result(
+  pass_if(~ identical(.result, dat_female), ""),
+  pass_if(~ identical(.result, dat_male), "")
+  )
+```
+  
+</div>
+<br>
+
+
+
+
+  
+<div class="box">
+#### Exercise 3.8
+    
+****
+    
+> What is the median bloodpressure in your subsetted dataframe?
+    
+<div class="alert alert-info">
+**Info**: Analogous to `mean()`, there is a function in R called `median()`!
+</div>
+<br>
+    
+```{r code3_8-setup}
+dat_female <- .hidden_dat_female
+dat_male <- .hidden_dat_male
+```
+  
+```{r code3_8, exercise=TRUE, exercise.eval=FALSE,exercise.setup = "code3_8-setup" }
+  
+```
+  
+```{r code3_8-solution}
+# Either 
+median(dat_male$sysBP)
+# Or
+median(dat_female$sysBP)
+```
+  
+```{r code3_8-check}
+dat_female <- .hidden_dat_female
+dat_male <- .hidden_dat_male
+
+grade_result(
+  pass_if(~ identical(.result, median(dat_female$sysBP)), ""),
+  pass_if(~ identical(.result, median(dat_male$sysBP)), "")
+  )
+```
+  
+</div>
+<br>
+
+
+
+  
+<div class="box">
+#### Exercise 3.9
+    
+****
+    
+> What is the range (difference between highest and the lowest) of blood pressure values in your sample?
+    
+<div class="alert alert-info">
+**Info**: You may want to use the functions `max()` and `min()` for this.
+</div>
+<br>
+    
+```{r code3_9-setup}
+dat_female <- .hidden_dat_female
+dat_male <- .hidden_dat_male
+```
+  
+```{r code3_9, exercise=TRUE, exercise.eval=FALSE,exercise.setup = "code3_9-setup" }
+  
+```
+  
+```{r code3_9-solution}
+# Either
+max(dat_male$sysBP) - min(dat_male$sysBP) 
+# or
+max(dat_female$sysBP) - min(dat_female$sysBP) 
+```
+  
+```{r code3_9-check}
+dat_female <- .hidden_dat_female
+dat_male <- .hidden_dat_male
+
+grade_result(
+  pass_if(~ identical(.result, max(dat_male$sysBP) - min(dat_male$sysBP) ), ""),
+  pass_if(~ identical(.result, max(dat_female$sysBP) - min(dat_female$sysBP) ), "")
+  )
+```
+  
+</div>
+<br>
+
+
+
+  
+<div class="box">
+#### Exercise 3.10
+    
+****
+    
+> Create a histogram to view the disctribution of `sysBP` in your subsample.
+    
+<div class="alert alert-info">
+**Info**: If you want, you can try to use the `hist(...)` function with an additional style argument: `xlab = "Systolic blood pressure"`.
+</div>
+<br>
+    
+```{r code3_10-setup}
+dat_female <- .hidden_dat_female
+dat_male <- .hidden_dat_male
+```
+  
+```{r code3_10, exercise=TRUE, exercise.eval=FALSE,exercise.setup = "code3_10-setup" }
+  
+```
+  
+```{r code3_10-solution}
+# Either
+hist(dat_female$sysBP, xlab = "Systolic blood pressure")
+# or 
+hist(dat_male$sysBP, xlab = "Systolic blood pressure")
+```
+  
+```{r code3_10-check}
+dat_female <- .hidden_dat_female
+dat_male <- .hidden_dat_male
+
+grade_result(
+  pass_if(~ identical(.result, hist(dat_male$sysBP)), ""),
+  pass_if(~ identical(.result, hist(dat_male$sysBP, xlab = "Systolic blood pressure")), ""),
+  pass_if(~ identical(.result, hist(dat_female$sysBP)), ""),
+  pass_if(~ identical(.result, hist(dat_female$sysBP, xlab = "Systolic blood pressure")), "")
+  )
+```
+  
+</div>
+<br>
+
+  
+<div class="box">
+#### Exercise 3.11
+    
+****
+    
+> Fit a linear regression to model the association between `sysBP` and `age`. Call the model either fit_m (for males) or fit_f (for females). Then use `summary()` to inspect the details. 
+
+<div class="alert alert-info">
+**Info**:Use
+</div>
+<br>
+    
+```{r code3_11-setup}
+dat_female <- .hidden_dat_female
+dat_male <- .hidden_dat_male
+```
+  
+```{r code3_11, exercise=TRUE, exercise.eval=FALSE,exercise.setup = "code3_11-setup" }
+  
+```
+  
+```{r code3_11-solution}
+# Either
+fit_f <- lm(sysBP ~ age,data = dat_female)
+summary(fit_f)
+# Or
+fit_m <- lm(sysBP ~ age,data = dat_male)
+summary(fit_m)
+```
+  
+```
+Results cannot be evaluated automatically - refer to the solution to check your answer.
+```
+  
+</div>
+<br>
+
+
+<div class="box">
+#### Exercise 3.12
+    
+****
+    
+> Create a scatter plot for the relationship between age and systolic blood pressure in your subsample. 
+    
+<div class="alert alert-info">
+**Info**: Use `age` for the x-axis, and `sysBP` for the y-axis in the `plot()` function. And then use the `fit_f`/`fit_m` object in the `abline()` function.
+</div>
+<br>
+    
+```{r code3_12-setup}
+dat_female <- .hidden_dat_female
+dat_male <- .hidden_dat_male
+```
+  
+```{r code3_12, exercise=TRUE, exercise.eval=FALSE,exercise.setup = "code3_12-setup" }
+  
+```
+  
+```{r code3_12-solution}
+# Either
+plot(dat_male$age, dat_male$sysBP, xlab = "Age", ylab = "Systolic blood pressue")  
+abline(fit_m, col="blue",lwd = 3)  
+# Or 
+plot(dat_female$age, dat_female$sysBP, xlab = "Age", ylab = "Systolic blood pressue")    
+abline(fit_f, col="blue",lwd = 3)  
+```
+  
+```
+Results cannot be evaluated automatically - refer to the solution to check your answer.
+```
+  
+</div>
+<br>
+
+
+
+  
+<div class="box">
+#### Exercise 3.13* - Final exercise
+    
+****
+    
+> What is the predicted blood pressue of a 40 year old individual in your subsample? 
+    
+<div class="alert alert-info">
+**Info**: Beta regression coefficients can be retrieved from `fit_m$coefficients`/ `fit_f$coefficients`. 
+</div>
+<br>
+    
+```{r code3_13-setup}
+dat_female <- .hidden_dat_female
+dat_male <- .hidden_dat_male
+fit_f <- lm( sysBP ~ age,data = dat_female)
+fit_m <- lm( sysBP ~ age,data = dat_male)
+```
+  
+```{r code3_13, exercise=TRUE, exercise.eval=TRUE,exercise.setup = "code3_13-setup" }
+#  plot(dat_male$age, dat_male$sysBP)
+#  plot(dat_female$age, dat_female$sysBP)
+```
+  
+```{r code3_13-solution}
+# Either
+fit_m$coefficients[1] + 40 * fit_m$coefficients[2] 
+# Or 
+fit_f$coefficients[1] + 40 * fit_f$coefficients[2] 
+```
+
+```
+Discuss your result with the group.
+```
  
+<!--  
+```{r code3_13-check}
+dat_female <- .hidden_dat_female
+dat_male <- .hidden_dat_male
+fit_f <- lm( sysBP ~ age,data = dat_female)
+fit_m <- lm( sysBP ~ age,data = dat_male)
+
+grade_result(
+  pass_if(~ identical(.result, fit_m$coefficients[1] + 40 * fit_m$coefficients[2] ), ""),
+  pass_if(~ identical(.result, fit_f$coefficients[1] + 40 * fit_f$coefficients[2] ), "")
+  )
+```
+  -->
+</div>
+<br>
+
+
+****
+
 
 <!-- create button to link to next page -->
 <a href="exercises.Rmd#section-link_Resources" class="btn btn-default skip">Continue to further learning</a>
+
+
+
+
+
+
+
+
+
+
+
+<!------------------- FURTHER LEARNING ----------------------------------->
+
+
+
+
+
+
 
 ## Further learning{#link_Resources}
 
 We hope to see you again on further courses with us at ScHARR. However, alternative resources are available. If you aim to become an expert R user and have a considerable amount of time to learn (for example if you are a PhD student), then we would recommend the following pathway:
 
-### Introductory Material
+### Cheatsheets
+**[Cheatsheets](https://rstudio.com/resources/cheatsheets/)** provide quick references for how to use certain R packages or functions. They are not long texts or comprehensive manuals. Instead, they provide visual aids that use layout and visual mnemonics to help people zoom to the functions they need. For a start, you may find the [base R cheatsheet](https://rstudio.com/wp-content/uploads/2016/10/r-cheat-sheet-3.pdf) quite useful.
 
+### Introductory Material
 **[R for Data Science](https://r4ds.had.co.nz/)** is a good place to recap the materials taught in this course. The hard copy of Hadley Wickham and Garrett Grolemund's book of the same name (and content) is available on **[amazon](https://r4ds.had.co.nz/)**. A thorough understanding of the content in this book combined with a working knowledge of basic statistics will be enough to undertake independent research on simple topics in most health related fields. 
 
 ### Intermediate Material
@@ -1118,9 +1687,7 @@ We hope to see you again on further courses with us at ScHARR. However, alternat
 **[Advanced R](http://adv-r.had.co.nz/)** describes how R really works. It may be useful for those working on particularly computationally burdensome problems or who are interested in the computing behind R. For most researchers in health this is WAY beyond the level of understanding necessary for the day-job.  
 
 ### Swirl
-
 As well as these core texts we also recommend learning R with [swirl](https://swirlstats.com/). Swirl has a range of short courses (approx 30mins) which are undertaken within R. You can download swirl by typing **install.packages("swirl")** into R. Once installed load swirl from the library with **library(swirl)** and then follow instructions within R.
 
 ### Data Science for Public Health Economic Evaluation. 
-
 We are in the process of writing a book on data science for public health economic evaluation. It is available online for free here: **[r4phe](https://bookdown.org/rasmith3/r4phe/)**. Once finishes it will cover all the material in this course, then continue on through intermediate material, visualizations, simulations, user interfaces and collaboration. It is designed to aid the training of the next PhD cohort of Public Health Economics & Decision Science at the University of Sheffield.
