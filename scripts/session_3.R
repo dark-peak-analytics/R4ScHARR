@@ -4,89 +4,180 @@
 # Session 3 Script
 #=============
 
+#=============
+# Check your R enviroment  -----
+#=============
+
+# check
+ls()
+
+# clear the clutter
 rm(list = ls())
 
-#====================#
-# Keeping Track of progress in R ----
-#====================#
+# re-check
+ls()
 
-getwd()      # this line of code sets the working directory.
-paste("RRRRR")  # this line of code pastes RRRRR.
-#paste("RRRR") # this line doesn't
+#=============
+# Importing data -----
+#=============
 
-#====================#
-# Setting Working Directory ----
-#====================#
+# csv = comma separated values
+## Local file path
+dat <- read.csv("./data/df_framingham.csv")
 
-getwd()
+## Downloading files from the internet
+# dat <- read.csv("https://raw.githubusercontent.com/ScHARR-PHEDS/R4ScHARR/master/data/df_framingham.csv")
 
-filename = "C:/Users/Robert/Google Drive/Teaching/R Course/Intro_to_R"
-setwd(filename)
-getwd()
 
 #====================#
-# Importing Data ----
+# Get an overview of the data set ----
 #====================#
+str(dat)
 
-### CSV (Comma-seperated values)
+# a common error: NA
+mean(dat$sysBP)
 
-# car_Data <- read.csv(file = "car_Data.csv", header = TRUE)
-# if you couldn't get that to work don't worry, this is an example dataset from base R.
-car_Data <- mtcars
+# Inspect the first few rows of the data set
+head(dat)
 
-### Downloading files from the internet
-
-#use the function read_csv
-car_Data <- read.csv("https://raw.githubusercontent.com/RobertASmith/Intro_to_R/master/car_Data", header = TRUE)
+# --> NA values spooted!
 
 #====================#
-# Summarising Data ----
+# Missing values  ----
 #====================#
+dat$sysBP
 
-# head data with default 6 rows
-head(car_Data)
+is.na( dat$sysBP)
+sum( is.na( dat$sysBP ) ) 
 
-# head data with 10 rows
-head(car_Data, n = 10)
+# remove cases with missing values
+dat <- dat[!is.na(dat$sysBP), ]
+# dat <- dat[complete.cases(dat$sysBP), ]
 
-# summarise the data,
-summary(car_Data)
-# summarise single variable
-summary(car_Data$mpg)
-
-temp <- summary(car_Data$mpg)
-Median  <- temp['Median']
-Range   <- temp['Max.'] - temp['Min.']
 
 #====================#
-# Plotting Data ----
+# Simple stats ----
 #====================#
 
+# average blood pressure
+mean(dat$sysBP)
+# standard deviation
+sd(dat$sysBP)
 
-plot(x = car_Data$disp, y = car_Data$mpg)
-#notice we can remove arguments and still get same result
-plot(car_Data$disp, car_Data$mpg)
+# you can assign funtion outputs to objects
+BP_mean <- mean(dat$sysBP)
+BP_sd <- sd(dat$sysBP)
 
-plot(x = car_Data$disp, y = car_Data$mpg, 
-     type = "p", 
-     xlab = "Displacement", 
-     ylab = "Miles per Gallon",
-     main = "MPG vs Engine Displacement")
-
-hist1 <- hist(car_Data$mpg)
-#We can alter the 'bins' by specifying the additional argument 'breaks = ' in the hist function
-hist(car_Data$mpg, breaks = c(10,12.5,15,17.5,20,22.5,25,27.5,30,32.5,35))
-#a neater way of doing the same as above is to use seq
-hist(car_Data$mpg, breaks = seq(10,35, by = 2.5))
-#we can again edit the title etc by adding extra arguments
-hist(car_Data$mpg, 
-     breaks = seq(10,35, by = 2.5),
-     xlab = "Miles per gallon",
-     main = "Histogram of Miles per Gallon")
+# and use these objects afterwards
+BP_mean -  1.96 * BP_sd
+BP_mean +  1.96 * BP_sd
+# 
+# quantile(dat$heartRate, probs = c(0.05, 0.95))
 
 
+#====================#
+# Plotting your data: the histogram ----
+#====================#
+hist(dat$sysBP, breaks = 25)
+# add a line indicating the mean
+abline(v = BP_mean, col = "blue",lwd = 3)
+
+#====================#
+# Plotting your data: the scatter plot ----
+#====================#
+plot(x = dat$age, y = dat$sysBP)
+
+
+#====================#
+# Linear regression ----
+#====================#
+
+# fit a model
+fit.1 = lm(sysBP ~ age, data = dat)
+# show summary results
+summary(fit.1)
+# compute 95% confidence intervalls
+confint(fit.1)
+
+
+# We can now add the regression line to the scatter plot
+# plot(x = dat$age, y = dat$sysBP)
+abline(fit.1, col = "red", lwd = 5)
+
+# extract model coefficients
+fit.1$coefficients
+# Use coefficients to make predictions
+fit.1$coefficients[1] + 50 * fit.1$coefficients[2]
+# or use the 'predict' function for this:
+# predict(fit.1, newdata = data.frame(age=40))
+
+#
+
+# ----------------------------------------
+# Exercise 3 - Prelude
+
+# Number of males and females in the data set
+table(dat$sex)
+
+# Bloodpressure by sex
+## using a boxplot 
+boxplot(dat$sysBP ~ dat$sex)
+# no difference?
+
+mean(dat$sysBP[dat$sex=="female"])
+mean(dat$sysBP[dat$sex=="male"])
+# indeed it seems, no difference
+
+# multivariable regression
+fit.multi = lm(sysBP ~ age + sex, data = dat)
+summary(fit.multi)
+
+# regressions seems to confirm this: 
+# no difference in blood pressure between males and females?
+
+
+# However, this is actually not what we would expect, as the literature on this topic
+# is very clear in that there are signifcant differences in the diagnosis of
+# blood pressure between males and females
+
+# It's your job now to find out whats going on.
+# Divide into 2 teams: one uses a male-only data set, the other a females-only dataset
+# repeat the analysis for the subgroup and compare results
 
 
 
 
 
+
+# ------------------------------------
+# Exercise 3 - SOLUTION
+# ------------------------------------
+
+# Any questions/problems?
+
+# Ask for answers to questions 3.11 and 3.12
+
+# Any ideas what is going on here?
+
+# Show:
+
+## subgroup regressions
+fit_f <- lm(sysBP ~ age , data = dat[dat$sex == "female",])
+summary(fit_f)
+
+fit_m <- lm(sysBP ~ age , data = dat[dat$sex == "male",])
+summary(fit_m)
+
+## plot with subgroup lines
+plot(dat$age,dat$sysBP)
+abline(fit_f, col = "orange",lwd = 3) # females
+abline(fit_m, col = "magenta",lwd = 3) # males
+
+# Interaction!
+# need an interaction term
+fit.int = lm(sysBP ~ age * sex, data = dat)
+summary(fit.int) # sig.
+
+# --> explore your data before running analysis!
+# use plots, subsets, and summary stats to get a feel for the
+# variables you are dealing with.
