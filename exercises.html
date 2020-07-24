@@ -642,8 +642,8 @@ bar&lt;-7</code></pre>
 <p><br></p>
 <div id="section-subsetting" class="section level3">
 <h3>Subsetting</h3>
-<p>Suppose we want to subset this data frame, called <code>df</code>:</p>
-<pre><code>&gt; df
+<p>Suppose we want to subset this data frame, called <code>dat</code>:</p>
+<pre><code>&gt; dat
  height weight first_name sex      bmi
 1   1.38     31      Alice   F 16.27809
 2   1.45     35        Bob   M 16.64685
@@ -653,20 +653,26 @@ bar&lt;-7</code></pre>
 <h4 id="section-exercise-2.1">Exercise 2.1</h4>
 <hr />
 <blockquote>
-<p>Select the <strong>3rd row</strong> from the data frame <code>df</code></p>
+<p>Select the <strong>3rd row</strong> from the data frame <code>dat</code></p>
 </blockquote>
 <div class="tutorial-exercise-support" data-label="code2_1-setup" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>df &lt;- df</code></pre>
+<pre class="text"><code>dat = read.table(text=
+&quot;height weight first_name sex      bmi
+1   1.38     31      Alice   F 16.27809
+2   1.45     35        Bob   M 16.64685
+3   1.21     28      Harry   M 19.12438
+4   1.56     40       Jane   F 16.43655&quot;)
+primes &lt;- c(2,3,5,7,11) </code></pre>
 </div>
 <div class="tutorial-exercise" data-label="code2_1" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.timelimit":5,"exercise.setup":"code2_1-setup","exercise.checker":["function (label = NULL, solution_code = NULL, user_code = NULL, ","    check_code = NULL, envir_result = NULL, evaluate_result = NULL, ","    envir_prep = NULL, last_value = NULL, ...) ","{","    if (is.null(user_code)) {","        return(list(message = \"I didn't receive your code. Did you write any?\", ","            correct = FALSE, type = \"error\", location = \"append\"))","    }","    else {","        user_code <- parse(text = user_code)","        if (length(user_code) == 0) {","            return(list(message = \"I didn't receive your code. Did you write any?\", ","                correct = FALSE, type = \"error\", location = \"append\"))","        }","    }","    if (!is.null(solution_code)) {","        solution_code <- parse(text = solution_code)","        if (length(solution_code) == 0) {","            return(list(message = \"No solution is provided for this exercise.\", ","                correct = TRUE, type = \"info\", location = \"append\"))","        }","    }","    had_error_checking <- FALSE","    checked_result <- tryCatch({","        parsed_check_code <- parse(text = check_code)","        if (length(parsed_check_code) > 1) {","            for (i in 1:(length(parsed_check_code) - 1)) {","                eval(parsed_check_code[[i]], envir_prep)","            }","        }","        grading_code <- rlang::call_standardise(parsed_check_code[[length(parsed_check_code)]], ","            envir_prep)","        grader_args <- list(user_quo = rlang::as_quosure(user_code[[length(user_code)]], ","            envir_result))","        if (!is.null(solution_code)) {","            grader_args$solution_quo <- rlang::as_quosure(solution_code[[length(solution_code)]], ","                envir_prep)","        }","        learnr_args <- list(...)","        learnr_args$label <- label","        learnr_args$solution_code <- solution_code","        learnr_args$user_code <- user_code","        learnr_args$check_code <- check_code","        learnr_args$envir_result <- envir_result","        learnr_args$evaluate_result <- evaluate_result","        learnr_args$envir_prep <- envir_prep","        learnr_args$last_value <- last_value","        grading_code$grader_args <- grader_args","        grading_code$learnr_args <- learnr_args","        envir_prep$ans <- grader_args$user","        eval(grading_code, envir_prep)","    }, error = function(e) {","        message(\"\", e)","        had_error_checking <<- TRUE","        graded(correct = FALSE, message = \"Error occured while checking the submission\")","    })","    if (!checkmate::test_class(checked_result, \"grader_graded\")) {","        stop(\"`grade_learnr` should receive a `graded` value from every `-check` chunk\")","    }","    message_type <- if (had_error_checking) {","        \"warning\"","    }","    else {","        if (checked_result$correct) {","            \"success\"","        }","        else {","            \"error\"","        }","    }","    ret <- list(message = checked_result$message, correct = checked_result$correct, ","        type = message_type, location = \"append\")","    ret","}"]}</script>
 </div>
 <div class="tutorial-exercise-support" data-label="code2_1-solution" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>  df[3,]</code></pre>
+<pre class="text"><code>  dat[3,]</code></pre>
 </div>
 <div class="tutorial-exercise-support" data-label="code2_1-check" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>grade_result(
-  pass_if(~ identical(.result, df[3,]), &quot;&quot;)
+  pass_if(~ identical(.result, dat[3,]), &quot;&quot;)
   )</code></pre>
 </div>
 </div>
@@ -682,19 +688,19 @@ bar&lt;-7</code></pre>
 </div>
 <p><br></p>
 <div class="tutorial-exercise-support" data-label="code2_2-setup" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>df &lt;- df</code></pre>
+<pre class="text"><code>dat &lt;- dat</code></pre>
 </div>
 <div class="tutorial-exercise" data-label="code2_2" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.timelimit":5,"exercise.setup":"code2_2-setup","exercise.checker":["function (label = NULL, solution_code = NULL, user_code = NULL, ","    check_code = NULL, envir_result = NULL, evaluate_result = NULL, ","    envir_prep = NULL, last_value = NULL, ...) ","{","    if (is.null(user_code)) {","        return(list(message = \"I didn't receive your code. Did you write any?\", ","            correct = FALSE, type = \"error\", location = \"append\"))","    }","    else {","        user_code <- parse(text = user_code)","        if (length(user_code) == 0) {","            return(list(message = \"I didn't receive your code. Did you write any?\", ","                correct = FALSE, type = \"error\", location = \"append\"))","        }","    }","    if (!is.null(solution_code)) {","        solution_code <- parse(text = solution_code)","        if (length(solution_code) == 0) {","            return(list(message = \"No solution is provided for this exercise.\", ","                correct = TRUE, type = \"info\", location = \"append\"))","        }","    }","    had_error_checking <- FALSE","    checked_result <- tryCatch({","        parsed_check_code <- parse(text = check_code)","        if (length(parsed_check_code) > 1) {","            for (i in 1:(length(parsed_check_code) - 1)) {","                eval(parsed_check_code[[i]], envir_prep)","            }","        }","        grading_code <- rlang::call_standardise(parsed_check_code[[length(parsed_check_code)]], ","            envir_prep)","        grader_args <- list(user_quo = rlang::as_quosure(user_code[[length(user_code)]], ","            envir_result))","        if (!is.null(solution_code)) {","            grader_args$solution_quo <- rlang::as_quosure(solution_code[[length(solution_code)]], ","                envir_prep)","        }","        learnr_args <- list(...)","        learnr_args$label <- label","        learnr_args$solution_code <- solution_code","        learnr_args$user_code <- user_code","        learnr_args$check_code <- check_code","        learnr_args$envir_result <- envir_result","        learnr_args$evaluate_result <- evaluate_result","        learnr_args$envir_prep <- envir_prep","        learnr_args$last_value <- last_value","        grading_code$grader_args <- grader_args","        grading_code$learnr_args <- learnr_args","        envir_prep$ans <- grader_args$user","        eval(grading_code, envir_prep)","    }, error = function(e) {","        message(\"\", e)","        had_error_checking <<- TRUE","        graded(correct = FALSE, message = \"Error occured while checking the submission\")","    })","    if (!checkmate::test_class(checked_result, \"grader_graded\")) {","        stop(\"`grade_learnr` should receive a `graded` value from every `-check` chunk\")","    }","    message_type <- if (had_error_checking) {","        \"warning\"","    }","    else {","        if (checked_result$correct) {","            \"success\"","        }","        else {","            \"error\"","        }","    }","    ret <- list(message = checked_result$message, correct = checked_result$correct, ","        type = message_type, location = \"append\")","    ret","}"]}</script>
 </div>
 <div class="tutorial-exercise-support" data-label="code2_2-solution" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>  df$weight 
-# or df[,2] 
-# or df[,&quot;weight&quot;]</code></pre>
+<pre class="text"><code>  dat$weight 
+# or dat[,2] 
+# or dat[,&quot;weight&quot;]</code></pre>
 </div>
 <div class="tutorial-exercise-support" data-label="code2_2-check" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>grade_result(
-  pass_if(~ identical(.result, df$weight ), &quot;&quot;)
+  pass_if(~ identical(.result, dat$weight ), &quot;&quot;)
   )</code></pre>
 </div>
 </div>
@@ -706,7 +712,7 @@ bar&lt;-7</code></pre>
 <p>Select <code>Alice</code>’s data from the data frame.</p>
 </blockquote>
 <div class="alert alert-info">
-<p><strong>Info</strong>: It might be helpful to type in <code>df</code> and press <span style="display: inline;"> <a class="btn btn-success btn-xs btn-tutorial-run" type="button" title="" data-icon="fa-play"><i class="fa fa-play"></i> Run Code</a> </span>. to check which row Alice’s data is in.</p>
+<p><strong>Info</strong>: It might be helpful to type in <code>dat</code> and press <span style="display: inline;"> <a class="btn btn-success btn-xs btn-tutorial-run" type="button" title="" data-icon="fa-play"><i class="fa fa-play"></i> Run Code</a> </span>. to check which row Alice’s data is in.</p>
 </div>
 <p><br></p>
 <div class="tutorial-exercise-support" data-label="code2_3-setup" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
@@ -716,13 +722,13 @@ bar&lt;-7</code></pre>
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.timelimit":5,"exercise.setup":"code2_3-setup","exercise.checker":["function (label = NULL, solution_code = NULL, user_code = NULL, ","    check_code = NULL, envir_result = NULL, evaluate_result = NULL, ","    envir_prep = NULL, last_value = NULL, ...) ","{","    if (is.null(user_code)) {","        return(list(message = \"I didn't receive your code. Did you write any?\", ","            correct = FALSE, type = \"error\", location = \"append\"))","    }","    else {","        user_code <- parse(text = user_code)","        if (length(user_code) == 0) {","            return(list(message = \"I didn't receive your code. Did you write any?\", ","                correct = FALSE, type = \"error\", location = \"append\"))","        }","    }","    if (!is.null(solution_code)) {","        solution_code <- parse(text = solution_code)","        if (length(solution_code) == 0) {","            return(list(message = \"No solution is provided for this exercise.\", ","                correct = TRUE, type = \"info\", location = \"append\"))","        }","    }","    had_error_checking <- FALSE","    checked_result <- tryCatch({","        parsed_check_code <- parse(text = check_code)","        if (length(parsed_check_code) > 1) {","            for (i in 1:(length(parsed_check_code) - 1)) {","                eval(parsed_check_code[[i]], envir_prep)","            }","        }","        grading_code <- rlang::call_standardise(parsed_check_code[[length(parsed_check_code)]], ","            envir_prep)","        grader_args <- list(user_quo = rlang::as_quosure(user_code[[length(user_code)]], ","            envir_result))","        if (!is.null(solution_code)) {","            grader_args$solution_quo <- rlang::as_quosure(solution_code[[length(solution_code)]], ","                envir_prep)","        }","        learnr_args <- list(...)","        learnr_args$label <- label","        learnr_args$solution_code <- solution_code","        learnr_args$user_code <- user_code","        learnr_args$check_code <- check_code","        learnr_args$envir_result <- envir_result","        learnr_args$evaluate_result <- evaluate_result","        learnr_args$envir_prep <- envir_prep","        learnr_args$last_value <- last_value","        grading_code$grader_args <- grader_args","        grading_code$learnr_args <- learnr_args","        envir_prep$ans <- grader_args$user","        eval(grading_code, envir_prep)","    }, error = function(e) {","        message(\"\", e)","        had_error_checking <<- TRUE","        graded(correct = FALSE, message = \"Error occured while checking the submission\")","    })","    if (!checkmate::test_class(checked_result, \"grader_graded\")) {","        stop(\"`grade_learnr` should receive a `graded` value from every `-check` chunk\")","    }","    message_type <- if (had_error_checking) {","        \"warning\"","    }","    else {","        if (checked_result$correct) {","            \"success\"","        }","        else {","            \"error\"","        }","    }","    ret <- list(message = checked_result$message, correct = checked_result$correct, ","        type = message_type, location = \"append\")","    ret","}"]}</script>
 </div>
 <div class="tutorial-exercise-support" data-label="code2_3-solution" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>df[df$first_name == &quot;Alice&quot;,]
+<pre class="text"><code>dat[dat$first_name == &quot;Alice&quot;,]
 # or simply:
-# df[1,]</code></pre>
+# dat[1,]</code></pre>
 </div>
 <div class="tutorial-exercise-support" data-label="code2_3-check" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>grade_result(
-  pass_if(~ identical(.result, df[1,]), &quot;&quot;)
+  pass_if(~ identical(.result, dat[1,]), &quot;&quot;)
   )</code></pre>
 </div>
 </div>
@@ -731,28 +737,28 @@ bar&lt;-7</code></pre>
 <h4 id="section-exercise-2.4">Exercise 2.4</h4>
 <hr />
 <blockquote>
-<p>Print <code>df</code> without it’s first row</p>
+<p>Print <code>dat</code> without it’s first row</p>
 </blockquote>
 <div class="alert alert-info">
 <p><strong>Info</strong>: You can select rows 2,3, and 4, but you can also show everything except row 1 - try the latter approach.</p>
 </div>
 <p><br></p>
 <div class="tutorial-exercise-support" data-label="code2_4-setup" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>df &lt;- df</code></pre>
+<pre class="text"><code>dat &lt;- dat</code></pre>
 </div>
 <div class="tutorial-exercise" data-label="code2_4" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.timelimit":5,"exercise.setup":"code2_4-setup","exercise.checker":["function (label = NULL, solution_code = NULL, user_code = NULL, ","    check_code = NULL, envir_result = NULL, evaluate_result = NULL, ","    envir_prep = NULL, last_value = NULL, ...) ","{","    if (is.null(user_code)) {","        return(list(message = \"I didn't receive your code. Did you write any?\", ","            correct = FALSE, type = \"error\", location = \"append\"))","    }","    else {","        user_code <- parse(text = user_code)","        if (length(user_code) == 0) {","            return(list(message = \"I didn't receive your code. Did you write any?\", ","                correct = FALSE, type = \"error\", location = \"append\"))","        }","    }","    if (!is.null(solution_code)) {","        solution_code <- parse(text = solution_code)","        if (length(solution_code) == 0) {","            return(list(message = \"No solution is provided for this exercise.\", ","                correct = TRUE, type = \"info\", location = \"append\"))","        }","    }","    had_error_checking <- FALSE","    checked_result <- tryCatch({","        parsed_check_code <- parse(text = check_code)","        if (length(parsed_check_code) > 1) {","            for (i in 1:(length(parsed_check_code) - 1)) {","                eval(parsed_check_code[[i]], envir_prep)","            }","        }","        grading_code <- rlang::call_standardise(parsed_check_code[[length(parsed_check_code)]], ","            envir_prep)","        grader_args <- list(user_quo = rlang::as_quosure(user_code[[length(user_code)]], ","            envir_result))","        if (!is.null(solution_code)) {","            grader_args$solution_quo <- rlang::as_quosure(solution_code[[length(solution_code)]], ","                envir_prep)","        }","        learnr_args <- list(...)","        learnr_args$label <- label","        learnr_args$solution_code <- solution_code","        learnr_args$user_code <- user_code","        learnr_args$check_code <- check_code","        learnr_args$envir_result <- envir_result","        learnr_args$evaluate_result <- evaluate_result","        learnr_args$envir_prep <- envir_prep","        learnr_args$last_value <- last_value","        grading_code$grader_args <- grader_args","        grading_code$learnr_args <- learnr_args","        envir_prep$ans <- grader_args$user","        eval(grading_code, envir_prep)","    }, error = function(e) {","        message(\"\", e)","        had_error_checking <<- TRUE","        graded(correct = FALSE, message = \"Error occured while checking the submission\")","    })","    if (!checkmate::test_class(checked_result, \"grader_graded\")) {","        stop(\"`grade_learnr` should receive a `graded` value from every `-check` chunk\")","    }","    message_type <- if (had_error_checking) {","        \"warning\"","    }","    else {","        if (checked_result$correct) {","            \"success\"","        }","        else {","            \"error\"","        }","    }","    ret <- list(message = checked_result$message, correct = checked_result$correct, ","        type = message_type, location = \"append\")","    ret","}"]}</script>
 </div>
 <div class="tutorial-exercise-support" data-label="code2_4-solution" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>df[,-1]
+<pre class="text"><code>dat[,-1]
 # but you could also use:
-# df[2:4,]
+# dat[2:4,]
 # or
-# df[ c(F, T, T, T), ]</code></pre>
+# dat[ c(F, T, T, T), ]</code></pre>
 </div>
 <div class="tutorial-exercise-support" data-label="code2_4-check" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>grade_result(
-  pass_if(~ identical(.result, df[,-1]), &quot;&quot;)
+  pass_if(~ identical(.result, dat[,-1]), &quot;&quot;)
   )</code></pre>
 </div>
 </div>
@@ -774,11 +780,11 @@ bar&lt;-7</code></pre>
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.timelimit":5,"exercise.setup":"code2_5-setup","exercise.checker":["function (label = NULL, solution_code = NULL, user_code = NULL, ","    check_code = NULL, envir_result = NULL, evaluate_result = NULL, ","    envir_prep = NULL, last_value = NULL, ...) ","{","    if (is.null(user_code)) {","        return(list(message = \"I didn't receive your code. Did you write any?\", ","            correct = FALSE, type = \"error\", location = \"append\"))","    }","    else {","        user_code <- parse(text = user_code)","        if (length(user_code) == 0) {","            return(list(message = \"I didn't receive your code. Did you write any?\", ","                correct = FALSE, type = \"error\", location = \"append\"))","        }","    }","    if (!is.null(solution_code)) {","        solution_code <- parse(text = solution_code)","        if (length(solution_code) == 0) {","            return(list(message = \"No solution is provided for this exercise.\", ","                correct = TRUE, type = \"info\", location = \"append\"))","        }","    }","    had_error_checking <- FALSE","    checked_result <- tryCatch({","        parsed_check_code <- parse(text = check_code)","        if (length(parsed_check_code) > 1) {","            for (i in 1:(length(parsed_check_code) - 1)) {","                eval(parsed_check_code[[i]], envir_prep)","            }","        }","        grading_code <- rlang::call_standardise(parsed_check_code[[length(parsed_check_code)]], ","            envir_prep)","        grader_args <- list(user_quo = rlang::as_quosure(user_code[[length(user_code)]], ","            envir_result))","        if (!is.null(solution_code)) {","            grader_args$solution_quo <- rlang::as_quosure(solution_code[[length(solution_code)]], ","                envir_prep)","        }","        learnr_args <- list(...)","        learnr_args$label <- label","        learnr_args$solution_code <- solution_code","        learnr_args$user_code <- user_code","        learnr_args$check_code <- check_code","        learnr_args$envir_result <- envir_result","        learnr_args$evaluate_result <- evaluate_result","        learnr_args$envir_prep <- envir_prep","        learnr_args$last_value <- last_value","        grading_code$grader_args <- grader_args","        grading_code$learnr_args <- learnr_args","        envir_prep$ans <- grader_args$user","        eval(grading_code, envir_prep)","    }, error = function(e) {","        message(\"\", e)","        had_error_checking <<- TRUE","        graded(correct = FALSE, message = \"Error occured while checking the submission\")","    })","    if (!checkmate::test_class(checked_result, \"grader_graded\")) {","        stop(\"`grade_learnr` should receive a `graded` value from every `-check` chunk\")","    }","    message_type <- if (had_error_checking) {","        \"warning\"","    }","    else {","        if (checked_result$correct) {","            \"success\"","        }","        else {","            \"error\"","        }","    }","    ret <- list(message = checked_result$message, correct = checked_result$correct, ","        type = message_type, location = \"append\")","    ret","}"]}</script>
 </div>
 <div class="tutorial-exercise-support" data-label="code2_5-solution" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>  df[df$sex == &quot;F&quot;,]</code></pre>
+<pre class="text"><code>  dat[dat$sex == &quot;F&quot;,]</code></pre>
 </div>
 <div class="tutorial-exercise-support" data-label="code2_5-check" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>grade_result(
-  pass_if(~ identical(.result, df[df$sex == &quot;F&quot;,]), &quot;&quot;)
+  pass_if(~ identical(.result, dat[dat$sex == &quot;F&quot;,]), &quot;&quot;)
   )</code></pre>
 </div>
 </div>
@@ -833,7 +839,7 @@ bar&lt;-7</code></pre>
 <h4 id="section-exercise-2.8---last-one-for-this-session">Exercise 2.8* - last one for this session</h4>
 <hr />
 <blockquote>
-<p>Create an ‘animal top speed data frame’: <code>speed_df</code>. It should have three columns, named <code>animal</code>, <code>speed</code>, <code>flying</code>, and should contain the following information: <br> <br> The <code>"lion"</code> can run <code>80</code>km/h, it’s not flying. <br> The <code>"marlin"</code> can swim <code>129</code>km/h, it’s also not flying. <br> Finally, the <code>"eagle"</code> can do <code>240</code>km/h, and of course it’s flying.</p>
+<p>Create an ‘animal top speed data frame’: <code>speed_dat</code>. It should have three columns, named <code>animal</code>, <code>speed</code>, <code>flying</code>, and should contain the following information: <br> <br> The <code>"lion"</code> can run <code>80</code>km/h, it’s not flying. <br> The <code>"marlin"</code> can swim <code>129</code>km/h, it’s also not flying. <br> Finally, the <code>"eagle"</code> can do <code>240</code>km/h, and of course it’s flying.</p>
 </blockquote>
 <div class="alert alert-info">
 <p><strong>Info 1</strong>: The vector <code>flying</code> should be set to <code>TRUE</code> or <code>FALSE</code>.</p>
@@ -852,8 +858,8 @@ bar&lt;-7</code></pre>
 <pre class="text"><code>animal &lt;- c(&quot;lion&quot;, &quot;marlin&quot;, &quot;eagle&quot;)  
 speed &lt;- c(80, 129, 240)
 flying &lt;- c(F, F, T)
-speed_df &lt;- data.frame(animal, speed, flying)
-speed_df</code></pre>
+speed_dat &lt;- data.frame(animal, speed, flying)
+speed_dat</code></pre>
 </div>
 <pre><code>This task is a bit to complicated to have it checked automatically - please compare your result with the solution.</code></pre>
 </div>
@@ -937,11 +943,11 @@ ls()</code></pre>
 
 </div>
 <div class="tutorial-exercise" data-label="code3_3" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>dat &lt;- read.csv(&quot;https://raw.githubusercontent.com/ScHARR-PHEDS/R4ScHARR/master/data/df_framingham.csv&quot;)</code></pre>
+<pre class="text"><code>dat &lt;- read.csv(&quot;https://raw.githubusercontent.com/ScHARR-PHEDS/R4ScHARR/master/data/dat_framingham.csv&quot;)</code></pre>
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.timelimit":5,"exercise.setup":"code3_3-setup","exercise.checker":["function (label = NULL, solution_code = NULL, user_code = NULL, ","    check_code = NULL, envir_result = NULL, evaluate_result = NULL, ","    envir_prep = NULL, last_value = NULL, ...) ","{","    if (is.null(user_code)) {","        return(list(message = \"I didn't receive your code. Did you write any?\", ","            correct = FALSE, type = \"error\", location = \"append\"))","    }","    else {","        user_code <- parse(text = user_code)","        if (length(user_code) == 0) {","            return(list(message = \"I didn't receive your code. Did you write any?\", ","                correct = FALSE, type = \"error\", location = \"append\"))","        }","    }","    if (!is.null(solution_code)) {","        solution_code <- parse(text = solution_code)","        if (length(solution_code) == 0) {","            return(list(message = \"No solution is provided for this exercise.\", ","                correct = TRUE, type = \"info\", location = \"append\"))","        }","    }","    had_error_checking <- FALSE","    checked_result <- tryCatch({","        parsed_check_code <- parse(text = check_code)","        if (length(parsed_check_code) > 1) {","            for (i in 1:(length(parsed_check_code) - 1)) {","                eval(parsed_check_code[[i]], envir_prep)","            }","        }","        grading_code <- rlang::call_standardise(parsed_check_code[[length(parsed_check_code)]], ","            envir_prep)","        grader_args <- list(user_quo = rlang::as_quosure(user_code[[length(user_code)]], ","            envir_result))","        if (!is.null(solution_code)) {","            grader_args$solution_quo <- rlang::as_quosure(solution_code[[length(solution_code)]], ","                envir_prep)","        }","        learnr_args <- list(...)","        learnr_args$label <- label","        learnr_args$solution_code <- solution_code","        learnr_args$user_code <- user_code","        learnr_args$check_code <- check_code","        learnr_args$envir_result <- envir_result","        learnr_args$evaluate_result <- evaluate_result","        learnr_args$envir_prep <- envir_prep","        learnr_args$last_value <- last_value","        grading_code$grader_args <- grader_args","        grading_code$learnr_args <- learnr_args","        envir_prep$ans <- grader_args$user","        eval(grading_code, envir_prep)","    }, error = function(e) {","        message(\"\", e)","        had_error_checking <<- TRUE","        graded(correct = FALSE, message = \"Error occured while checking the submission\")","    })","    if (!checkmate::test_class(checked_result, \"grader_graded\")) {","        stop(\"`grade_learnr` should receive a `graded` value from every `-check` chunk\")","    }","    message_type <- if (had_error_checking) {","        \"warning\"","    }","    else {","        if (checked_result$correct) {","            \"success\"","        }","        else {","            \"error\"","        }","    }","    ret <- list(message = checked_result$message, correct = checked_result$correct, ","        type = message_type, location = \"append\")","    ret","}"]}</script>
 </div>
 <div class="tutorial-exercise-support" data-label="code3_3-solution" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>dat &lt;- read.csv(&quot;https://raw.githubusercontent.com/ScHARR-PHEDS/R4ScHARR/master/data/df_framingham.csv&quot;)
+<pre class="text"><code>dat &lt;- read.csv(&quot;https://raw.githubusercontent.com/ScHARR-PHEDS/R4ScHARR/master/data/dat_framingham.csv&quot;)
 str(dat)</code></pre>
 </div>
 <div class="tutorial-exercise-support" data-label="code3_3-check" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
@@ -1280,7 +1286,7 @@ grade_result(
 <p>We hope to see you again on further courses with us at ScHARR. However, alternative resources are available. If you aim to become an expert R user and have a considerable amount of time to learn (for example if you are a PhD student), then we would recommend the following pathway:</p>
 <div id="section-cheatsheets" class="section level3">
 <h3>Cheatsheets</h3>
-<p><strong><a href="https://rstudio.com/resources/cheatsheets/">Cheatsheets</a></strong> provide quick references for how to use certain R packages or functions. They are not long texts or comprehensive manuals. Instead, they provide visual aids that use layout and visual mnemonics to help people zoom to the functions they need. For a start, you may find the <a href="https://rstudio.com/wp-content/uploads/2016/10/r-cheat-sheet-3.pdf">base R cheatsheet</a> quite useful.</p>
+<p><strong><a href="https://rstudio.com/resources/cheatsheets/">Cheatsheets</a></strong> provide quick references for how to use certain R packages or functions. They are not long texts or comprehensive manuals. Instead, they provide visual aids that use layout and visual mnemonics to help people zoom to the functions they need. For a start, you may find the <a href="https://rstudio.com/wp-content/uploads/2016/10/r-cheat-sheet-3.pdat">base R cheatsheet</a> quite useful.</p>
 </div>
 <div id="section-introductory-material" class="section level3">
 <h3>Introductory Material</h3>
@@ -1487,7 +1493,7 @@ output$`tutorial-exercise-code1_15-output` <- renderUI({
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-learnr:::store_exercise_setup_chunk("code2_1-setup", "df <- df")
+learnr:::store_exercise_setup_chunk("code2_1-setup", c("dat = read.table(text=", "\"height weight first_name sex      bmi", "1   1.38     31      Alice   F 16.27809", "2   1.45     35        Bob   M 16.64685", "3   1.21     28      Harry   M 19.12438", "4   1.56     40       Jane   F 16.43655\")", "primes <- c(2,3,5,7,11) "))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
@@ -1498,7 +1504,7 @@ output$`tutorial-exercise-code2_1-output` <- renderUI({
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-learnr:::store_exercise_setup_chunk("code2_2-setup", "df <- df")
+learnr:::store_exercise_setup_chunk("code2_2-setup", "dat <- dat")
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
@@ -1520,7 +1526,7 @@ output$`tutorial-exercise-code2_3-output` <- renderUI({
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-learnr:::store_exercise_setup_chunk("code2_4-setup", "df <- df")
+learnr:::store_exercise_setup_chunk("code2_4-setup", "dat <- dat")
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">

@@ -2,7 +2,7 @@
 title: "R4ScHARR"
 tutorial:
   id: "R4ScHARR.day.1"
-  version: 0.1.3
+  version: 0.1.4
 output: 
   learnr::tutorial:
     progressive: false
@@ -58,7 +58,7 @@ source("./learnr_bugfix.R")
 **Links to other course material:**
 
 * <a href="https://scharr-pheds.github.io/R4ScHARR/" target="_blank">Course book and code examples</a>
-* <a href="" target="_blank">ScHARR Presentation slides</a>
+* <a href="https://drive.google.com/file/d/1CYWJPdE0wp-WjtAmcL2EmskhjBlhah-x/view?usp=sharing" target="_blank">Presentation slides</a>
 * <a href="https://github.com/ScHARR-PHEDS/R4ScHARR" target="_blank">ScHARR Github Repository</a>
 
 We hope that you find the content useful.
@@ -75,18 +75,19 @@ We hope that you find the content useful.
 
 <br>
 
-This course is an introduction to programming in R. It is designed to provide delegates with a basic working knowledge of R. We move through the material very slowly, focusing on the 'base R' methods in the knowledge that many of the delegates will go on to learn alternative methods (e.g. pipes). If you have previous programming experience this course is likely to seem very slow. 
+This course is an introduction to programming in R. It is designed to provide delegates with a basic working knowledge of R. We move through the material very slowly, focusing on the 'base R' methods in the knowledge that many of the delegates will go on to learn alternative methods (e.g. pipes). If you have previous programming experience this course is likely to seem slow. 
 
 If you have specific questions relating to the use of R for a project, Rob & Paul may be able to help with: 
-* epidemiology/medical statistics
-* micro-simulation models (Health Economics)
-* Markov models (Health Economics)
-* Cost Effectiveness Modelling in R (Health Economics)
-* capacity modeling (Health Economics)
-* web-based applications (R-Shiny)
-* geo-spacial analysis
-* data scraping & APIs
-* creating beautiful plots & visualizations.
+  
+  * Epidemiology/medical statistics
+  * Micro-simulation models (Health Economics)
+  * Markov models (Health Economics)
+  * Cost Effectiveness Modelling in R (Health Economics)
+  * Capacity modeling (Health Economics)
+  * Web-based applications (R-Shiny)
+  * Geo-spacial analysis
+  * Data scraping & APIs
+  * Creating beautiful plots & visualizations.    
 
 
 
@@ -699,7 +700,7 @@ grade_result(
 ****
 
 > I   Create an object `foo` and set it to be 8 <br>
-> II  Create another object `bar`, and srt it to be 7 <br>
+> II  Create another object `bar`, and set it to be 7 <br>
 > III Is `foo` divided by `bar`  greater than 1.14 ?
 
 <div class="alert alert-info">
@@ -768,7 +769,7 @@ m <- 7 ; m <- m*10 ; p <- 2 ; p <- p*12 ; w <- m/p
 
 
 ```{r include=FALSE}
-df = read.table(text=
+dat = read.table(text=
 "height weight first_name sex      bmi
 1   1.38     31      Alice   F 16.27809
 2   1.45     35        Bob   M 16.64685
@@ -780,10 +781,10 @@ primes <- c(2,3,5,7,11)
 
 ### Subsetting
 
-Suppose we want to subset this data frame, called `df`:
+Suppose we want to subset this data frame, called `dat`:
 
 ```
-> df
+> dat
  height weight first_name sex      bmi
 1   1.38     31      Alice   F 16.27809
 2   1.45     35        Bob   M 16.64685
@@ -798,12 +799,18 @@ Suppose we want to subset this data frame, called `df`:
     
 ****
     
-> Select the **3rd row** from the data frame `df`
+> Select the **3rd row** from the data frame `dat`
     
 
     
 ```{r code2_1-setup}
-df <- df
+dat = read.table(text=
+"height weight first_name sex      bmi
+1   1.38     31      Alice   F 16.27809
+2   1.45     35        Bob   M 16.64685
+3   1.21     28      Harry   M 19.12438
+4   1.56     40       Jane   F 16.43655")
+primes <- c(2,3,5,7,11) 
 ```
   
 ```{r code2_1, exercise=TRUE, exercise.eval=FALSE,exercise.setup = "code2_1-setup" }
@@ -811,12 +818,12 @@ df <- df
 ```
   
 ```{r code2_1-solution}
-  df[3,]
+  dat[3,]
 ```
   
 ```{r code2_1-check}
 grade_result(
-  pass_if(~ identical(.result, df[3,]), "")
+  pass_if(~ identical(.result, dat[3,]), "")
   )
 ```
 
@@ -837,7 +844,7 @@ grade_result(
 
     
 ```{r code2_2-setup}
-df <- df
+dat <- dat
 ```
   
 ```{r code2_2, exercise=TRUE, exercise.eval=FALSE,exercise.setup = "code2_2-setup" }
@@ -845,14 +852,14 @@ df <- df
 ```
   
 ```{r code2_2-solution}
-  df$weight 
-# or df[,2] 
-# or df[,"weight"]
+  dat$weight 
+# or dat[,2] 
+# or dat[,"weight"]
 ```
   
 ```{r code2_2-check}
 grade_result(
-  pass_if(~ identical(.result, df$weight ), "")
+  pass_if(~ identical(.result, dat$weight ), "")
   )
 ```
   
@@ -870,7 +877,7 @@ grade_result(
 
     
 <div class="alert alert-info">
-**Info**: It might be helpful to type in `df` and press <span style="display: inline;">
+**Info**: It might be helpful to type in `dat` and press <span style="display: inline;">
   <a class="btn btn-success btn-xs btn-tutorial-run" type="button" title="" data-icon="fa-play"><i class="fa fa-play"></i> Run Code</a> </span>. to check which row Alice's data is in.
 </div>
 <br>
@@ -884,14 +891,14 @@ grade_result(
 ```
   
 ```{r code2_3-solution}
-df[df$first_name == "Alice",]
+dat[dat$first_name == "Alice",]
 # or simply:
-# df[1,]
+# dat[1,]
 ```
   
 ```{r code2_3-check}
 grade_result(
-  pass_if(~ identical(.result, df[1,]), "")
+  pass_if(~ identical(.result, dat[1,]), "")
   )
 ```
   
@@ -905,7 +912,7 @@ grade_result(
     
 ****
     
-> Print `df` without it's first row
+> Print `dat` without it's first row
     
 <div class="alert alert-info">
 **Info**: You can select rows 2,3, and 4, but you can also show everything except row 1 - try the latter approach.
@@ -913,7 +920,7 @@ grade_result(
 <br>
     
 ```{r code2_4-setup}
-df <- df
+dat <- dat
 ```
   
 ```{r code2_4, exercise=TRUE, exercise.eval=FALSE,exercise.setup = "code2_4-setup" }
@@ -921,16 +928,16 @@ df <- df
 ```
   
 ```{r code2_4-solution}
-df[,-1]
+dat[-1,]
 # but you could also use:
-# df[2:4,]
+# dat[2:4,]
 # or
-# df[ c(F, T, T, T), ]
+# dat[ c(F, T, T, T), ]
 ```
   
 ```{r code2_4-check}
 grade_result(
-  pass_if(~ identical(.result, df[,-1]), "")
+  pass_if(~ identical(.result, dat[-1,]), "")
   )
 ```
   
@@ -960,12 +967,12 @@ grade_result(
 ```
   
 ```{r code2_5-solution}
-  df[df$sex == "F",]
+  dat[dat$sex == "F",]
 ```
   
 ```{r code2_5-check}
 grade_result(
-  pass_if(~ identical(.result, df[df$sex == "F",]), "")
+  pass_if(~ identical(.result, dat[dat$sex == "F",]), "")
   )
 ```
   
@@ -1012,7 +1019,7 @@ grade_code()
     
 ****
     
-> Print all `primes` that are larger than or equal to `5` using subsetting.
+> Print all `primes` that are smaller than or equal to `5` using subsetting.
     
     
 ```{r code2_7-setup}
@@ -1043,7 +1050,7 @@ grade_result(
     
 ****
     
-> Create an 'animal top speed data frame': `speed_df`. It should have three columns, named `animal`, `speed`, `flying`, and should contain the following information:
+> Create an 'animal top speed data frame': `speed_dat`. It should have three columns, named `animal`, `speed`, `flying`, and should contain the following information:
 <br> <br> The `"lion"` can run `80`km/h, it's not flying. <br> 
 The `"marlin"` can swim `129`km/h, it's also not flying. <br>
 Finally, the `"eagle"` can do `240`km/h, and of course it's flying.
@@ -1070,8 +1077,8 @@ Finally, the `"eagle"` can do `240`km/h, and of course it's flying.
 animal <- c("lion", "marlin", "eagle")  
 speed <- c(80, 129, 240)
 flying <- c(F, F, T)
-speed_df <- data.frame(animal, speed, flying)
-speed_df
+speed_dat <- data.frame(animal, speed, flying)
+speed_dat
 ```
   
 ```
@@ -1670,7 +1677,7 @@ grade_result(
 We hope to see you again on further courses with us at ScHARR. However, alternative resources are available. If you aim to become an expert R user and have a considerable amount of time to learn (for example if you are a PhD student), then we would recommend the following pathway:
 
 ### Cheatsheets
-**[Cheatsheets](https://rstudio.com/resources/cheatsheets/)** provide quick references for how to use certain R packages or functions. They are not long texts or comprehensive manuals. Instead, they provide visual aids that use layout and visual mnemonics to help people zoom to the functions they need. For a start, you may find the [base R cheatsheet](https://rstudio.com/wp-content/uploads/2016/10/r-cheat-sheet-3.pdf) quite useful.
+**[Cheatsheets](https://rstudio.com/resources/cheatsheets/)** provide quick references for how to use certain R packages or functions. They are not long texts or comprehensive manuals. Instead, they provide visual aids that use layout and visual mnemonics to help people zoom to the functions they need. For a start, you may find the [base R cheatsheet](https://rstudio.com/wp-content/uploads/2016/10/r-cheat-sheet-3.pdat) quite useful.
 
 ### Introductory Material
 **[R for Data Science](https://r4ds.had.co.nz/)** is a good place to recap the materials taught in this course. The hard copy of Hadley Wickham and Garrett Grolemund's book of the same name (and content) is available on **[amazon](https://r4ds.had.co.nz/)**. A thorough understanding of the content in this book combined with a working knowledge of basic statistics will be enough to undertake independent research on simple topics in most health related fields. 
