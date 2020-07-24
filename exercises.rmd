@@ -1616,8 +1616,7 @@ fit_m <- lm( sysBP ~ age,data = dat_male)
 ```
   
 ```{r code3_13, exercise=TRUE, exercise.eval=TRUE,exercise.setup = "code3_13-setup" }
-#  plot(dat_male$age, dat_male$sysBP)
-#  plot(dat_female$age, dat_female$sysBP)
+
 ```
   
 ```{r code3_13-solution}
@@ -1631,19 +1630,7 @@ fit_f$coefficients[1] + 40 * fit_f$coefficients[2]
 Discuss your result with the group.
 ```
  
-<!--  
-```{r code3_13-check}
-dat_female <- .hidden_dat_female
-dat_male <- .hidden_dat_male
-fit_f <- lm( sysBP ~ age,data = dat_female)
-fit_m <- lm( sysBP ~ age,data = dat_male)
 
-grade_result(
-  pass_if(~ identical(.result, fit_m$coefficients[1] + 40 * fit_m$coefficients[2] ), ""),
-  pass_if(~ identical(.result, fit_f$coefficients[1] + 40 * fit_f$coefficients[2] ), "")
-  )
-```
-  -->
 </div>
 <br>
 
