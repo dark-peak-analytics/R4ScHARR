@@ -11,7 +11,7 @@ rm(list = ls())
 #====================#
 
 # numeric
-height <- c(1.38,1.45,1.21,1.56)
+height <- c(1.38,1.45,1.21,1.56) # combine is used to create the vector.
 height
 # numeric
 weight <- c(45,42,43,50)
@@ -25,7 +25,7 @@ first_name
 sex <- factor(x = c("F","M","M","F"))
 sex
 # logical
-tall <- height > 1.5
+tall <- height > 1.4
 
 #=====================#
 # Operations on different data structures
@@ -67,16 +67,16 @@ df[,c(1,3)]
 #selecting a row(s)
 df[1,]
 #We might also want to select observations (rows) based on the characteristics of the data
-#E.g. we might want to only look at the data for people who are taller than 1.75m
-#create a logical variable called min_height which contains T/F for each individual being over 175cm.
-min_height <- df$height >= 1.75
+#E.g. we might want to only look at the data for people who are taller than 1.40m
+#create a logical variable called min_height which contains T/F for each individual being over 140cm.
+min_height <- df$height >= 1.4
 min_height
-# Subset the data to include only those observations (rows) for which height > 175cm (using min_height).
-df.at_least_175 <- df[min_height,]
-df.at_least_175
-#People smaller than 1.75m
-# Subset the data to include only those who are not above min-height of 175cm.
-smaller <- df$height < 1.75
+# Subset the data to include only those observations (rows) for which height > 140cm (using min_height).
+df.at_least_140 <- df[min_height,]
+df.at_least_140
+#People smaller than 1.4m
+# Subset the data to include only those who are not above min-height of 140cm.
+smaller <- df$height < 1.4
 df[smaller,]
 df[!min_height,]
 

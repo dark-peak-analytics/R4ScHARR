@@ -20,6 +20,10 @@ rm(list = ls())
 10^3
 # root isn't a basic operation so we will look at this later.
 
+# order of operations:
+5*6+2
+5*(6+2)
+
 #=====================#
 # Objects ----
 #=====================#
@@ -53,7 +57,8 @@ b
 # change a to be 5 less than it was originally
 a <- a - 5
 a-b
-# a and b are equal!!!
+# a and b are equal!!
+
 
 #=====================#
 # See our Objects  ----

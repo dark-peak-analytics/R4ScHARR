@@ -128,7 +128,7 @@ mean(dat$sysBP[dat$sex=="female"])
 mean(dat$sysBP[dat$sex=="male"])
 # indeed it seems, no difference
 
-# multivariable regression
+# multivariate regression
 fit.multi = lm(sysBP ~ age + sex, data = dat)
 summary(fit.multi)
 
