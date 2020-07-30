@@ -110,7 +110,7 @@ fluidRow(
           
          
 # Paul profile
-         div(style="display: inline-block;vertical-align:top; width: 45%; padding-left:20px;",HTML('<a href="https://www.sheffield.ac.uk/scharr/staff-pgrs/studentprofiles/paulschneider" target="_blank">Paul Schneider</a> joined ScHARR in 2018. He is working on conceptual and methodological problems in valuing health outcomes in economic evaluations. A medical doctor and epidemiologist by training, he has used R in various research projects, ranging from the modeling costs of breast cancer, and value of information analyses, to the monitoring of influenza in real-time using online data. He is a keen advocate of open science practices.')),
+         div(style="display: inline-block;vertical-align:top; width: 45%; padding-left:20px;",HTML('<a href="https://bitowaqr.github.io/" target="_blank">Paul Schneider</a> joined ScHARR in 2018. He is working on conceptual and methodological problems in valuing health outcomes in economic evaluations. A medical doctor and epidemiologist by training, he has used R in various research projects, ranging from the modeling costs of breast cancer, and value of information analyses, to the monitoring of influenza in real-time using online data. He is a keen advocate of open science practices.')),
          div(style="display: inline-block;vertical-align:top;",
              img(src="www/paul.jpg",width="200px", align="right")
              )
@@ -769,13 +769,13 @@ m <- 7 ; m <- m*10 ; p <- 2 ; p <- p*12 ; w <- m/p
 
 
 ```{r include=FALSE}
-dat = read.table(text=
-"height weight first_name sex      bmi
-1   1.38     31      Alice   F 16.27809
-2   1.45     35        Bob   M 16.64685
-3   1.21     28      Harry   M 19.12438
-4   1.56     40       Jane   F 16.43655")
-primes <- c(2,3,5,7,11) 
+# dat = read.table(text=
+# "height weight first_name sex      bmi
+# 1   1.38     31      Alice   F 16.27809
+# 2   1.45     35        Bob   M 16.64685
+# 3   1.21     28      Harry   M 19.12438
+# 4   1.56     40       Jane   F 16.43655")
+# primes <- c(2,3,5,7,11) 
 ```
 
 
@@ -810,7 +810,9 @@ dat = read.table(text=
 2   1.45     35        Bob   M 16.64685
 3   1.21     28      Harry   M 19.12438
 4   1.56     40       Jane   F 16.43655")
+dat<<- dat
 primes <- c(2,3,5,7,11) 
+primes<<-primes
 ```
   
 ```{r code2_1, exercise=TRUE, exercise.eval=FALSE,exercise.setup = "code2_1-setup" }
@@ -821,7 +823,7 @@ primes <- c(2,3,5,7,11)
   dat[3,]
 ```
   
-```{r code2_1-check}
+```{r code2_1-check,exercise.setup = "code2_1-setup" }
 grade_result(
   pass_if(~ identical(.result, dat[3,]), "")
   )
@@ -857,7 +859,7 @@ dat <- dat
 # or dat[,"weight"]
 ```
   
-```{r code2_2-check}
+```{r code2_2-check,exercise.setup = "code2_2-setup" }
 grade_result(
   pass_if(~ identical(.result, dat$weight ), "")
   )
