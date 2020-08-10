@@ -1,7 +1,7 @@
 # Exercise - one group uses subset male and one female
 
 # ------------------------------------
-# 1. check you enviroment
+# 1. check your enviroment
 ls()
 
 # 2. clear old df 

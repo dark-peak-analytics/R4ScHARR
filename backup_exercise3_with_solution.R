@@ -2,7 +2,7 @@
 
 # ------------------------------------
 # MALE subset
-# 1. check you enviroment
+# 1. check your enviroment
 ls() # there will be a fake old object
 
 # 2. clear old df 
