@@ -33,7 +33,7 @@ median(dat_male$sysBP)
 # 8. what is the maximum BP?
 max(dat_male$sysBP)
 
-# 10. what is the total range of VP values, i.e. the difference between the highest and the lowest?
+# 10. what is the total range of BP values, i.e. the difference between the highest and the lowest?
 max(dat_male$sysBP) - min(dat_male$sysBP)
 
 # 11. plot a histogram of BP in males/females
