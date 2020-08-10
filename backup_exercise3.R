@@ -9,7 +9,7 @@ rm(list = ls())
 
 # 3. read in the data from a website 
 # dat <- read.csv("URL")
-dat <- read.csv("./data/framingham2.csv")
+dat <- read.csv("https://raw.githubusercontent.com/ScHARR-PHEDS/R4ScHARR/master/data/df_framingham.csv")
 
 
 # 4. get an overview of the dataframe using the str functiom
