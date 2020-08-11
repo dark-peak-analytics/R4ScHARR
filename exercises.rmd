@@ -724,7 +724,7 @@ bar<-7
 
 ```{r code1_15-check}
 grade_result(
-  pass_if(~ identical(.result, F), "")
+  pass_if(~ identical(.result, T), "")
 )
 ```
 
@@ -1666,10 +1666,10 @@ Discuss your result with the group.
 We hope to see you again on further courses with us at ScHARR. However, alternative resources are available. If you aim to become an expert R user and have a considerable amount of time to learn (for example if you are a PhD student), then we would recommend the following pathway:
 
 ### Cheatsheets
-**[Cheatsheets](https://rstudio.com/resources/cheatsheets/)** provide quick references for how to use certain R packages or functions. They are not long texts or comprehensive manuals. Instead, they provide visual aids that use layout and visual mnemonics to help people zoom to the functions they need. For a start, you may find the [base R cheatsheet](https://rstudio.com/wp-content/uploads/2016/10/r-cheat-sheet-3.pdat) quite useful.
+**[Cheatsheets](https://rstudio.com/resources/cheatsheets/)** provide quick references for how to use certain R packages or functions. They are not long texts or comprehensive manuals. Instead, they provide visual aids that use layout and visual mnemonics to help people zoom to the functions they need. For a start, you may find the [base R cheatsheet](https://github.com/rstudio/cheatsheets/blob/master/base-r.pdf) quite useful.
 
 ### Introductory Material
-**[R for Data Science](https://r4ds.had.co.nz/)** is a good place to recap the materials taught in this course. The hard copy of Hadley Wickham and Garrett Grolemund's book of the same name (and content) is available on **[amazon](https://r4ds.had.co.nz/)**. A thorough understanding of the content in this book combined with a working knowledge of basic statistics will be enough to undertake independent research on simple topics in most health related fields. 
+**[R for Data Science](https://r4ds.had.co.nz/)** is a good place to recap the materials taught in this course. The hard copy of Hadley Wickham and Garrett Grolemund's book of the same name (and content) is available on **[amazon](https://www.amazon.com/R-Data-Science-Hadley-Wickham/dp/1491910399/ref=as_li_ss_tl?ie=UTF8&qid=1469550189&sr=8-1&keywords=R+for+data+science&linkCode=sl1&tag=devtools-20&linkId=6fe0069f9605cf847ed96c191f4e84d)**. A thorough understanding of the content in this book combined with a working knowledge of basic statistics will be enough to undertake independent research on simple topics in most health related fields. 
 
 ### Intermediate Material
 
