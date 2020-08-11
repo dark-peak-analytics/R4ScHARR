@@ -64,7 +64,7 @@ mean(dat$sysBP)
 # standard deviation
 sd(dat$sysBP)
 
-# you can assign funtion outputs to objects
+# you can assign function outputs to objects
 BP_mean <- mean(dat$sysBP)
 BP_sd <- sd(dat$sysBP)
 
