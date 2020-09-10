@@ -17,9 +17,16 @@ The course makes use of the authors' experiences of working with R for data-scie
 
 # Who are we:
 
-Rob & Paul work at the intersection between public health, economics and data-science. They are both based at the School of Health and Related Research at the University of Sheffield.
+Rob & Paul work at the intersection between public health, economics and data-science. They are both based at the School of Health and Related Research at the University of Sheffield. Rob and Paul are joint funded by the Wellcome Trust Doctoral Training Centre in Public Health Economics and Decision Science [108903] and the University of Sheffield.
 
 *[Robert Smith](https://www.linkedin.com/in/robert-smith-53b28438/)* joined ScHARR in 2016. His research focuses on the methods used to estimate the costs and benefits of public health interventions, with a specific interest in microsimulation modelling in R. He has become increasingly interested in the use of web based user interfaces (in R-Shiny) to make research more transparent and to aid decision makers. While doing his PhD, Robert has been involved in multiple projects with the World Health Organization and parkrunUK.
 
 *[Paul Schneider](https://bitowaqr.github.io/)* joined ScHARR in 2018. He is working on conceptual and methodological problems in valuing health outcomes in economic evaluations. A medical doctor and epidemiologist by training, he has used R in various research projects, ranging from the modeling costs of breast cancer, and value of information analyses, to the monitoring of influenza in real-time using online data. He is a keen advocate of open science practices.
+
+Contact:   rasmith3@sheffield.ac.uk
+
+Website: [Dark Peak Analytics](https://www.darkpeakanalytics.com)
+
+
+
 
