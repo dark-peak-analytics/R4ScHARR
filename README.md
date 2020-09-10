@@ -5,7 +5,7 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/ScHARR-PHEDS/R4ScHARR?color=red&style=plastic)
 ![GitHub top language](https://img.shields.io/github/languages/top/ScHARR-PHEDS/R4ScHARR?style=plastic)
 ![GitHub repo size](https://img.shields.io/github/repo-size/ScHARR-PHEDS/R4ScHARR?style=plastic)
-[![GitHub forks](https://img.shields.io/github/forks/ScHARR-PHEDS/R4ScHARR?style=social&label=Fork&maxAge=2592000)](https://GitHub.com/RobertASmith/shiny_healthy_economics/network/)
+[![GitHub forks](https://img.shields.io/github/forks/ScHARR-PHEDS/R4ScHARR?style=social&label=Fork&maxAge=2592000)](https://GitHub.com/ScHARR-PHEDS/R4ScHARR/network/)
 
 Repository for the R4ScHARR online intro course to R. 
 
