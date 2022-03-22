@@ -17,7 +17,7 @@ The course makes use of the authors' experiences of working with R for data-scie
 
 # Timetable
 
-Time &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Leader | Files    |Section                                                                                                                                                                      
+Time &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|Leader|Files|Section                                                                                                                                                                      
 ------------------|---------|-----------|-----------------------------
 9:30 - 10:00 |Rob   |         |Welcome & Introductions                                                                                                                                                      
 10:00 - 10:25|Rob   |         |Why R? What is R?, Benefits of R, Benefits of R for decision modelling                                                                                                       
