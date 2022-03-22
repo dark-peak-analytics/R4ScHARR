@@ -30,7 +30,16 @@ Time &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|Leade
 14:00-14:45| Rob   | 4 |**Data analysis** - 45mins Plotting data, Linear regression, Downloading packages                                                                                                
 14:45-15:00|      |         |Break - time to move about and stretch your legs                                                                                                                                                               
 15:00-16:00| Rob   | 5 |**Learning more about R** How to troubleshoot and where to find info, Where to go to learn more, What are the next steps, and what is possible, Observation: Case study analysis.
-16:00-16:30| Rob   |         |**Feedback and recap** We are happy to remain on-line to answer specific questions.                                                                                               
+16:00-16:30| Rob   |         |**Feedback and recap** We are happy to remain on-line to answer specific questions. 
+
+# Materials
+
+We will work through the materials at a gradual pace to ensure that everyone can follow. The session will be informal and friendly and we welcome questions throughout. However if you want to see the content it can be found here:
+
+[Slides](https://github.com/ScHARR-PHEDS/R4ScHARR/blob/master/presentations/Intro%20to%20R%20230322.pptx.pdf)
+[Example Scripts](https://github.com/ScHARR-PHEDS/R4ScHARR/tree/master/scripts)
+[Exercises](https://github.com/ScHARR-PHEDS/R4ScHARR/tree/master/Exercises)
+[Example Data](https://github.com/ScHARR-PHEDS/R4ScHARR/tree/master/data)
 
 # Who are we:
 
