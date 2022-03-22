@@ -1,226 +1,142 @@
-#=============
+#=============#
 # R4ScHARR 
-# Robert Smith & Paul Schneider
+# Robert Smith, Paul Schneider & Sarah Bates
 # Session 4 Script
-#=============
+#=============#
 
-#=================================================================#
-# Ignore this section
-# pre-loaded the gapminder package from the library & wrote to github
-# install.packages("gapminder")
-# library(gapminder)
-# write.csv(x = df_gapminder,file = "data/df_gapminder.csv",row.names = F)
-#=================================================================#
+#=============#
+# Check your R environment  -----
+#=============#
 
-# clear environment
+# check
+ls()
+
+# clear the clutter
 rm(list = ls())
 
-# read in the data from GitHub
-df_gapminder <- read.csv(file = "https://raw.githubusercontent.com/ScHARR-PHEDS/R4ScHARR/master/data/df_gapminder.csv")
+# re-check
+ls()
 
-# if this file was on my computer I would need to specify the file relative to the working directory I am in:
-# df_gapminder <- read.csv(file = "data/df_gapminder.csv")
+#=============#
+# Importing data -----
+#=============#
 
-# lets look at the start of the data-set
-head(df_gapminder)
+# csv = comma separated values
+## Local file path
+dat <- read.csv("./data/df_framingham.csv")
 
-# now lets see some basic summary stats:
-str(df_gapminder)
-summary(df_gapminder)
+## Downloading files from the internet
+# dat <- read.csv("https://raw.githubusercontent.com/ScHARR-PHEDS/R4ScHARR/master/data/df_framingham.csv")
 
-# lets see just data from 2007
-df_2007 <- df_gapminder[df_gapminder$year == 2007]
-head(df_2007)
+#====================#
+# Plotting your data: the histogram ----
+#====================#
 
-# lets see just data from 1800
-df_1952 <- df_gapminder[df_gapminder$year == 1952,]
-head(df_1952)
+hist(dat$sysBP, breaks = 25)
+# add a line indicating the mean
+abline(v = BP_mean, col = "blue",lwd = 3)   # Why does this not work?
 
-# which country had the highest GDPpc in 2007?
-# THIS WILL THROW AN ERROR - WE CAN GOOGLE UP THE ERROR MESSAGE.
-df_2007[which.max(df_2007$gdpPercap)]
-# https://stackoverflow.com/questions/19205806/undefined-columns-selected-when-subsetting-data-frame
+# Let's try again...
+BP_mean <- mean(dat$sysBP,na.rm = T)
+abline(v = BP_mean, col = "blue",lwd = 3)
 
-#============== QUESTION =======
-# which country had the highest GDPpc in 1952?
-# df_1952[which.max(df_1952$gdpPercap),]
-
-#============== QUESTION =======
-# which country had the longest life expectancy in 2007?
-# df_2007[which.max(df_2007$lifeExp),]
-
-# lets create a simple scatter plot for GDPpc & life expectancy in 2007
-plot(x = df_2007$gdpPercap,
-     y = df_2007$lifeExp,
-     type = "p",
-     xlab = "GDP per Capita ($)",
-     ylab = "Life Expectancy",
-     main = "Life Expectancy and GDP per capita in 2007"
-      )
-
-#============== QUESTION =======
-# Can we recreate the plot for 1952?
-plot(x = df_1952$gdpPercap,
-     y = df_1952$lifeExp,
-     type = "p",
-     xlab = "GDP per Capita ($)",
-     ylab = "Life Expectancy",
-     main = "Life Expectancy and GDP per capita in 2007"
-)
-
-#there is a problem, can we remove the outlier?
-df_plot <- df_1952[-which.max(df_1952$gdpPercap),]
-
-plot(x = df_plot$gdpPercap,
-     y = df_plot$lifeExp,
-     type = "p",
-     xlab = "GDP per Capita ($)",
-     ylab = "Life Expectancy",
-     main = "Life Expectancy and GDP per capita in 1952"
-)
-
-#### these plots are very basic ... is there a more fancy plot than base R plot.
-
-#install.packages(ggplot2)
-library(ggplot2)
-head(df_gapminder)
-
-# a help file exists within the ggplot package.
-# help(ggplot2)
+#====================#
+# Plotting your data: the scatter plot ----
+#====================#
+plot(x = dat$age, y = dat$sysBP)
 
 
-# we can use ggplot as above.
-ggplot(data = df_gapminder[df_gapminder$year %in% 1952,],
-       aes(x = gdpPercap, y = lifeExp))+
-  geom_point()+
-  labs(title = "Life Expectancy and GDP per capita in 1952",
-       x = "GDP per Capita ($)",
-       y = "Life Expectancy")
+#====================#
+# Linear regression ----
+#====================#
 
-# but we can change sizes to represent populations
-ggplot(data = df_gapminder[df_gapminder$year %in% c(1952),],
-       aes(x = gdpPercap, y = lifeExp, size = pop))+
-  geom_point()+
-  labs(title = "Life Expectancy and GDP per capita in 1952",
-       x = "GDP per Capita ($)",
-       y = "Life Expectancy")
-
-# and add in colors to represent continents
-ggplot(data = df_gapminder[df_gapminder$year %in% c(1952),],
-       aes(x = gdpPercap, y = lifeExp, size = pop, col = continent))+
-  geom_point()+
-  labs(title = "Life Expectancy and GDP per capita in 1952",
-       x = "GDP per Capita ($)",
-       y = "Life Expectancy")
-
-# and put two plots together to show the change from 1952 to 2007
-ggplot(data = df_gapminder[df_gapminder$year %in% c(1952,2007),],
-       aes(x = gdpPercap, y = lifeExp, col = continent,size = pop))+
-  geom_point()+
-  labs(title = "Life Expectancy and GDP per capita in 1952",
-       x = "GDP per Capita ($)",
-       y = "Life Expectancy")+
-facet_grid(~year)
+# fit a model
+fit.1 = lm(sysBP ~ age, data = dat)
+# show summary results
+summary(fit.1)
+# compute 95% confidence intervalls
+confint(fit.1)
 
 
-# the gdp data is not very uniformly distributed, 
-# lot of poorer countries and a few rich ones.
-hist(df_gapminder[df_gapminder$year %in% c(2007),"gdpPercap"])
+# We can now add the regression line to the scatter plot
+# plot(x = dat$age, y = dat$sysBP)
+abline(fit.1, col = "red", lwd = 5)
 
-# how can we change the scale of the x axis?
-# LOOK THIS UP - DON'T KNOW IT OFF TOP OF HEAD.
-# cheatsheet: https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf
-# stack overflow: https://stackoverflow.com/questions/47890742/logarithmic-scale-plot-in-r
-
-# can therefore change the x axis to be on a log scale
-ggplot(data = df_gapminder[df_gapminder$year %in% c(1952,2007),],
-       aes(x = gdpPercap, y = lifeExp, col = continent,size = pop))+
-  geom_point()+
-  scale_x_log10()+
-  labs(title = "Life Expectancy and GDP per capita in 1952",
-       x = "GDP per Capita ($)",
-       y = "Life Expectancy")+
-  facet_grid(~year) 
-
-# can also change the theme to classic
-ggplot(data = df_gapminder[df_gapminder$year %in% c(1952,2007),],
-       aes(x = gdpPercap, y = lifeExp, col = continent,size = pop))+
-  geom_point()+
-  scale_x_log10()+
-  labs(title = "Life Expectancy and GDP per capita in 1952",
-       x = "GDP per Capita ($)",
-       y = "Life Expectancy")+
-  theme_classic() + 
-  facet_grid(~year) 
-
-# we can store ggplot plots as objects
-plot1 <- ggplot(data = df_gapminder[df_gapminder$year %in% c(1952,2007),],
-                aes(x = gdpPercap, y = lifeExp, col = continent,size = pop))+
-  geom_point()+
-  scale_x_log10()+
-  labs(title = "Life Expectancy and GDP per capita in 1952",
-       x = "GDP per Capita ($)",
-       y = "Life Expectancy")+
-  theme_classic() + 
-  facet_grid(~year) 
-
-ggsave(plot = plot1,
-       filename = "outputs/gapminderplot.png")
+# extract model coefficients
+fit.1$coefficients
+# Use coefficients to make predictions
+fit.1$coefficients[1] + 50 * fit.1$coefficients[2]
+# or use the 'predict' function for this:
+ predict(fit.1, newdata = data.frame(age=40))
 
 
-#========================================================#
-# create an animation - this is cool, but no need to repeat.
+# --------------------- #
+# Exercise 3 - Prelude ----
+# --------------------- #
 
-rm(list = ls())
-# install.packages("gganimate")
-# this is a development version of gganimate (currently in production)
-# devtools::install_github('thomasp85/gganimate')
+# Number of males and females in the data set
+table(dat$sex)
 
-library(gganimate)
-#library(gapminder)
+# Bloodpressure by sex
+## using a boxplot 
+boxplot(dat$sysBP ~ dat$sex)
+# no difference?
 
-df_gapminder <- read.csv("https://raw.githubusercontent.com/ScHARR-PHEDS/R4ScHARR/master/data/df_gapminder.csv")
+mean(dat$sysBP[dat$sex=="female"],na.rm = T)
+mean(dat$sysBP[dat$sex=="male"], na.rm = T)
+# indeed it seems, no difference
+t.test(x = dat$sysBP[dat$sex=="female"], y = dat$sysBP[dat$sex=="male"])
 
-theme_set(theme_bw())
+# multivariate regression
+fit.multi = lm(sysBP ~ age + sex, data = dat)
+summary(fit.multi)
 
-# a single animation plot
-ggplot(data = df_gapminder,
-       aes(x = gdpPercap, y=lifeExp, size = pop, colour = country)) +
-  geom_point(show.legend = FALSE, alpha = 0.7) +
-  scale_color_viridis_d() +
-  scale_size(range = c(2, 12)) +
-  scale_x_log10() +
-  labs(x = "GDP per capita ($)", y = "Life expectancy")+
-    # animation specific
-  transition_time(year) +
-  labs(title = 'Year: {frame_time}',x = 'GDP per capita', y = 'life expectancy')
+# regressions seems to confirm this: 
+# no difference in blood pressure between males and females?
 
-# with a facet
-  ggplot(df_gapminder, 
-         aes(gdpPercap, lifeExp, size = pop, colour = country)) +
-    geom_point(alpha = 0.7, show.legend = FALSE) +
-    scale_colour_manual(values = country_colors) +
-    scale_size(range = c(2, 12)) +
-    scale_x_log10() +
-    facet_wrap(~continent) +
-    # Here comes the gganimate specific bits
-    labs(title = 'Year: {frame_time}', x = 'GDP per capita', y = 'life expectancy') +
-    transition_time(year) +
-    ease_aes('linear')
+
+# However, this is actually not what we would expect, as the literature on this topic
+# is very clear in that there are significant differences in the diagnosis of
+# blood pressure between males and females
+
+# It's your job now to find out what is going on.
+# Divide into 2 teams: one uses a male-only data set, the other a females-only dataset
+# repeat the analysis for the subgroup and compare results
 
 
 
 
 
 
+# ----------------------#
+# Exercise 3 - SOLUTION -----
+# ----------------------#
 
+# Any questions/problems?
 
+# Ask for answers to questions 3.11 and 3.12
 
+# Any ideas what is going on here?
 
+# Show:
 
+## subgroup regressions
+fit_f <- lm(sysBP ~ age , data = dat[dat$sex == "female",])
+summary(fit_f)
 
+fit_m <- lm(sysBP ~ age , data = dat[dat$sex == "male",])
+summary(fit_m)
 
+## plot with subgroup lines
+plot(dat$age,dat$sysBP)
+abline(fit_f, col = "orange",lwd = 3) # females
+abline(fit_m, col = "magenta",lwd = 3) # males
 
+# Interaction!
+# need an interaction term
+fit.int = lm(sysBP ~ age * sex, data = dat)
+summary(fit.int) # sig.
 
-
-
+# --> explore your data before running analysis!
+# use plots, subsets, and summary stats to get a feel for the
+# variables you are dealing with.

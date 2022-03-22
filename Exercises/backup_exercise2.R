@@ -21,7 +21,7 @@ dat = read.table(text=
 
 #Select Alice’s data from the data frame.
 
-#Info: It might be helpful to type in dat and press  . to check which row Alice’s data is in.
+#Info: It might be helpful to type in dat run this code to check which row Alice’s data is in.
 
 
 

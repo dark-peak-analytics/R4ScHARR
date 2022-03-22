@@ -1,51 +1,53 @@
 # Exercise - one group uses subset male and one female
 
 # ------------------------------------
-# 1. check your enviroment
+# 1. Use ls() to check your global enviroment
+# Info: When starting a new project, you should check your ‘global environment’ (= the objects existing in your R session) 
+# and make sure you don’t have old, useless objects hanging around.
 ls()
 
-# 2. clear old df 
+# 
+
+# 2. Clear the enviroment using the rm() function and check if it has worked.
+# Info:You can use rm either with varibales’ names (c("varname_1", "varname_2",...)), or, to remove all objects, 
+# you can use ls() itself as an argument for the function.
 rm(list = ls())
 
-# 3. read in the data from a website 
+# 3. Load the raw data set into your enviroment and get an overview using the str() function
 # dat <- read.csv("URL")
 dat <- read.csv("https://raw.githubusercontent.com/ScHARR-PHEDS/R4ScHARR/master/data/df_framingham.csv")
 
+# 4. Inspect the first few rows of the dat data frame
+# Info:tail(dat) shows you the last few rows of the data frame.
 
-# 4. get an overview of the dataframe using the str functiom
-
-# 5. look at the first few rows using the head function
-
-
-# 6. how many NAs are there in sysBP?
+# 5. How many NA does dat$sysBP have?
+# Info: is.na(vector) returns T/1 if vector is NA, and F/0 otherwise.
 
 
-# 7. remove all NAs and overwrite dat
+# 6. Remove all rows with NA from dat
 
 
-# 8. subset dat by sex - either select males or females
+# 7. Create a subset of dat, either containing only females cases, in the case name our new dataframe dat_female
+#    or only males, then call your new dataframe dat_male.
+
+# 8. what is the median blood pressure (sysBP) in the subsetted dataframe?
+# Info: Analogous to mean(), there is a function in R called median()!
 
 
-# 9. what is the median sys bp in the subsetted dataframe?
+# 9. What is the range (difference between highest and the lowest) of blood pressure values in your sample?
+# Info: You may want to use the functions max() and min() for this.
 
 
-# 8. what is the maximum BP?
+# 10. Plot a histogram of BP in males/females
+# Info: If you want, you can try to use the hist(...) function with an additional style argument: xlab = "Systolic blood pressure".
+
+# 11. Fit a linear regression to model the association between sysBP and age.
+#     Call the model either fit_m (for males) or fit_f (for females). Then use summary(model) to show results
 
 
-# 10. what is the total range of BP values, i.e. the difference between the highest and the lowest?
+# 12. Create a scatter plot for the relationship between age and systolic blood pressure in your subsample
+#     Info: Use age for the x-axis, and sysBP for the y-axis in the plot() function. And then use the fit_f/fit_m object in the abline() function.
 
 
-# 11. plot a histogram of BP in males/females
-
-
-# 12. plot the relationship between age and BP
-
-
-# 13. fit a linear regression model and assign it to an object called fit_m,
-# and use summary(model) to show results
-
-
-# 14. add regression line to plot
-
-
-# 15. what is the predicted BP in a 40 year old? 
+# 13. What is the predicted blood pressue of a 40 year old individual in your subsample?
+# Info: Beta regression coefficients can be retrieved from fit_m$coefficients/ fit_f$coefficients.
