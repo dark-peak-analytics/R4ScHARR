@@ -63,14 +63,6 @@ foo = 8
 bar = 7
 foo/bar > 1.14
 
-
-
-
-
-
-
-### Is 4 greater than 2?
-
 ### 
 
 ### 
