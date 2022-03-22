@@ -19,7 +19,7 @@ The course makes use of the authors' experiences of working with R for data-scie
 
 | Time          | Leader | Files     | Section                                                                                                                                                                       |
 | ------------------------ | ---------- | -------------- | ------------------------------------------------------------------------------- |
-| 9:30 – 10:00  | Rob    |           | Welcome & Introductions                                                                                                                                                       |
+| 9:30 – 10:00 | Rob    |           | Welcome & Introductions                                                                                                                                                       |
 | 10:00 – 10:25 | Rob    |           | Why R? What is R?, Benefits of R, Benefits of R for decision modelling                                                                                                        |
 | 10:25 – 11:10 | Sarah  | Session 1 | Syntax and basic operations – 45mins Navigating RStudio, Basic Operations, Objects, Evaluations                                                                               |
 | 11:10 – 11:25 |        |           | Break – 15mins                                                                                                                                                                |
@@ -30,7 +30,7 @@ The course makes use of the authors' experiences of working with R for data-scie
 | 14:00 – 14:45 | Rob    | Session 4 | Data analysis – 45mins Plotting data, Linear regression, Downloading packages                                                                                                 |
 | 14:45 – 15:00 |        |           | Break – 15mins                                                                                                                                                                |
 | 15:00 – 16:00 | Rob    |           | Learning more about R How to troubleshoot and where to find info, Where to go to learn more, What are the next steps, and what is possible, Observation: Case study analysis. |
-|  16:00- 16:30 | Rob    |           | Feedback and recap We are happy to remain online to answer specific questions.                                                                                                |
+|  16:00 - 16:30 | Rob    |           | Feedback and recap We are happy to remain online to answer specific questions.                                                                                                |
 
 # Who are we:
 
