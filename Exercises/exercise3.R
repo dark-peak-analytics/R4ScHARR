@@ -2,19 +2,19 @@
 
 # ------------------------------------
 # 1. Use ls() to check your global enviroment
-# Info: When starting a new project, you should check your ‘global environment’ (= the objects existing in your R session) 
-# and make sure you don’t have old, useless objects hanging around.
+# Info: When starting a new project, you should check your global environment (= the objects existing in your R session) 
+# and make sure you don't have old, useless objects hanging around.
 ls()
 
 # 
 
 # 2. Clear the enviroment using the rm() function and check if it has worked.
-# Info:You can use rm either with varibales’ names (c("varname_1", "varname_2",...)), or, to remove all objects, 
+# Info:You can use rm either with varibale names (c("varname_1", "varname_2",...)), or, to remove all objects, 
 # you can use ls() itself as an argument for the function.
 rm(list = ls())
-
+ls()
 # 3. Load the raw data set into your enviroment and get an overview using the str() function
-# dat <- read.csv("URL")
+# Info: dat <- read.csv("URL")
 dat <- read.csv("https://raw.githubusercontent.com/ScHARR-PHEDS/R4ScHARR/master/data/df_framingham.csv")
 
 # 4. Inspect the first few rows of the dat data frame
