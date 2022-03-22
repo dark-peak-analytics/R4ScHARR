@@ -57,13 +57,6 @@
 # III Is foo divided by bar greater than 1.14 ?
 
 
-
-
-
-
-
-### Is 4 greater than 2?
-
 ### 
 
 ### 
