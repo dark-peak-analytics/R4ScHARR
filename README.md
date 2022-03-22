@@ -1,4 +1,4 @@
-# R4ScHARR - Introduction to R
+# R4ScHARR - Introduction to R <img src="https://github.com/RobertASmith/darkpeak/blob/main/man/figures/logo_concise.PNG" align="right" width="120" />
 
 [![GitHub release](https://img.shields.io/badge/R-HEDS-green)](https://img.shields.io/badge/R-hello-green)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
