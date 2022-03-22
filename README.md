@@ -18,7 +18,7 @@ The course makes use of the authors' experiences of working with R for data-scie
 # Timetable
 
 | Time          | Leader | Files     | Section                                                                                                                                                                       |
-| ------------- | ------ | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------ | ---------- | -------------- | ------------------------------------------------------------------------------- |
 | 9:30 – 10:00  | Rob    |           | Welcome & Introductions                                                                                                                                                       |
 | 10:00 – 10:25 | Rob    |           | Why R? What is R?, Benefits of R, Benefits of R for decision modelling                                                                                                        |
 | 10:25 – 11:10 | Sarah  | Session 1 | Syntax and basic operations – 45mins Navigating RStudio, Basic Operations, Objects, Evaluations                                                                               |
