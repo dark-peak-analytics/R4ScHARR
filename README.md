@@ -36,10 +36,13 @@ Time &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|Leade
 
 We will work through the materials at a gradual pace to ensure that everyone can follow. The session will be informal and friendly and we welcome questions throughout. However if you want to see the content it can be found here:
 
-[Slides](https://github.com/ScHARR-PHEDS/R4ScHARR/blob/master/presentations/Intro%20to%20R%20230322.pptx.pdf)
-[Example Scripts](https://github.com/ScHARR-PHEDS/R4ScHARR/tree/master/scripts)
-[Exercises](https://github.com/ScHARR-PHEDS/R4ScHARR/tree/master/Exercises)
-[Example Data](https://github.com/ScHARR-PHEDS/R4ScHARR/tree/master/data)
+- [Slides](https://github.com/ScHARR-PHEDS/R4ScHARR/blob/master/presentations/Intro%20to%20R%20230322.pptx.pdf)
+
+- [Example Scripts](https://github.com/ScHARR-PHEDS/R4ScHARR/tree/master/scripts)
+
+- [Exercises](https://github.com/ScHARR-PHEDS/R4ScHARR/tree/master/Exercises)
+
+- [Example Data](https://github.com/ScHARR-PHEDS/R4ScHARR/tree/master/data)
 
 # Who are we:
 
