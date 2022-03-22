@@ -1,7 +1,7 @@
 #=============
 # R4ScHARR 
-# Robert Smith & Paul Schneider
-# Session 4 Script
+# Robert Smith, Paul Schneider & Sarah Bates
+# Session 5 Script
 #=============
 
 #=================================================================#
@@ -29,7 +29,7 @@ str(df_gapminder)
 summary(df_gapminder)
 
 # lets see just data from 2007
-df_2007 <- df_gapminder[df_gapminder$year == 2007]
+df_2007 <- df_gapminder[df_gapminder$year == 2007,]
 head(df_2007)
 
 # lets see just data from 1800
@@ -37,7 +37,7 @@ df_1952 <- df_gapminder[df_gapminder$year == 1952,]
 head(df_1952)
 
 # which country had the highest GDPpc in 2007?
-# THIS WILL THROW AN ERROR - WE CAN GOOGLE UP THE ERROR MESSAGE.
+# THIS WILL THROW AN ERROR - WE CAN GOOGLE THE ERROR MESSAGE.
 df_2007[which.max(df_2007$gdpPercap)]
 # https://stackoverflow.com/questions/19205806/undefined-columns-selected-when-subsetting-data-frame
 
@@ -196,17 +196,17 @@ ggplot(data = df_gapminder,
   labs(title = 'Year: {frame_time}',x = 'GDP per capita', y = 'life expectancy')
 
 # with a facet
-  ggplot(df_gapminder, 
-         aes(gdpPercap, lifeExp, size = pop, colour = country)) +
-    geom_point(alpha = 0.7, show.legend = FALSE) +
-    scale_colour_manual(values = country_colors) +
-    scale_size(range = c(2, 12)) +
-    scale_x_log10() +
-    facet_wrap(~continent) +
-    # Here comes the gganimate specific bits
-    labs(title = 'Year: {frame_time}', x = 'GDP per capita', y = 'life expectancy') +
-    transition_time(year) +
-    ease_aes('linear')
+#  ggplot(df_gapminder, 
+#         aes(gdpPercap, lifeExp, size = pop, colour = country)) +
+#    geom_point(alpha = 0.7, show.legend = FALSE) +
+#    scale_colour_manual(values = country_colors) +
+#    scale_size(range = c(2, 12)) +
+#    scale_x_log10() +
+#    facet_wrap(~continent) +
+#    # Here comes the gganimate specific bits
+#    labs(title = 'Year: {frame_time}', x = 'GDP per capita', y = 'life expectancy') +
+#    transition_time(year) +
+#    ease_aes('linear')
 
 
 
