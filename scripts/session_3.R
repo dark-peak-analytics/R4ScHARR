@@ -1,6 +1,6 @@
 #=============
 # R4ScHARR 
-# Robert Smith & Paul Schneider
+# Robert Smith, Paul Schneider & Sarah Bates
 # Session 3 Script
 #=============
 
@@ -40,7 +40,7 @@ mean(dat$sysBP)
 # Inspect the first few rows of the data set
 head(dat)
 
-# --> NA values spooted!
+# --> NA values spotted!
 
 #====================#
 # Missing values  ----

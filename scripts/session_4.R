@@ -1,12 +1,12 @@
-#=============
+#=============#
 # R4ScHARR 
-# Robert Smith & Paul Schneider
-# Session 3 Script
-#=============
+# Robert Smith, Paul Schneider & Sarah Bates
+# Session 4 Script
+#=============#
 
-#=============
-# Check your R enviroment  -----
-#=============
+#=============#
+# Check your R environment  -----
+#=============#
 
 # check
 ls()
@@ -17,9 +17,9 @@ rm(list = ls())
 # re-check
 ls()
 
-#=============
+#=============#
 # Importing data -----
-#=============
+#=============#
 
 # csv = comma separated values
 ## Local file path
@@ -31,8 +31,13 @@ dat <- read.csv("./data/df_framingham.csv")
 #====================#
 # Plotting your data: the histogram ----
 #====================#
+
 hist(dat$sysBP, breaks = 25)
 # add a line indicating the mean
+abline(v = BP_mean, col = "blue",lwd = 3)   # Why does this not work?
+
+# Let's try again...
+BP_mean <- mean(dat$sysBP,na.rm = T)
 abline(v = BP_mean, col = "blue",lwd = 3)
 
 #====================#
@@ -62,12 +67,12 @@ fit.1$coefficients
 # Use coefficients to make predictions
 fit.1$coefficients[1] + 50 * fit.1$coefficients[2]
 # or use the 'predict' function for this:
-# predict(fit.1, newdata = data.frame(age=40))
+ predict(fit.1, newdata = data.frame(age=40))
 
-#
 
-# ----------------------------------------
-# Exercise 3 - Prelude
+# --------------------- #
+# Exercise 3 - Prelude ----
+# --------------------- #
 
 # Number of males and females in the data set
 table(dat$sex)
@@ -77,9 +82,10 @@ table(dat$sex)
 boxplot(dat$sysBP ~ dat$sex)
 # no difference?
 
-mean(dat$sysBP[dat$sex=="female"])
-mean(dat$sysBP[dat$sex=="male"])
+mean(dat$sysBP[dat$sex=="female"],na.rm = T)
+mean(dat$sysBP[dat$sex=="male"], na.rm = T)
 # indeed it seems, no difference
+t.test(x = dat$sysBP[dat$sex=="female"], y = dat$sysBP[dat$sex=="male"])
 
 # multivariate regression
 fit.multi = lm(sysBP ~ age + sex, data = dat)
@@ -90,10 +96,10 @@ summary(fit.multi)
 
 
 # However, this is actually not what we would expect, as the literature on this topic
-# is very clear in that there are signifcant differences in the diagnosis of
+# is very clear in that there are significant differences in the diagnosis of
 # blood pressure between males and females
 
-# It's your job now to find out whats going on.
+# It's your job now to find out what is going on.
 # Divide into 2 teams: one uses a male-only data set, the other a females-only dataset
 # repeat the analysis for the subgroup and compare results
 
@@ -102,9 +108,9 @@ summary(fit.multi)
 
 
 
-# ------------------------------------
-# Exercise 3 - SOLUTION
-# ------------------------------------
+# ----------------------#
+# Exercise 3 - SOLUTION -----
+# ----------------------#
 
 # Any questions/problems?
 
