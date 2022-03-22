@@ -1,4 +1,4 @@
-# R4ScHARR
+# R4ScHARR - Introduction to R
 
 [![GitHub release](https://img.shields.io/badge/R-HEDS-green)](https://img.shields.io/badge/R-hello-green)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -7,7 +7,7 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/ScHARR-PHEDS/R4ScHARR?style=plastic)
 [![GitHub forks](https://img.shields.io/github/forks/ScHARR-PHEDS/R4ScHARR?style=social&label=Fork&maxAge=2592000)](https://GitHub.com/ScHARR-PHEDS/R4ScHARR/network/)
 
-Repository for the R4ScHARR online intro course to R. 
+Repository for the R4ScHARR online Introduction to R course. 
 
 # Background
 
@@ -17,13 +17,13 @@ The course makes use of the authors' experiences of working with R for data-scie
 
 # Who are we:
 
-Rob & Paul work at the intersection between public health, economics and data-science. They are both based at the School of Health and Related Research at the University of Sheffield. Rob and Paul are joint funded by the Wellcome Trust Doctoral Training Centre in Public Health Economics and Decision Science [108903] and the University of Sheffield.
+Rob, Paul & Sarah work at the intersection between public health, economics and data-science. They are all based at the School of Health and Related Research at the University of Sheffield. Rob and Paul are joint funded by the Wellcome Trust Doctoral Training Centre in Public Health Economics and Decision Science [108903] and the University of Sheffield.
 
 *[Robert Smith](https://www.linkedin.com/in/robert-smith-53b28438/)* joined ScHARR in 2016. His research focuses on the methods used to estimate the costs and benefits of public health interventions, with a specific interest in microsimulation modelling in R. He has become increasingly interested in the use of web based user interfaces (in R-Shiny) to make research more transparent and to aid decision makers. While doing his PhD, Robert has been involved in multiple projects with the World Health Organization and parkrunUK.
 
 *[Paul Schneider](https://bitowaqr.github.io/)* joined ScHARR in 2018. He is working on conceptual and methodological problems in valuing health outcomes in economic evaluations. A medical doctor and epidemiologist by training, he has used R in various research projects, ranging from the modeling costs of breast cancer, and value of information analyses, to the monitoring of influenza in real-time using online data. He is a keen advocate of open science practices.
 
-*[Sarah Bates](https://www.linkedin.com/in/sarah-bates-647ab9145/) joined ScHARR in 2016. She completed her PhD in Public health economic modelling in 2021 and has been a Research Assciate in ScHARR since then. Sarah has a background in Health Pscyhology and Health economic modelling. She has used R for various projects with expertise in microsimualtion modelling and is particualty interested in the challenges of modelling health behaviours and behaviour change.
+*[Sarah Bates](https://www.linkedin.com/in/sarah-bates-647ab9145/)* joined ScHARR in 2016. She completed her PhD in Public health economic modelling in 2021 and has been a Research Associate in ScHARR since then. Sarah has a background in Health Psychology and Health economic modelling. She has used R for various projects with expertise in microsimulation modelling and is particularly interested in the challenges of modelling health behaviours and behaviour change.
 
 Contact:   rasmith3@sheffield.ac.uk
 
