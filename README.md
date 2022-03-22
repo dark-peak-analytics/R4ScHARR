@@ -29,7 +29,7 @@ Time         |Leader|Files    |Section
 13:45 - 14:00|      |         |Break - time to move about and stretch your legs                                                                                                                                                                 
 14:00 - 14:45| Rob   |Session 4|Data analysis - 45mins Plotting data, Linear regression, Downloading packages                                                                                                
 14:45 - 15:00|      |         |Break - time to move about and stretch your legs                                                                                                                                                               
-15:00 - 16:00|Rob   |         |Learning more about R How to troubleshoot and where to find info, Where to go to learn more, What are the next steps, and what is possible, Observation: Case study analysis.
+15:00 - 16:00|Rob   |Session 5|Learning more about R How to troubleshoot and where to find info, Where to go to learn more, What are the next steps, and what is possible, Observation: Case study analysis.
 16:00- 16:30|Rob   |         |Feedback and recap We are happy to remain on-line to answer specific questions.                                                                                               
 
 # Who are we:
