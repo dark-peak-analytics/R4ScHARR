@@ -19,18 +19,18 @@ The course makes use of the authors' experiences of working with R for data-scie
 
 Time &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|Leader|Session|Section                                                                                                                                                                      
 ------------------|---------|-----------|-----------------------------
-9:30-10:00 | Rob   |         |Welcome & Introductions                                                                                                                                                      
-10:00-10:25| Rob   |         |Why R? What is R?, Benefits of R, Benefits of R for decision modelling                                                                                                       
-10:25-11:10| Sarah | 1 |Syntax and basic operations - 45mins Navigating RStudio, Basic Operations, Objects, Evaluations                                                                              
+9:30-10:00 | Rob   |         | **Welcome & Introductions**                                                                                                                                                     
+10:00-10:25| Rob   |         | **Why R?** What is R?, Benefits of R, Benefits of R for decision modelling                                                                                                       
+10:25-11:10| Sarah | 1 |**Syntax and basic operations** - 45mins Navigating RStudio, Basic Operations, Objects, Evaluations                                                                              
 11:10-11:25|      |         |Break - time to move about and stretch your legs                                                                                                                                                                
-11:25-12:00| Sarah | 2 |Objects classes and types - 45mins Object classes, Operations on different data structures, Sub setting data                                                                 
+11:25-12:00| Sarah | 2 |**Objects classes and types** - 45mins Object classes, Operations on different data structures, Sub setting data                                                                 
 12:00-12:45|      |         |Break - time to move about and stretch your legs                                                                                                                                                                
-12:45-13:45| Sarah | 3 |Working with data in R - 45mins Setting working directories, Importing data, Summarizing data                                                                                
+12:45-13:45| Sarah | 3 |**Working with data in R** - 45mins Setting working directories, Importing data, Summarizing data                                                                                
 13:45-14:00|      |         |Break - time to move about and stretch your legs                                                                                                                                                                 
-14:00-14:45| Rob   | 4 |Data analysis - 45mins Plotting data, Linear regression, Downloading packages                                                                                                
+14:00-14:45| Rob   | 4 |**Data analysis** - 45mins Plotting data, Linear regression, Downloading packages                                                                                                
 14:45-15:00|      |         |Break - time to move about and stretch your legs                                                                                                                                                               
-15:00-16:00| Rob   | 5 |Learning more about R How to troubleshoot and where to find info, Where to go to learn more, What are the next steps, and what is possible, Observation: Case study analysis.
-16:00-16:30| Rob   |         |Feedback and recap We are happy to remain on-line to answer specific questions.                                                                                               
+15:00-16:00| Rob   | 5 |**Learning more about R** How to troubleshoot and where to find info, Where to go to learn more, What are the next steps, and what is possible, Observation: Case study analysis.
+16:00-16:30| Rob   |         |**Feedback and recap** We are happy to remain on-line to answer specific questions.                                                                                               
 
 # Who are we:
 
