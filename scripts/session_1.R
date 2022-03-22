@@ -1,6 +1,6 @@
 #=============#
 # R4ScHARR 
-# Robert Smith & Paul Schneider
+# Robert Smith, Paul Schneider & Sarah Bates
 # Session 1 Script
 #=============#
 
