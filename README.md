@@ -23,6 +23,8 @@ Rob & Paul work at the intersection between public health, economics and data-sc
 
 *[Paul Schneider](https://bitowaqr.github.io/)* joined ScHARR in 2018. He is working on conceptual and methodological problems in valuing health outcomes in economic evaluations. A medical doctor and epidemiologist by training, he has used R in various research projects, ranging from the modeling costs of breast cancer, and value of information analyses, to the monitoring of influenza in real-time using online data. He is a keen advocate of open science practices.
 
+*[Sarah Bates](https://www.linkedin.com/in/sarah-bates-647ab9145/) joined ScHARR in 2016. She completed her PhD in Public health economic modelling in 2021 and has been a Research Assciate in ScHARR since then. Sarah has a background in Health Pscyhology and Health economic modelling. She has used R for various projects with expertise in microsimualtion modelling and is particualty interested in the challenges of modelling health behaviours and behaviour change.
+
 Contact:   rasmith3@sheffield.ac.uk
 
 Website: [Dark Peak Analytics](https://www.darkpeakanalytics.com)
