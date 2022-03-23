@@ -38,7 +38,7 @@ dat[,-1]
 
 #Info: You can select rows 2,3, and 4, but you can also show everything except row 1 - try the latter approach.
 
-dat[,-1]
+dat[-1, ]
 # but you could also use:
 # dat[2:4,]
 # or
