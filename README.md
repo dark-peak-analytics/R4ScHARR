@@ -44,11 +44,32 @@ We will work through the materials at a gradual pace to ensure that everyone can
 
 - [Example Data](https://github.com/ScHARR-PHEDS/R4ScHARR/tree/master/data)
 
-# Who are we:
+## Additional resources referenced in the course:
+
+### Forest Plot
+
+[Forest Plot Example](https://github.com/ScHARR-PHEDS/R4ScHARR/tree/master/scripts/forestplots_example.R)
+
+### Shiny App
+
+The following [app](https://darkpeakanalytics.shinyapps.io/sadm-mk2/) is publicly available. The code can be found [here](https://github.com/bitowaqr/sadm-mk2-demo). Please reference [this paper](https://wellcomeopenresearch.org/articles/5-69) if using the code.
+
+### R package
+
+This example simple[R package](https://github.com/RobertASmith/darkpeak) may be useful.
+
+### Automated R Script Running
+
+This [example repo](https://github.com/RobertASmith/scheduled-commit-action) 
+contains a workflow that uses GitHub Actions to run some R scripts at 6:15 every day.
+
+
+
+# Who are we?
 
 Rob, Paul & Sarah work at the intersection between public health, economics and data-science. They are all based at the School of Health and Related Research at the University of Sheffield. Rob and Paul are joint funded by the Wellcome Trust Doctoral Training Centre in Public Health Economics and Decision Science [108903] and the University of Sheffield.
 
-*[Robert Smith](https://www.linkedin.com/in/robert-smith-53b28438/)* joined ScHARR in 2016. His research focuses on the methods used to estimate the costs and benefits of public health interventions, with a specific interest in microsimulation modelling in R. He has become increasingly interested in the use of web based user interfaces (in R-Shiny) to make research more transparent and to aid decision makers. While doing his PhD, Robert has been involved in multiple projects with the World Health Organization and parkrunUK.
+*[Robert Smith](https://www.linkedin.com/in/robert-smith-53b28438/)* is currently based at the UK Health Security Agency. He was previously based at ScHARR, University of Sheffield, and has been involved in multiple projects with the World Health Organization on topics ranging from physical activity to FGM. He is a big advocate of the use of R for Health Economics & Decision Science.
 
 *[Paul Schneider](https://bitowaqr.github.io/)* joined ScHARR in 2018. He is working on conceptual and methodological problems in valuing health outcomes in economic evaluations. A medical doctor and epidemiologist by training, he has used R in various research projects, ranging from the modeling costs of breast cancer, and value of information analyses, to the monitoring of influenza in real-time using online data. He is a keen advocate of open science practices.
 
