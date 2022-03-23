@@ -10,6 +10,7 @@ dat = read.table(text=
 #Select the 3rd row from the data frame dat
 
 
+
 ##Exercise 2.2
 #Select the weight variable from the data frame using your preferred method.
 
@@ -17,11 +18,14 @@ dat = read.table(text=
 
 
 
+
+
 ##Exercise 2.3
 
 #Select Alice's data from the data frame.
 
-#Info: It might be helpful to type in dat run this code to check which row Alice's data is in.
+
+
 
 
 
@@ -32,6 +36,10 @@ dat = read.table(text=
 #Info: You can select rows 2,3, and 4, but you can also show everything except row 1 - try the latter approach.
 
 
+
+
+
+  
 
 ##Exercise 2.5
 
@@ -47,8 +55,7 @@ dat = read.table(text=
 
 #Info: You can combine elements into a vector with the c(element_1, element_2,...) command.
 
-
-
+  
 
 ##Exercise 2.7
 
@@ -59,12 +66,11 @@ dat = read.table(text=
 ##Exercise 2.8
 
 #Create an animal top speed data frame: speed_dat. It should have three columns, named animal, speed, flying, and should contain the following information:
-  
+
 #The "lion" can run 80km/h, it's not flying.
 #The "marlin" can swim 129km/h, it's also not flying.
 #Finally, the "eagle" can do 240km/h, and of course it's flying.
 
 #Info 1: The vector flying should be set to TRUE or FALSE.
 #Info 2: Use data.frame(vector_1, vector_2,...) to combine multiple vectors into a data frame.
-
 

@@ -23,14 +23,11 @@ dat$weight
 ##Exercise 2.3
 
 #Select Alice's data from the data frame.
-
-#Info: It might be helpful to type in dat and press  . to check which row Alice's data is in.
-
-dat[,-1]
+dat[dat$first_name == "Alice",]
 # but you could also use:
-# dat[2:4,]
+# dat[1,]
 # or
-# dat[ c(F, T, T, T), ]
+# dat[ c(T, F, F, F), ]
 
 ##Exercise 2.4
 
@@ -50,7 +47,7 @@ dat[-1, ]
 
 #Info: Remember, F (=FALSE) and "F" (= F as a character) have different meanings in R.
 
-primes <- c(2,3,5,7,11)  
+dat[dat$sex == "F", ] 
 
 ##Exercise 2.6
 
@@ -64,7 +61,7 @@ primes <- c(2,3,5,7,11)
 
 #Print all primes that are larger than or equal to 5 using subsetting.
 
-primes[primes <= 5]
+primes[primes >= 5]
 
 ##Exercise 2.8
 
